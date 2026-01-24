@@ -82,9 +82,6 @@ The site includes several accessibility-focused improvements:
 Further accessibility audits can be run with tools like Lighthouse or axe to continue refining the experience.
 
 
-  # thenepaldiaspora
-
-  This is a code bundle for thenepaldiaspora. The original project is available at https://www.figma.com/design/kPc5rHx7tIUtntY7N0ftqr/thenepaldiaspora.
 
   ## Running the code
 
