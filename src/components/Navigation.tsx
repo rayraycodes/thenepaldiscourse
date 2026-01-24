@@ -32,10 +32,10 @@ export function Navigation() {
   return (
     <>
       <motion.nav
+        role="navigation"
+        aria-label="Primary"
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[260ms] ${
-          isScrolled
-            ? 'bg-background/95 backdrop-blur-sm border-b border-border'
-            : 'bg-transparent'
+          isScrolled ? 'bg-transparent border-b border-border backdrop-blur-sm' : 'bg-transparent'
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -73,7 +73,9 @@ export function Navigation() {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2"
-              aria-label="Toggle menu"
+              aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-primary-navigation"
             >
               {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -85,6 +87,7 @@ export function Navigation() {
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
+            id="mobile-primary-navigation"
             className="fixed inset-0 z-40 bg-background md:hidden"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}

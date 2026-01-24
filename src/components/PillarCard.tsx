@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
 
@@ -14,6 +14,7 @@ interface PillarCardProps {
   description: string;
   targetOutcome: string;
   sessions: Session[];
+  tone: 'sky' | 'fire' | 'earth';
   delay?: number;
   isInView: boolean;
 }
@@ -25,21 +26,41 @@ export function PillarCard({
   description,
   targetOutcome,
   sessions,
+  tone,
   delay = 0,
   isInView,
 }: PillarCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
 
+  // Soft, subtle backgrounds for each pillar:
+  // - sky: blue
+  // - fire: red
+  // - earth: green
+  // Use RGBA so underlying paper texture subtly shows through
+  const toneColors: Record<'sky' | 'fire' | 'earth', string> = {
+    sky: 'rgba(0, 56, 147, 0.06)', // light blue with transparency
+    fire: 'rgba(212, 24, 61, 0.06)', // light red with transparency
+    earth: 'rgba(0, 128, 0, 0.06)', // light green with transparency
+  };
+
+  const contentId = `${number.replace(/\s+/g, '-').toLowerCase()}-content`;
+  const buttonId = `${number.replace(/\s+/g, '-').toLowerCase()}-toggle`;
+
   return (
     <motion.div
-      className="border border-border bg-background overflow-hidden"
+      className="border border-border overflow-hidden"
+      style={{ backgroundColor: toneColors[tone] }}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.52, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       <button
+        id={buttonId}
+        type="button"
         onClick={() => setIsExpanded(!isExpanded)}
         className="w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30"
+        aria-expanded={isExpanded}
+        aria-controls={contentId}
       >
         <div className="flex items-start justify-between gap-4">
           <div className="flex-1">
@@ -75,6 +96,9 @@ export function PillarCard({
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.52, ease: [0.65, 0, 0.35, 1] }}
             className="border-t border-border"
+            id={contentId}
+            role="region"
+            aria-labelledby={buttonId}
           >
             <div className="p-8 md:p-10 space-y-6 bg-muted/10">
               {sessions.map((session, index) => (

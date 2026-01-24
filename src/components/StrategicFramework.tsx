@@ -10,6 +10,7 @@ const pillars = [
     description:
       'Move beyond fear of automation to identify actionable investment areas where Nepal can gain a competitive edge, including ethical AI development, specialized BPO, and data services.',
     targetOutcome: 'A strategy for co-investment in National AI-Readiness initiatives',
+    tone: 'sky' as const,
     sessions: [
       { title: 'Special Speaker Dialogue: AI and the Future of the Workforce' },
       {
@@ -33,6 +34,7 @@ const pillars = [
     description:
       'Develop ethical and intellectual standards for leadership capable of navigating geopolitical uncertainty, economic shifts, and digital power dynamics.',
     targetOutcome: 'Framework for ethical governance and risk mitigation',
+    tone: 'fire' as const,
     sessions: [
       {
         title: 'Special Speaker Dialogue: Leadership in a Changing World Order',
@@ -58,6 +60,7 @@ const pillars = [
     description:
       "Redesign Nepal's institutions to produce critical thinkers, ethical citizens, and resilient leaders who are incentivized to stay and build domestically.",
     targetOutcome: 'Recommendations to minimize talent exodus',
+    tone: 'earth' as const,
     sessions: [
       {
         title:

@@ -1,6 +1,6 @@
-@custom-variant dark (&:is(.dark *));
-
 @import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+
+@custom-variant dark (&:is(.dark *));
 
 :root {
   --font-size: 16px;
@@ -133,6 +133,45 @@
   }
 }
 
+/* Skip link for keyboard users */
+.skip-link {
+  position: absolute;
+  left: 0;
+  top: 0;
+  transform: translateY(-150%);
+  background-color: #030213;
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  z-index: 100;
+  border-radius: 0 0 0.5rem 0;
+}
+
+.skip-link:focus-visible {
+  transform: translateY(0);
+}
+
+/* Strong focus indication for interactive elements */
+button:focus-visible,
+a:focus-visible {
+  outline: 2px solid #dc143c;
+  outline-offset: 2px;
+}
+
+/* Faint repeating background pattern at ~0.2 opacity */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("../assets/bgconf.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  opacity: 0.3;
+}
+
+/* (removed .nepali-paper-bg utility; global bg now uses bgconf.png on body) */
 /**
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
  */

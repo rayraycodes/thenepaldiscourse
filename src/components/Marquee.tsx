@@ -1,8 +1,9 @@
-import { useState } from 'react';
-import { motion } from 'motion/react';
+import React, { useState } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
 
 export function Marquee() {
   const [isPaused, setIsPaused] = useState(false);
+  const prefersReducedMotion = useReducedMotion();
 
   const content = [
     'Human Development',
@@ -15,16 +16,21 @@ export function Marquee() {
   const repeatedContent = [...content, ...content, ...content, ...content];
 
   return (
-    <div
-      className="overflow-hidden border-y border-border py-6 bg-muted/30"
+    <section
+      className="mt-8 overflow-hidden border-y border-border py-6"
+      aria-label="Key themes"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       <motion.div
         className="flex gap-12 whitespace-nowrap"
-        animate={{
-          x: [0, -1000],
-        }}
+        animate={
+          prefersReducedMotion || isPaused
+            ? { x: 0 }
+            : {
+                x: [0, -1000],
+              }
+        }
         transition={{
           x: {
             repeat: Infinity,
@@ -34,21 +40,22 @@ export function Marquee() {
           },
         }}
         style={{ willChange: 'transform' }}
-        {...(isPaused && { animate: { x: 0 } })}
       >
         {repeatedContent.map((text, index) => (
           <div key={index} className="flex items-center gap-12">
             <span
               className={`text-lg font-medium transition-all duration-[180ms] ${
-                isPaused ? 'text-foreground' : 'text-muted-foreground'
+                prefersReducedMotion || isPaused ? 'text-foreground' : 'text-muted-foreground'
               }`}
             >
               {text}
             </span>
-            <span className="text-[#DC143C]">•</span>
+            <span className="text-[#DC143C]" aria-hidden="true">
+              •
+            </span>
           </div>
         ))}
       </motion.div>
-    </div>
+    </section>
   );
 }

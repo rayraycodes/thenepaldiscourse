@@ -1,21 +1,42 @@
+import hunsaLogo from '../assets/hunsa.png';
+
 export function Footer() {
   return (
-    <footer className="border-t border-border py-12 px-6 lg:px-12">
+    <footer
+      className="pt-10 pb-0 px-6 lg:px-12"
+      style={{
+        // Softer, more subtle crimson fade at the bottom of the page
+        background:
+          'linear-gradient(to top, rgba(127, 14, 38, 0.35), rgba(127, 14, 38, 0))',
+      }}
+    >
       <div className="max-w-[1200px] mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="text-center md:text-left">
-            <div className="text-sm">
-              © 2026 Harvard Undergraduate Nepali Student Association (HUNSA)
+        {/* HUNSA logo with overlaid text, fading at edges, over crimson gradient background */}
+        <div className="pb-6 pt-4">
+          <div className="relative w-full max-w-[320px] md:max-w-[420px] mx-auto">
+            <img
+              src={hunsaLogo}
+              alt="Harvard Undergraduate Nepali Student Association logo"
+              className="w-full h-auto"
+              style={{
+                opacity: 0.3,
+                // Fade out on left/right and top edges
+                WebkitMaskImage:
+                  'linear-gradient(to right, transparent, black 20%, black 80%, transparent), linear-gradient(to bottom, transparent, black 25%, black 100%)',
+                maskImage:
+                  'linear-gradient(to right, transparent, black 20%, black 80%, transparent), linear-gradient(to bottom, transparent, black 25%, black 100%)',
+                WebkitMaskComposite: 'source-in',
+                maskComposite: 'intersect',
+              }}
+            />
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
+              <div className="text-sm text-[#DC143C] font-medium">
+                © 2026 Harvard Undergraduate Nepali Student Association (HUNSA)
+              </div>
+              <div className="text-sm text-[#DC143C] mt-1">
+                A Registered Harvard University Student Organization
+              </div>
             </div>
-            <div className="text-sm text-muted-foreground mt-1">
-              A Registered Harvard University Student Organization
-            </div>
-          </div>
-
-          {/* Nepali flag colors accent */}
-          <div className="flex gap-2">
-            <div className="w-3 h-3 bg-[#DC143C] rounded-full" />
-            <div className="w-3 h-3 bg-[#003893] rounded-full" />
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-6 lg:px-12 pt-20 bg-gradient-to-b from-background via-background to-muted/20"
+      className="min-h-screen flex items-center justify-center px-6 lg:px-12 pt-20"
     >
       <div className="max-w-[1000px] w-full">
         {/* Eyebrow */}
@@ -95,10 +95,10 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <button className="px-8 py-4 bg-foreground text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)]">
+          <button className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)]">
             Request an Invitation
           </button>
-          <button className="px-8 py-4 border-2 border-foreground font-medium transition-all duration-[180ms] hover:bg-foreground hover:text-background ease-[cubic-bezier(0.16,1,0.3,1)]">
+          <button className="px-8 py-4 border-2 border-[#DC143C] text-[#DC143C] font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-md ease-[cubic-bezier(0.16,1,0.3,1)]">
             Become a Strategic Partner
           </button>
         </motion.div>

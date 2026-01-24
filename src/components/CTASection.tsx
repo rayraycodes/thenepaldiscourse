@@ -10,7 +10,7 @@ export function CTASection() {
     <section
       id="cta"
       ref={ref}
-      className="py-32 px-6 lg:px-12 bg-gradient-to-b from-background to-muted/30 relative overflow-hidden"
+      className="py-32 px-6 lg:px-12 relative overflow-hidden"
     >
       {/* Background Image with overlay */}
       <div className="absolute inset-0 opacity-5">
@@ -47,10 +47,10 @@ export function CTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <button className="px-8 py-4 bg-foreground text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)]">
+          <button className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)]">
             Request Partnership Prospectus
           </button>
-          <button className="px-8 py-4 border-2 border-foreground font-medium transition-all duration-[180ms] hover:bg-foreground hover:text-background ease-[cubic-bezier(0.16,1,0.3,1)]">
+          <button className="px-8 py-4 border-2 border-[#DC143C] text-[#DC143C] font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-md ease-[cubic-bezier(0.16,1,0.3,1)]">
             Apply to Attend
           </button>
         </motion.div>

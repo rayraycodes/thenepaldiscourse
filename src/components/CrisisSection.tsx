@@ -29,7 +29,7 @@ export function CrisisSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section ref={ref} className="py-24 px-6 lg:px-12 bg-muted/20">
+    <section ref={ref} className="py-24 px-6 lg:px-12">
       <div className="max-w-[1200px] mx-auto">
         <motion.h2
           className="text-3xl md:text-4xl font-serif mb-16 text-center"
