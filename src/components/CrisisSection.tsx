@@ -44,7 +44,8 @@ export function CrisisSection() {
           {crisisCards.map((card, index) => (
             <motion.div
               key={card.title}
-              className="bg-background border border-border p-8 transition-all duration-[180ms] hover:scale-[1.01] hover:shadow-lg hover:border-foreground/20 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="border border-border p-8 transition-all duration-[180ms] hover:scale-[1.01] hover:shadow-lg hover:border-foreground/20 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)' }}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{
