@@ -58,11 +58,16 @@ export function PillarCard({
         id={buttonId}
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30"
+        className="w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30 hover:shadow-md group relative overflow-hidden"
         aria-expanded={isExpanded}
         aria-controls={contentId}
       >
-        <div className="flex items-start justify-between gap-4">
+        {/* Subtle gradient fade at bottom when collapsed - suggests more content */}
+        {!isExpanded && (
+          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+        )}
+        
+        <div className="flex items-start justify-between gap-6 relative">
           <div className="flex-1">
             <div className="text-sm uppercase tracking-[0.2em] text-[#DC143C] mb-3">
               {number}
@@ -79,13 +84,26 @@ export function PillarCard({
               </span>
             </div>
           </div>
-          <motion.div
-            animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.52, ease: [0.65, 0, 0.35, 1] }}
-          >
-            <ChevronDown className="w-6 h-6 text-muted-foreground" />
-          </motion.div>
+          
+          {/* Elegant expandable indicator - bottom right corner */}
+          <div className="flex-shrink-0 flex flex-col items-end gap-2 pt-2">
+            <motion.div
+              animate={{ rotate: isExpanded ? 180 : 0 }}
+              transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-muted/20 group-hover:bg-muted/40 transition-colors duration-[180ms]"
+            >
+              <ChevronDown className="w-5 h-5 text-foreground" />
+            </motion.div>
+            {!isExpanded && (
+              <div className="text-xs text-muted-foreground uppercase tracking-wide">
+                {sessions.length} sessions
+              </div>
+            )}
+          </div>
         </div>
+        
+        {/* Subtle bottom border that suggests expansion */}
+        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-foreground/20 transition-colors duration-[180ms]" />
       </button>
 
       <AnimatePresence>
@@ -101,6 +119,14 @@ export function PillarCard({
             aria-labelledby={buttonId}
           >
             <div className="p-8 md:p-10 space-y-6 bg-muted/10">
+              <div className="flex items-center justify-between mb-6 pb-4 border-b border-border">
+                <div className="text-sm uppercase tracking-[0.2em] text-muted-foreground">
+                  Conference Sessions
+                </div>
+                <div className="text-xs text-muted-foreground">
+                  {sessions.length} {sessions.length === 1 ? 'session' : 'sessions'}
+                </div>
+              </div>
               {sessions.map((session, index) => (
                 <motion.div
                   key={index}
@@ -111,11 +137,11 @@ export function PillarCard({
                     delay: index * 0.04,
                     ease: [0.16, 1, 0.3, 1],
                   }}
-                  className="pl-6 border-l-2 border-[#003893]"
+                  className="pl-6 border-l-2 border-[#003893] py-3 hover:bg-muted/20 transition-colors duration-[180ms] rounded-r"
                 >
-                  <div className="font-medium mb-1">{session.title}</div>
+                  <div className="font-medium mb-1 text-foreground">{session.title}</div>
                   {session.subtitle && (
-                    <div className="text-sm text-muted-foreground">
+                    <div className="text-sm text-muted-foreground mt-1">
                       {session.subtitle}
                     </div>
                   )}

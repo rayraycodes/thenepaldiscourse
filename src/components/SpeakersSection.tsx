@@ -2,27 +2,39 @@ import { useRef } from 'react';
 import { motion, useInView } from 'motion/react';
 import { GraduationCap, Briefcase, Users, Lightbulb } from 'lucide-react';
 
+// Prayer flag colors: Blue (sky), Yellow (earth), Red (fire), Green (water)
+const prayerFlagColors = [
+  'rgba(0, 56, 147, 0.06)',   // Blue - sky
+  'rgba(255, 215, 0, 0.06)',  // Yellow - earth
+  'rgba(212, 24, 61, 0.06)',   // Red - fire
+  'rgba(34, 139, 34, 0.06)',   // Green - water
+];
+
 const speakerCategories = [
   {
     icon: Lightbulb,
     title: 'Keynote Targets',
     description: 'Nepali tech pioneers and international policy leaders',
+    color: prayerFlagColors[0], // Blue
   },
   {
     icon: GraduationCap,
     title: 'Harvard Academics',
     description:
       'Faculty from Harvard Graduate School of Education, Harvard Kennedy School, Mittal Institute',
+    color: prayerFlagColors[1], // Yellow
   },
   {
     icon: Users,
     title: 'Policy Stakeholders',
     description: 'Nepali policymakers in planning, IT, education',
+    color: prayerFlagColors[2], // Red
   },
   {
     icon: Briefcase,
     title: 'Business Leaders',
     description: 'CEOs and executives from core Nepali industries and impact funds',
+    color: prayerFlagColors[3], // Green
   },
 ];
 
@@ -46,7 +58,8 @@ export function SpeakersSection() {
           {speakerCategories.map((category, index) => (
             <motion.div
               key={category.title}
-              className="bg-background border border-border p-8 transition-all duration-[180ms] hover:scale-[1.01] hover:shadow-md hover:border-foreground/20 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              className="border border-border p-8 transition-all duration-[180ms] hover:scale-[1.01] hover:shadow-md hover:border-foreground/20 ease-[cubic-bezier(0.16,1,0.3,1)]"
+              style={{ backgroundColor: category.color }}
               initial={{ opacity: 0, y: 20 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{
@@ -55,7 +68,7 @@ export function SpeakersSection() {
                 ease: [0.16, 1, 0.3, 1],
               }}
             >
-              <category.icon className="w-10 h-10 mb-4 text-[#003893]" />
+              <category.icon className="w-10 h-10 mb-4 text-[#DC143C]" />
               <h3 className="text-xl font-medium mb-3">{category.title}</h3>
               <p className="text-muted-foreground leading-relaxed">
                 {category.description}

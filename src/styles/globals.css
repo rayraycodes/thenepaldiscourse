@@ -157,6 +157,12 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* Pointer cursor for interactive elements */
+button,
+a {
+  cursor: pointer;
+}
+
 /* Faint repeating background pattern at ~0.2 opacity */
 body::before {
   content: "";
