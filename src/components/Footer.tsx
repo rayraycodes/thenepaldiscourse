@@ -17,9 +17,8 @@ export function Footer() {
             <img
               src={hunsaLogo}
               alt="Harvard Undergraduate Nepali Student Association logo"
-              className="w-full h-auto"
+              className="w-full h-auto opacity-[0.15] md:opacity-30"
               style={{
-                opacity: 0.3,
                 // Fade out on left/right and top edges
                 WebkitMaskImage:
                   'linear-gradient(to right, transparent, black 20%, black 80%, transparent), linear-gradient(to bottom, transparent, black 25%, black 100%)',
@@ -30,10 +29,10 @@ export function Footer() {
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-              <div className="text-sm text-[#DC143C] font-medium">
+              <div className="text-sm text-[#7F0E26] md:text-[#DC143C] font-medium [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]">
                 © 2026 Harvard Undergraduate Nepali Student Association (HUNSA)
               </div>
-              <div className="text-sm text-[#DC143C] mt-1">
+              <div className="text-sm text-[#7F0E26] md:text-[#DC143C] mt-1 [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]">
                 A Registered Harvard University Student Organization
               </div>
             </div>
