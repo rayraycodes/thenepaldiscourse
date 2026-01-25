@@ -1,13 +1,30 @@
 import { motion } from 'motion/react';
 import { Calendar, MapPin, Users } from 'lucide-react';
+import prayerFlag from '../assets/prayerflag.png';
 
 export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex items-center justify-center px-6 lg:px-12 pt-20"
+      className="min-h-screen flex flex-col items-center justify-center pt-8"
     >
-      <div className="max-w-[1000px] w-full">
+      <div className="max-w-[1000px] w-full px-6 lg:px-12">
+        {/* Prayer Flags - Repeat X */}
+        <motion.div 
+          className="w-full mb-6"
+          style={{
+            backgroundImage: `url(${prayerFlag})`,
+            backgroundRepeat: 'repeat-x',
+            backgroundSize: '20%',
+            backgroundPosition: '0% 0px',
+            paddingBottom: '18%',
+            minHeight: '50px'
+          }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 0.9, y: 0 }}
+          transition={{ duration: 0.26, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
+        />
+
         {/* Eyebrow */}
         <motion.div
           className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8"

@@ -14,7 +14,7 @@ interface PillarCardProps {
   description: string;
   targetOutcome: string;
   sessions: Session[];
-  tone: 'sky' | 'fire' | 'earth' | 'yellow';
+  tone: 'sky' | 'fire' | 'earth';
   delay?: number;
   isInView: boolean;
 }
@@ -34,15 +34,13 @@ export function PillarCard({
 
   // Soft, subtle backgrounds for each pillar:
   // - sky: blue
-  // - fire: crimson/red
+  // - fire: red
   // - earth: green
-  // - yellow: yellow
   // Use RGBA so underlying paper texture subtly shows through
-  const toneColors: Record<'sky' | 'fire' | 'earth' | 'yellow', string> = {
+  const toneColors: Record<'sky' | 'fire' | 'earth', string> = {
     sky: 'rgba(0, 56, 147, 0.06)', // light blue with transparency
-    fire: 'rgba(220, 20, 60, 0.06)', // light crimson with transparency
+    fire: 'rgba(212, 24, 61, 0.06)', // light red with transparency
     earth: 'rgba(0, 128, 0, 0.06)', // light green with transparency
-    yellow: 'rgba(255, 215, 0, 0.06)', // light yellow with transparency
   };
 
   const contentId = `${number.replace(/\s+/g, '-').toLowerCase()}-content`;
