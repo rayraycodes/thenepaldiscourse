@@ -52,7 +52,6 @@ export function Navigation() {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-        style={{ marginTop: '80px' }}
       >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
