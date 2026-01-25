@@ -88,6 +88,29 @@ const pillars = [
       },
     ],
   },
+  {
+    number: 'Pillar IV',
+    title: 'Diaspora',
+    subtitle: 'Connects the realities of digital transformation and global mobility',
+    description:
+      'Connect the realities of digital transformation and global mobility to create pathways for diaspora engagement and co-creation.',
+    targetOutcome: 'Co-creation with diaspora for global success',
+    tone: 'ocean' as const,
+    sessions: [
+      {
+        title: 'Remittance Plus Diaspora',
+      },
+      {
+        title: 'Investing in Nepal',
+      },
+      {
+        title: 'Skills for Global Mastery',
+      },
+      {
+        title: 'Pathways of Partnerships',
+      },
+    ],
+  },
 ];
 
 export function StrategicFramework() {
@@ -103,7 +126,7 @@ export function StrategicFramework() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
         >
-          Our Strategic Framework: Three Pillars of the Discourse
+          Our Strategic Framework: Four Pillars of the Discourse
         </motion.h2>
 
         <div className="space-y-6">
