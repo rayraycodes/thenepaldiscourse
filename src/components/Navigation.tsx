@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import prayerFlag from '../assets/prayerflag.png';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -32,17 +31,6 @@ export function Navigation() {
 
   return (
     <>
-      {/* Prayer flags hanging at the top - repeating 4 times */}
-      <div
-        className="fixed top-0 left-0 right-0 h-20 z-50"
-        style={{
-          backgroundImage: `url(${prayerFlag})`,
-          backgroundRepeat: 'repeat-x',
-          backgroundSize: '25% auto',
-          backgroundPosition: 'top center',
-          opacity: 0.5,
-        }}
-      />
       <motion.nav
         role="navigation"
         aria-label="Primary"

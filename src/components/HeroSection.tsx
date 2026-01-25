@@ -6,19 +6,16 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center justify-center pt-8"
+      className="min-h-screen flex flex-col items-center sm:justify-center pt-20 sm:pt-8"
     >
       <div className="max-w-[1000px] w-full px-6 lg:px-12">
         {/* Prayer Flags - Repeat X */}
         <motion.div 
-          className="w-full mb-6"
+          className="w-full mb-6 overflow-hidden prayer-flags-responsive"
           style={{
             backgroundImage: `url(${prayerFlag})`,
             backgroundRepeat: 'repeat-x',
-            backgroundSize: '20%',
             backgroundPosition: '0% 0px',
-            paddingBottom: '18%',
-            minHeight: '50px'
           }}
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 0.9, y: 0 }}

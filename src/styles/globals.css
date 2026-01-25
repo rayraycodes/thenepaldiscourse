@@ -257,3 +257,18 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--foreground);
 }
+
+/* Responsive prayer flags */
+.prayer-flags-responsive {
+  background-size: 35% auto;
+  padding-bottom: 15%;
+  min-height: 45px;
+}
+
+@media (min-width: 640px) {
+  .prayer-flags-responsive {
+    background-size: 20% auto;
+    padding-bottom: 18%;
+    min-height: 50px;
+  }
+}
