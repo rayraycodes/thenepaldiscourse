@@ -6,7 +6,14 @@ export function AgendaSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="agenda" ref={ref} className="py-24 px-6 lg:px-12">
+    <section 
+      id="agenda" 
+      ref={ref} 
+      className="py-24 px-6 lg:px-12"
+      style={{ 
+        backgroundColor: 'rgba(255, 255, 255, 0.3)',
+      }}
+    >
       <div className="max-w-[800px] mx-auto text-center">
         <motion.h2
           className="text-3xl md:text-4xl font-serif mb-8"

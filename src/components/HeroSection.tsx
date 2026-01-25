@@ -6,9 +6,9 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen flex flex-col items-center sm:justify-center pt-20 sm:pt-8"
+      className="min-h-screen hero-section-desktop flex flex-col items-center sm:justify-center md:justify-start pt-20 sm:pt-8 pb-8 md:pb-0"
     >
-      <div className="max-w-[1000px] w-full px-6 lg:px-12">
+      <div className="max-w-[1000px] w-full px-6 lg:px-12 md:py-0">
         {/* Prayer Flags - Repeat X */}
         <motion.div 
           className="w-full mb-6 prayer-flags-responsive"
@@ -45,7 +45,7 @@ export function HeroSection() {
 
         {/* Supporting Text */}
         <motion.p
-          className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 max-w-[800px]"
+          className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-12 md:mb-8 max-w-[800px]"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
@@ -57,7 +57,7 @@ export function HeroSection() {
 
         {/* Event Meta */}
         <motion.div
-          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 py-8 border-y border-border"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12 md:mb-8 py-8 md:py-6 border-y border-border"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.5, ease: [0.16, 1, 0.3, 1] }}
@@ -104,7 +104,7 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4"
+          className="flex flex-col sm:flex-row gap-4 md:mb-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}

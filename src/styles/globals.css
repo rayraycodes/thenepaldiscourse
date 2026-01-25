@@ -301,3 +301,10 @@ body {
     min-height: 50px;
   }
 }
+
+/* Reduce hero section min-height on desktop */
+@media (min-width: 768px) {
+  .hero-section-desktop {
+    min-height: 100vh !important;
+  }
+}
