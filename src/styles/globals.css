@@ -157,6 +157,20 @@ a:focus-visible {
   outline-offset: 2px;
 }
 
+/* Pillar card focus ring - uses box-shadow to avoid overflow clipping */
+.pillar-card-button:focus-visible {
+  outline: none !important;
+  box-shadow: 0 0 0 2px #DC143C !important;
+  position: relative;
+  z-index: 1;
+}
+
+/* Pillar card container - crimson outline outside when keyboard focused */
+.pillar-card-container:has(.pillar-card-button:focus-visible) {
+  outline: 2px solid #DC143C;
+  outline-offset: 2px;
+}
+
 /* Pointer cursor for interactive elements */
 button,
 a {

@@ -30,10 +30,14 @@ export function Footer() {
               }}
             />
             <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-              <div className="text-base text-[#7F0E26] md:text-[#DC143C] font-medium font-serif [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]">
+              <div 
+                className="text-base text-[#7F0E26] md:text-[#DC143C] font-medium font-serif [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]"
+              >
                 © 2026 Harvard Undergraduate Nepali Student Association (HUNSA)
               </div>
-              <div className="text-base text-[#7F0E26] md:text-[#DC143C] mt-1 font-serif [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]">
+              <div 
+                className="text-base text-[#7F0E26] md:text-[#DC143C] mt-1 font-serif [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]"
+              >
                 A Registered Harvard University Student Organization
               </div>
             </div>

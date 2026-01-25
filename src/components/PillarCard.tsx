@@ -31,6 +31,7 @@ export function PillarCard({
   isInView,
 }: PillarCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const buttonRef = React.useRef<HTMLButtonElement>(null);
 
   // Soft, subtle backgrounds for each pillar:
   // - sky: blue
@@ -48,19 +49,44 @@ export function PillarCard({
   const contentId = `${number.replace(/\s+/g, '-').toLowerCase()}-content`;
   const buttonId = `${number.replace(/\s+/g, '-').toLowerCase()}-toggle`;
 
+  // #region agent log
+  React.useEffect(() => {
+    const button = buttonRef.current;
+    if (!button) return;
+    
+    const handleFocus = (e: FocusEvent) => {
+      const target = e.target as HTMLButtonElement;
+      const computed = window.getComputedStyle(target);
+      fetch('http://127.0.0.1:7242/ingest/b6e517b8-fe9e-4552-a1c4-cc8b6b6b15c6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'PillarCard.tsx:handleFocus',message:'Focus event on pillar button',data:{pillarNumber:number,outline:computed.outline,outlineWidth:computed.outlineWidth,outlineColor:computed.outlineColor,boxShadow:computed.boxShadow,ringColor:computed.getPropertyValue('--tw-ring-color'),overflow:computed.overflow,parentOverflow:window.getComputedStyle(target.parentElement!).overflow,hasFocusVisible:target.matches(':focus-visible'),hasPillarClass:target.classList.contains('pillar-card-button')},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix-v2',hypothesisId:'A,B,C,D,E'})}).catch(()=>{});
+    };
+    
+    const handleBlur = () => {
+      fetch('http://127.0.0.1:7242/ingest/b6e517b8-fe9e-4552-a1c4-cc8b6b6b15c6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'PillarCard.tsx:handleBlur',message:'Blur event on pillar button',data:{pillarNumber:number},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'A,B,C,D,E'})}).catch(()=>{});
+    };
+    
+    button.addEventListener('focus', handleFocus);
+    button.addEventListener('blur', handleBlur);
+    return () => {
+      button.removeEventListener('focus', handleFocus);
+      button.removeEventListener('blur', handleBlur);
+    };
+  }, [number]);
+  // #endregion
+
   return (
     <motion.div
-      className="border border-border overflow-hidden"
+      className="pillar-card-container border border-border overflow-hidden focus-within:overflow-visible"
       style={{ backgroundColor: toneColors[tone] }}
       initial={{ opacity: 0, y: 20 }}
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.52, delay, ease: [0.16, 1, 0.3, 1] }}
     >
       <button
+        ref={buttonRef}
         id={buttonId}
         type="button"
         onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30 hover:shadow-md group relative overflow-hidden"
+        className="pillar-card-button w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30 hover:shadow-md group relative overflow-hidden"
         aria-expanded={isExpanded}
         aria-controls={contentId}
       >
