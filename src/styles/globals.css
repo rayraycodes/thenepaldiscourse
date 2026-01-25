@@ -260,13 +260,42 @@ body {
 
 /* Responsive prayer flags */
 .prayer-flags-responsive {
-  background-size: 35% auto;
-  padding-bottom: 15%;
-  min-height: 45px;
+  /* Small phones (< 375px) */
+  background-size: 40% auto;
+  padding-bottom: 20%;
+  min-height: 60px;
+}
+
+@media (min-width: 375px) {
+  .prayer-flags-responsive {
+    /* Standard phones (375px - 640px) */
+    background-size: 35% auto;
+    padding-bottom: 22%;
+    min-height: 65px;
+  }
+}
+
+@media (min-width: 400px) and (max-width: 450px) {
+  .prayer-flags-responsive {
+    /* Pixel 7 and similar devices (400px - 450px) */
+    background-size: 30% auto;
+    padding-bottom: 25%;
+    min-height: 75px;
+  }
 }
 
 @media (min-width: 640px) {
   .prayer-flags-responsive {
+    /* Larger phones like Pixel 7 (640px - 1024px) */
+    background-size: 25% auto;
+    padding-bottom: 20%;
+    min-height: 70px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .prayer-flags-responsive {
+    /* Desktop (1024px+) */
     background-size: 20% auto;
     padding-bottom: 18%;
     min-height: 50px;

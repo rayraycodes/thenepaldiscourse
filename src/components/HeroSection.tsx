@@ -11,7 +11,7 @@ export function HeroSection() {
       <div className="max-w-[1000px] w-full px-6 lg:px-12">
         {/* Prayer Flags - Repeat X */}
         <motion.div 
-          className="w-full mb-6 overflow-hidden prayer-flags-responsive"
+          className="w-full mb-6 prayer-flags-responsive"
           style={{
             backgroundImage: `url(${prayerFlag})`,
             backgroundRepeat: 'repeat-x',
