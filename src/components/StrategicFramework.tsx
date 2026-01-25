@@ -34,7 +34,7 @@ const pillars = [
     description:
       'Develop ethical and intellectual standards for leadership capable of navigating geopolitical uncertainty, economic shifts, and digital power dynamics.',
     targetOutcome: 'Framework for ethical governance and risk mitigation',
-    tone: 'fire' as const,
+    tone: 'earth' as const,
     sessions: [
       {
         title: 'Special Speaker Dialogue: Leadership in a Changing World Order',
@@ -60,7 +60,7 @@ const pillars = [
     description:
       "Redesign Nepal's institutions to produce critical thinkers, ethical citizens, and resilient leaders who are incentivized to stay and build domestically.",
     targetOutcome: 'Recommendations to minimize talent exodus',
-    tone: 'earth' as const,
+    tone: 'fire' as const,
     sessions: [
       {
         title:
@@ -88,6 +88,29 @@ const pillars = [
       },
     ],
   },
+  {
+    number: 'Pillar IV',
+    title: 'Diaspora',
+    subtitle: 'Digital Transformation and Global Mobility',
+    description:
+      'Connects the realities of digital transformation and global mobility.',
+    targetOutcome: 'Co-creation with diaspora for global success',
+    tone: 'yellow' as const,
+    sessions: [
+      {
+        title: 'Remittance Plus Diaspora',
+      },
+      {
+        title: 'Investing in Nepal',
+      },
+      {
+        title: 'Skills for Global Mastery',
+      },
+      {
+        title: 'Pathways of Partnerships',
+      },
+    ],
+  },
 ];
 
 export function StrategicFramework() {
@@ -103,7 +126,7 @@ export function StrategicFramework() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
         >
-          Our Strategic Framework: Three Pillars of the Discourse
+          Our Strategic Framework: Four Pillars of the Discourse
         </motion.h2>
 
         <div className="space-y-6">
