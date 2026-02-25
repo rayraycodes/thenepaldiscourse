@@ -63,51 +63,47 @@ const pillars = [
     tone: 'earth' as const,
     sessions: [
       {
-        title:
-          'Special Speaker Dialogue: Human Capital and Institutional Resilience',
+        title: 'Special Speaker Dialogue: Human Development and Institutional Resilience',
       },
       {
-        title: 'The Human Filter',
-        subtitle: 'Truth in the Age of Algorithms',
+        title: 'Breakout I: Sports, Arts and Culture',
+        subtitle: 'The Cultural Playbook – Building Community and Leadership Through Art & Sports',
       },
       {
-        title: 'The Cultural Playbook',
-        subtitle: 'Leadership Through Art and Sports',
+        title: 'Breakout II: Health & Wellbeing',
+        subtitle: 'Leveraging AI and Digital Health for Universal Coverage',
       },
       {
-        title: 'Financing the Future',
-        subtitle: 'Climate Resilience Pathways',
+        title: 'Breakout III: From Prediction to Wisdom',
+        subtitle: 'Human Decision-Making in the AI Era',
       },
       {
-        title: 'From Rote to Resilience',
-        subtitle: 'Human-Centric Education Reform',
-      },
-      {
-        title: 'Leveraging AI and Digital Health',
-        subtitle: 'Universal Coverage Strategies',
+        title: 'Breakout IV: Infrastructure',
+        subtitle: 'Mobility and Connectivity',
       },
     ],
   },
   {
     number: 'Pillar IV',
-    title: 'Diaspora',
-    subtitle: 'Connects the realities of digital transformation and global mobility',
+    title: 'Diaspora and the Building of a Global Nepal',
+    subtitle: 'Digital Ecosystems, Diaspora, and the Global Nepali Future',
     description:
       'Connect the realities of digital transformation and global mobility to create pathways for diaspora engagement and co-creation.',
     targetOutcome: 'Co-creation with diaspora for global success',
     tone: 'ocean' as const,
     sessions: [
       {
-        title: 'Remittance Plus Diaspora',
+        title: 'Special Speaker Dialogue: Nepal and Emerging Industries',
       },
       {
-        title: 'Investing in Nepal',
+        title: 'Breakout 1: Remittance Plus Economy',
       },
       {
-        title: 'Skills for Global Mastery',
+        title: 'Breakout 2: Diaspora and Voting Rights',
       },
       {
-        title: 'Pathways of Partnerships',
+        title: 'Breakout 3: Investing in Nepal',
+        subtitle: 'Pathways of Partnerships',
       },
     ],
   },

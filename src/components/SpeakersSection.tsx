@@ -14,26 +14,26 @@ const speakerCategories = [
   {
     icon: Lightbulb,
     title: 'Keynote Targets',
-    description: 'Nepali tech pioneers and international policy leaders',
+    description: 'Leading Voices in Governance, Technology, and Global Affairs',
     color: prayerFlagColors[0], // Blue
   },
   {
     icon: GraduationCap,
     title: 'Harvard Academics',
     description:
-      'Faculty from Harvard Graduate School of Education, Harvard Kennedy School, Mittal Institute',
+      'Faculty from the Harvard Graduate School of Education, Harvard Kennedy School, Mittal Institute, and Harvard College',
     color: prayerFlagColors[1], // Yellow
   },
   {
     icon: Users,
     title: 'Policy Stakeholders',
-    description: 'Nepali policymakers in planning, IT, education',
+    description: 'Senior Policymakers in National Planning, Education, and Technology',
     color: prayerFlagColors[2], // Red
   },
   {
     icon: Briefcase,
     title: 'Business Leaders',
-    description: 'CEOs and executives from core Nepali industries and impact funds',
+    description: 'Industry and Investment Leaders Across Nepal\'s Key Economic Sectors',
     color: prayerFlagColors[3], // Green
   },
 ];

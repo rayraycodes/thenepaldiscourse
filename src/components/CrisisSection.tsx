@@ -8,19 +8,19 @@ const crisisCards = [
     icon: TrendingDown,
     title: 'The Human Capital Exodus',
     description:
-      'Over a million bright, ambitious and hardworking citizens depart Nepal annually. This brain drain reflects a failure of domestic strategic investment and threatens long-term autonomy and productivity.',
+      'Close to a million bright, ambitious, and hardworking Nepalis depart each year in search of opportunity abroad. This brain drain reflects not merely individual aspiration, but a structural failure of domestic strategic investment. If sustained, this outflow threatens the country\'s long-term productivity, innovation, and strategic autonomy.',
   },
   {
     icon: Cpu,
     title: 'The AI Disruption Risk',
     description:
-      "Skills learned through rote instruction are rapidly becoming obsolete. Nepal's workforce is unprepared for the AI-augmented global economy, requiring proactive reskilling at national scale.",
+      'Skills rooted in rote instruction and routine execution are rapidly becoming obsolete in an AI-augmented global economy. Nepal\'s workforce remains largely unprepared for this transition, requiring proactive, national-scale investment in reskilling, digital literacy, and institutional reform.',
   },
   {
     icon: Globe,
     title: 'Geopolitical and Policy Vacuum',
     description:
-      'A changing world order demands ethical, strategic leadership. Without deliberate policy action, Nepal risks losing its competitive edge in the South Asian century.',
+      'A shifting geopolitical landscape demands strategic clarity and clear leadership. Without a deliberate and coordinated policy action, Nepal risks losing its competitive edge and agency over its own trajectory in the Asian century.',
   },
 ];
 

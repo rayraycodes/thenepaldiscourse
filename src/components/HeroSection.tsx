@@ -36,9 +36,9 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
         >
-          Join us at Harvard University to forge a strategic foresight report
-          defining Nepal's competitive advantage in a world shaped by Artificial
-          Intelligence and geopolitical flux.
+          Join us at Harvard University to forge a strategic foresight
+          defining Nepal's competitive advantage in a world shaped by
+          geopolitical flux and Artificial Intelligence.
         </motion.p>
 
         {/* Event Meta */}
@@ -56,7 +56,7 @@ export function HeroSection() {
               </div>
               <div className="font-medium">April 25–26, 2026</div>
               <div className="text-sm text-muted-foreground">
-                2 Full Days of Deliberation
+                Two Full Days of Deliberation
               </div>
             </div>
           </div>
@@ -69,7 +69,7 @@ export function HeroSection() {
               </div>
               <div className="font-medium">Harvard University</div>
               <div className="text-sm text-muted-foreground">
-                Cambridge, MA, USA
+                Cambridge, MA
               </div>
             </div>
           </div>
@@ -80,7 +80,7 @@ export function HeroSection() {
               <div className="text-sm uppercase tracking-wide text-muted-foreground mb-1">
                 Who
               </div>
-              <div className="font-medium">Invitation-Only</div>
+              <div className="font-medium">Thought Leaders</div>
               <div className="text-sm text-muted-foreground">
                 Policymakers, Business Leaders, Tech CEOs, Academic Experts
               </div>

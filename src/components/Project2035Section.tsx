@@ -15,7 +15,7 @@ export function Project2035Section() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
         >
-          The Nepal 2035 Foresight Report
+          Strategic Foresight 2035
         </motion.h2>
 
         <motion.p
@@ -24,8 +24,7 @@ export function Project2035Section() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          The conference culminates in Project 2035: Nepal's Human Capital
-          Strategic Foresight Report.
+          The conference culminates in the Strategic Foresight Report for 2035.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
