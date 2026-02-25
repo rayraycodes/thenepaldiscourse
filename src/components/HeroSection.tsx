@@ -8,6 +8,16 @@ export function HeroSection() {
       className="min-h-screen hero-section-desktop flex flex-col items-center sm:justify-center md:justify-start pt-20 sm:pt-8 pb-8 md:pb-0"
     >
       <div className="max-w-[1000px] w-full px-6 lg:px-12 md:py-0">
+        {/* Eyebrow */}
+        <motion.div
+          className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.18, delay: 0.2 }}
+        >
+          The Nepal Discourse
+        </motion.div>
+
         {/* Headline */}
         <motion.h1
           className="text-4xl md:text-5xl lg:text-6xl font-serif leading-[1.15] mb-8 max-w-[900px]"
