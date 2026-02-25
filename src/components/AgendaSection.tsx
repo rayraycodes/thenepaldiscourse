@@ -30,12 +30,8 @@ export function AgendaSection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
-          <p className="text-2xl md:text-3xl font-serif text-muted-foreground">
-            Coming soon...
-          </p>
           <p className="text-lg text-muted-foreground">
-            The detailed agenda of speakers, panels, and workshops will be released
-            soon.
+            The detailed agenda to be shared with conference participants only.
           </p>
         </motion.div>
       </div>
