@@ -1,7 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
-import prayerflag from '../assets/prayerflag.png';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -42,18 +41,14 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="max-w-[1000px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
-              className="hover:opacity-70 transition-opacity duration-[180ms]"
+              className="text-lg font-medium tracking-tight hover:opacity-70 transition-opacity duration-[180ms]"
             >
-              <img 
-                src={prayerflag} 
-                alt="The Nepal Discourse" 
-                className="h-10 w-auto"
-              />
+              The Nepal Discourse
             </button>
 
             {/* Desktop Navigation */}
