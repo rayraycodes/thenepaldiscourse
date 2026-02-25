@@ -47,9 +47,14 @@ export function CTASection() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
         >
-          <button className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)]">
+          <a 
+            href="https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center"
+          >
             Request Partnership Prospectus
-          </button>
+          </a>
           <a 
             href="https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo" 
             target="_blank" 

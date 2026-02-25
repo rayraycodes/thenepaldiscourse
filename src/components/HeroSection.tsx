@@ -103,9 +103,14 @@ export function HeroSection() {
           >
             Request an Invitation
           </a>
-          <button className="px-8 py-4 border-2 border-[#DC143C] text-[#DC143C] font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-md ease-[cubic-bezier(0.16,1,0.3,1)]">
-            Become a Strategic Partner
-          </button>
+          <a 
+            href="https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-8 py-4 border-2 border-[#DC143C] text-[#DC143C] font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-md ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center"
+          >
+            Request Partnership Prospectus
+          </a>
         </motion.div>
       </div>
     </section>
