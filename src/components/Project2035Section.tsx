@@ -15,7 +15,7 @@ export function Project2035Section() {
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
         >
-          The Project 2035 Report
+          The Nepal 2035 Foresight Report
         </motion.h2>
 
         <motion.p

@@ -1,6 +1,5 @@
 import { motion } from 'motion/react';
 import { Calendar, MapPin, Users } from 'lucide-react';
-import prayerFlag from '../assets/prayerflag.png';
 
 export function HeroSection() {
   return (
@@ -9,19 +8,6 @@ export function HeroSection() {
       className="min-h-screen hero-section-desktop flex flex-col items-center sm:justify-center md:justify-start pt-20 sm:pt-8 pb-8 md:pb-0"
     >
       <div className="max-w-[1000px] w-full px-6 lg:px-12 md:py-0">
-        {/* Prayer Flags - Repeat X */}
-        <motion.div 
-          className="w-full mb-6 prayer-flags-responsive"
-          style={{
-            backgroundImage: `url(${prayerFlag})`,
-            backgroundRepeat: 'repeat-x',
-            backgroundPosition: '0% 0px',
-          }}
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 0.9, y: 0 }}
-          transition={{ duration: 0.26, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-        />
-
         {/* Eyebrow */}
         <motion.div
           className="text-xs uppercase tracking-[0.2em] text-muted-foreground mb-8"

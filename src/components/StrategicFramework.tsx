@@ -5,7 +5,7 @@ import { PillarCard } from './PillarCard';
 const pillars = [
   {
     number: 'Pillar I',
-    title: 'Investment Strategy',
+    title: 'AI and Future of Work',
     subtitle: 'The AI Imperative and Future of Work',
     description:
       'Move beyond fear of automation to identify actionable investment areas where Nepal can gain a competitive edge, including ethical AI development, specialized BPO, and data services.',
@@ -29,7 +29,7 @@ const pillars = [
   },
   {
     number: 'Pillar II',
-    title: 'Risk Mitigation and Autonomy',
+    title: 'Adaptive Leadership',
     subtitle: 'Leadership in a Changing World Order',
     description:
       'Develop ethical and intellectual standards for leadership capable of navigating geopolitical uncertainty, economic shifts, and digital power dynamics.',
@@ -55,7 +55,7 @@ const pillars = [
   },
   {
     number: 'Pillar III',
-    title: 'Institutional Design',
+    title: 'Resilient Institutions',
     subtitle: 'Human Development and Institutional Resilience',
     description:
       "Redesign Nepal's institutions to produce critical thinkers, ethical citizens, and resilient leaders who are incentivized to stay and build domestically.",

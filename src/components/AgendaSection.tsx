@@ -31,7 +31,7 @@ export function AgendaSection() {
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-2xl md:text-3xl font-serif text-muted-foreground">
-            Watch this space.
+            Coming soon...
           </p>
           <p className="text-lg text-muted-foreground">
             The detailed agenda of speakers, panels, and workshops will be released
