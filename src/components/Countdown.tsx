@@ -136,13 +136,16 @@ export function Countdown() {
                 label={unit.label}
               />
               {index < timeUnits.length - 1 && (
-                <div className="flex items-center h-[72px] sm:h-[88px] md:h-[104px]">
-                  <span 
-                    className="text-3xl sm:text-4xl md:text-5xl text-muted-foreground/40 font-light select-none" 
-                    aria-hidden="true"
-                  >
-                    :
-                  </span>
+                <div className="flex flex-col">
+                  <div className="flex items-center justify-center px-4 sm:px-6 md:px-8 py-4 sm:py-5 md:py-6">
+                    <span 
+                      className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-muted-foreground/40 font-light select-none" 
+                      aria-hidden="true"
+                    >
+                      :
+                    </span>
+                  </div>
+                  <span className="mt-3 text-xs sm:text-sm invisible">.</span>
                 </div>
               )}
             </div>
