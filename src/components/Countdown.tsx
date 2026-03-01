@@ -136,12 +136,14 @@ export function Countdown() {
                 label={unit.label}
               />
               {index < timeUnits.length - 1 && (
-                <span 
-                  className="text-3xl sm:text-4xl md:text-5xl text-muted-foreground/40 font-light mt-5 sm:mt-6 md:mt-7 select-none" 
-                  aria-hidden="true"
-                >
-                  :
-                </span>
+                <div className="flex items-center h-[72px] sm:h-[88px] md:h-[104px]">
+                  <span 
+                    className="text-3xl sm:text-4xl md:text-5xl text-muted-foreground/40 font-light select-none" 
+                    aria-hidden="true"
+                  >
+                    :
+                  </span>
+                </div>
               )}
             </div>
           ))}
