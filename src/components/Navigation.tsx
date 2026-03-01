@@ -63,10 +63,6 @@ export function Navigation() {
                   <span className="absolute left-0 bottom-0 w-0 h-px bg-foreground transition-all duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
                 </button>
               ))}
-              <div className="h-4 w-px bg-border" />
-              <span className="text-sm text-muted-foreground">
-                An initiative by Nepali at Harvard
-              </span>
             </div>
 
             {/* Mobile Menu Button */}
@@ -111,14 +107,6 @@ export function Navigation() {
                   {link.label}
                 </motion.button>
               ))}
-              <motion.div
-                className="text-sm text-muted-foreground mt-8"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.26, delay: 0.2 }}
-              >
-                An initiative by Nepali at Harvard
-              </motion.div>
             </div>
           </motion.div>
         )}
