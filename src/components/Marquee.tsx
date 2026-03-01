@@ -17,7 +17,7 @@ export function Marquee() {
 
   return (
     <section
-      className="mt-8 md:-mt-2 overflow-hidden border-y border-border py-6"
+      className="mt-8 md:-mt-2 mb-8 md:mb-12 overflow-hidden border-y border-border py-6"
       aria-label="Key themes"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}

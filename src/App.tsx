@@ -2,6 +2,7 @@ import React from 'react';
 import { Navigation } from './components/Navigation';
 import { HeroSection } from './components/HeroSection';
 import { Marquee } from './components/Marquee';
+import { Countdown } from './components/Countdown';
 import { CrisisSection } from './components/CrisisSection';
 import { StrategicFramework } from './components/StrategicFramework';
 import { SpeakersSection } from './components/SpeakersSection';
@@ -21,6 +22,7 @@ export default function App() {
       <main id="main-content" tabIndex={-1}>
         <HeroSection />
         <Marquee />
+        <Countdown />
         <CrisisSection />
         <StrategicFramework />
         <SpeakersSection />
