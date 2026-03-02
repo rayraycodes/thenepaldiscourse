@@ -3,7 +3,7 @@ import hunsaLogo from '../assets/hunsa.png';
 export function Footer() {
   return (
     <footer
-      className="pt-10 pb-0 px-6 lg:px-12"
+      className="pt-10 pb-0 px-4 sm:px-6 lg:px-12"
       style={{
         // Softer, more subtle crimson fade at the bottom of the page
         background:
@@ -29,17 +29,17 @@ export function Footer() {
                 maskComposite: 'intersect',
               }}
             />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none">
-              <div 
-                className="text-base md:text-lg text-[#7F0E26] md:text-[#DC143C] font-medium [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none] px-4"
+            <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none px-4 sm:px-6">
+              <p
+                className="text-xs sm:text-sm md:text-base lg:text-lg text-[#7F0E26] md:text-[#DC143C] font-medium [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none] max-w-full"
               >
                 © 2026 Nepali Student Organisation HGSE, Himalayan Caucus, and Harvard Undergraduate Nepali Student Association (HUNSA)
-              </div>
-              <div 
-                className="text-base md:text-lg text-[#7F0E26] md:text-[#DC143C] mt-1 [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]"
+              </p>
+              <p
+                className="text-xs sm:text-sm md:text-base lg:text-lg text-[#7F0E26] md:text-[#DC143C] mt-2 sm:mt-3 [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]"
               >
                 Officially Recognized Student Organizations at Harvard
-              </div>
+              </p>
             </div>
           </div>
         </div>
