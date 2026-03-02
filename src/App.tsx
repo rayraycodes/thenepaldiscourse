@@ -8,6 +8,7 @@ import { StrategicFramework } from './components/StrategicFramework';
 import { SpeakersSection } from './components/SpeakersSection';
 import { Project2035Section } from './components/Project2035Section';
 import { AgendaSection } from './components/AgendaSection';
+import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 
@@ -28,6 +29,7 @@ export default function App() {
         <SpeakersSection />
         <Project2035Section />
         <AgendaSection />
+        <FAQSection />
         <CTASection />
       </main>
       <Footer />

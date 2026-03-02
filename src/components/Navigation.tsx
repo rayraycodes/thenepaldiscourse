@@ -26,6 +26,7 @@ export function Navigation() {
   const navLinks = [
     { label: 'Agenda', id: 'agenda' },
     { label: 'Team', id: 'speakers' },
+    { label: 'FAQ', id: 'faq' },
     { label: 'Tickets', id: 'cta' },
   ];
 

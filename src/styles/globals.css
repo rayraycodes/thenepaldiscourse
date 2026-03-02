@@ -322,3 +322,88 @@ body {
     min-height: 100vh !important;
   }
 }
+
+/* ==========================================================================
+   FAQ Section – Missing utility classes & WCAG 2.1 AAA
+   ========================================================================== */
+
+/* FAQ spacing utilities (not in generated Tailwind output) */
+.faq-section-spacing > *:not(:last-child) {
+  margin-block-end: 2.5rem; /* half of 5rem */
+}
+
+.faq-category-spacing {
+  padding-top: 1.5rem; /* half of 3rem */
+}
+
+.whitespace-pre-line {
+  white-space: pre-line;
+}
+
+/* WCAG 2.1 AAA: FAQ answer text – 7:1 contrast (AAA requires 7:1 for normal text) */
+.faq-answer-text {
+  color: #4a4a4a; /* ~7.5:1 on white, meets AAA 1.4.6 */
+  line-height: 1.625;
+  padding-bottom: 0.5rem; /* extra space after answer */
+}
+
+/* Accordion icon – rotate chevron when expanded (down → up) */
+[data-slot="accordion-trigger"] > svg {
+  transition: transform 0.2s ease;
+}
+
+[data-slot="accordion-trigger"][data-state="open"] > svg {
+  transform: translateY(2px) rotate(180deg);
+}
+
+/* WCAG 2.1 AAA: Accordion trigger – 44×44px minimum touch target (2.5.5) */
+[data-slot="accordion-trigger"] {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 1rem 0;
+}
+
+/* WCAG 2.1 AAA: Accordion focus – high-visibility focus indicator (2.4.7) */
+[data-slot="accordion-trigger"]:focus-visible {
+  outline: 2px solid #dc143c;
+  outline-offset: 2px;
+}
+
+/* Accordion expand/collapse animations (required by Radix AccordionContent) */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+[data-state="closed"][data-slot="accordion-content"] {
+  animation: accordion-up 0.2s ease-out;
+}
+
+[data-state="open"][data-slot="accordion-content"] {
+  animation: accordion-down 0.2s ease-out;
+}
+
+/* WCAG 2.1 AAA: Reduced motion – respect user preference (2.3.3) */
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="accordion-content"] {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  [data-slot="accordion-trigger"] svg {
+    transition: none !important;
+  }
+}
