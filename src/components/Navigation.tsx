@@ -47,9 +47,9 @@ export function Navigation() {
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-lg font-medium tracking-tight hover:opacity-70 transition-opacity duration-[180ms]"
+              className="hover:opacity-70 transition-opacity duration-[180ms]"
             >
-              The Nepal Discourse
+              <img src="/tnd.png" alt="The Nepal Discourse" className="h-10" />
             </button>
 
             {/* Desktop Navigation */}
