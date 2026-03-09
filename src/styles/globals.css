@@ -191,6 +191,23 @@ body::before {
   opacity: 0.3;
 }
 
+/* Match body background (base + bgconf pattern) for nav */
+.nav-bg-match {
+  background-color: var(--background);
+}
+.nav-bg-match::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  background-image: url("../assets/bgconf.png");
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: top left;
+  opacity: 0.3;
+}
+
 /* (removed .nepali-paper-bg utility; global bg now uses bgconfig.png on body) */
 /**
  * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.

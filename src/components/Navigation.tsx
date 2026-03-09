@@ -35,8 +35,8 @@ export function Navigation() {
       <motion.nav
         role="navigation"
         aria-label="Primary"
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-[260ms] ${
-          isScrolled ? 'bg-transparent border-b border-border backdrop-blur-sm' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 nav-bg-match transition-all duration-[260ms] ${
+          isScrolled ? 'border-b border-border shadow-[0_4px_24px_rgba(0,0,0,0.12)]' : ''
         }`}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -85,7 +85,7 @@ export function Navigation() {
         {isMobileMenuOpen && (
           <motion.div
             id="mobile-primary-navigation"
-            className="fixed inset-0 z-40 bg-background md:hidden"
+            className="fixed inset-0 z-40 nav-bg-match md:hidden"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
