@@ -11,6 +11,7 @@ import { AgendaSection } from './components/AgendaSection';
 import { FAQSection } from './components/FAQSection';
 import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
+import { ScrollToTop } from './components/ScrollToTop';
 
 export default function App() {
   return (
@@ -33,6 +34,7 @@ export default function App() {
         <CTASection />
       </main>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 }
