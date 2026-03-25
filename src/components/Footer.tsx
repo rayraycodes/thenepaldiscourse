@@ -33,7 +33,9 @@ export function Footer() {
               <p
                 className="text-xs sm:text-sm md:text-base lg:text-lg text-[#7F0E26] md:text-[#DC143C] font-medium [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none] max-w-full"
               >
-                ©️ 2026 An initiative by: Nepali Student Organization HGSE in collaboration with Harvard Undergraduate Nepali Student Association (HUNSA), MITeri and Himalayan Caucus
+                ©️ 2026 An initiative by: Nepali Student Organization HGSE in
+                collaboration with Harvard Undergraduate Nepali Student Association
+                (HUNSA), MITeri (MIT) and Himalayan Caucus (HKS).
               </p>
               <p
                 className="text-xs sm:text-sm md:text-base lg:text-lg text-[#7F0E26] md:text-[#DC143C] mt-2 sm:mt-3 [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]"

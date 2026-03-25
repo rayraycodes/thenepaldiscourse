@@ -64,16 +64,6 @@ export function CTASection() {
             Apply to Attend
           </a>
         </motion.div>
-
-        <motion.p
-          className="text-sm text-muted-foreground"
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : { opacity: 0 }}
-          transition={{ duration: 0.52, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-        >
-          All proceeds directly fund travel and accommodation for Nepali ecosystem
-          partners.
-        </motion.p>
       </div>
     </section>
   );

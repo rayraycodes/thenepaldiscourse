@@ -21,7 +21,7 @@ export default function App() {
         Skip to main content
       </a>
       <Navigation />
-      <main id="main-content" tabIndex={-1}>
+      <main id="main-content" tabIndex={-1} className="pt-[96px] sm:pt-[88px]">
         <HeroSection />
         <Marquee />
         <Countdown />

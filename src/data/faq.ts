@@ -23,7 +23,7 @@ export const faqCategories: FAQCategory[] = [
         id: 'when-where',
         question: 'When and where will the conference take place?',
         answer:
-          'The conference will be held on April 25–26, 2026, at Harvard University in Cambridge, Massachusetts, structured as two full days of high-level deliberation and strategic dialogue.',
+          'The conference will be held on April 25–26, 2026, at Harvard University and Massachusetts Institute of Technology (MIT) in Cambridge, Massachusetts, structured as two full days of high-level deliberation and strategic dialogue.',
       },
       {
         id: 'organizers',
