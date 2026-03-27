@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@400;500;600&family=Inter:wght@400;500;600&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;0,8..60,700;1,8..60,400&display=swap');
 
 @custom-variant dark (&:is(.dark *));
 
@@ -41,6 +41,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+  /* Fixed primary nav uses h-20 (= 5rem at default root font size) */
+  --nav-bar-height: 5rem;
 }
 
 .dark {
@@ -261,6 +263,14 @@ body::before {
 html {
   font-size: var(--font-size);
   scroll-behavior: smooth;
+  /* Match main offset so in-page anchors and skip target are not under fixed nav */
+  scroll-padding-top: calc(var(--nav-bar-height) + 1rem);
+}
+
+/* Primary layout: fixed nav sits above document flow; pad main so routes start below it */
+main#main-content {
+  padding-top: calc(var(--nav-bar-height) + 1rem);
+  min-width: 0;
 }
 
 body {
@@ -269,6 +279,415 @@ body {
 
 .font-serif {
   font-family: 'Crimson Pro', Georgia, serif;
+}
+
+/* ==========================================================================
+   Our Story page – editorial prose & watermark (WCAG-oriented)
+   ========================================================================== */
+
+:root {
+  --our-story-bg: #f5f0e8;
+  --our-story-bg-elevated: #faf7f1;
+  --our-story-text: #1a1a1a;
+  --our-story-accent: #8b1a2b;
+  --our-story-accent-soft: rgba(139, 26, 43, 0.12);
+  --our-story-shadow: 0 4px 28px rgba(26, 26, 26, 0.06);
+  --our-story-shadow-deep: 0 18px 48px rgba(139, 26, 43, 0.09);
+  /* Long-form body: Source Serif 4 (screen-tuned serif) over system fallbacks */
+  --font-story-body: 'Source Serif 4', Charter, 'Bitstream Charter', 'Sitka Text', Cambria, serif;
+  /* Feather all edges: intersect horizontal + vertical fades (opaque center, transparent border band) */
+  --our-story-edge-mask-h: linear-gradient(
+    90deg,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+  --our-story-edge-mask-v: linear-gradient(
+    180deg,
+    transparent 0%,
+    #000 10%,
+    #000 90%,
+    transparent 100%
+  );
+}
+
+/* Centers the story column on the viewport */
+.our-story-layout {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.our-story-page {
+  position: relative;
+  isolation: isolate;
+  min-width: 0;
+  width: 90%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  background: transparent;
+}
+
+/* Decorative background only: masked so all edges fade to fully transparent */
+.our-story-page::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--our-story-bg);
+  background-image:
+    radial-gradient(ellipse 85% 55% at 50% -8%, rgba(139, 26, 43, 0.09), transparent 52%),
+    radial-gradient(ellipse 70% 45% at 100% 40%, rgba(0, 56, 147, 0.04), transparent 48%),
+    linear-gradient(180deg, var(--our-story-bg-elevated) 0%, var(--our-story-bg) 28%, #ebe4d9 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  -webkit-mask-image: var(--our-story-edge-mask-h), var(--our-story-edge-mask-v);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-repeat: no-repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  mask-image: var(--our-story-edge-mask-h), var(--our-story-edge-mask-v);
+  mask-size: 100% 100%, 100% 100%;
+  mask-repeat: no-repeat, no-repeat;
+  mask-composite: intersect;
+}
+
+.our-story-watermark {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background-image: url('/mandala-watermark.svg');
+  background-repeat: repeat;
+  background-size: 20rem 20rem;
+  background-position: center -2rem;
+  opacity: 0.088;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: var(--our-story-edge-mask-h), var(--our-story-edge-mask-v);
+  -webkit-mask-size: 100% 100%, 100% 100%;
+  -webkit-mask-repeat: no-repeat, no-repeat;
+  -webkit-mask-composite: source-in;
+  mask-image: var(--our-story-edge-mask-h), var(--our-story-edge-mask-v);
+  mask-size: 100% 100%, 100% 100%;
+  mask-repeat: no-repeat, no-repeat;
+  mask-composite: intersect;
+}
+
+.our-story-inner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  min-width: 0;
+}
+
+.our-story-article {
+  position: relative;
+}
+
+/* Hero: centered reading column, top accent rule */
+.our-story-hero {
+  text-align: center;
+  margin-bottom: 3.5rem;
+  margin-inline: auto;
+  max-width: 70ch;
+}
+
+@media (min-width: 40rem) {
+  .our-story-hero {
+    margin-bottom: 4.5rem;
+  }
+}
+
+.our-story-eyebrow {
+  font-family: var(--font-story-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--our-story-accent);
+  margin: 0 0 1.125rem;
+  line-height: 1.5;
+}
+
+.our-story-title-block {
+  padding: 1rem 0 0;
+  border-left: none;
+  box-shadow: none;
+  border-top: 0.22rem solid var(--our-story-accent);
+}
+
+.our-story-h1 {
+  font-size: clamp(2.125rem, 5.5vw, 3.35rem);
+  letter-spacing: 0.04em;
+  text-wrap: balance;
+}
+
+/* Body copy: centered column in article; paragraphs stay left-aligned for readability */
+.our-story-prose {
+  font-family: var(--font-story-body);
+  font-optical-sizing: auto;
+  color: var(--our-story-text);
+  font-size: 1.25rem;
+  line-height: 1.75;
+  max-width: 70ch;
+  margin-inline: auto;
+  letter-spacing: 0.03em;
+  word-spacing: 0.08em;
+  text-align: left;
+  font-weight: 400;
+}
+
+@media (max-width: 24rem) {
+  .our-story-prose {
+    font-size: 1.125rem;
+    line-height: 1.75;
+  }
+}
+
+.our-story-prose p {
+  margin-block-end: calc(2 * 1.75 * 1em);
+}
+
+.our-story-prose p:last-child {
+  margin-block-end: 0;
+}
+
+.our-story-prose h2 {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: clamp(1.875rem, 3.8vw, 2.35rem);
+  font-weight: 600;
+  line-height: 1.28;
+  letter-spacing: 0.06em;
+  color: var(--our-story-text);
+  margin-block: 0 1.5rem;
+  position: relative;
+  padding-bottom: 0.85rem;
+  text-wrap: balance;
+}
+
+.our-story-prose h2::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: min(4.5rem, 28%);
+  height: 0.22rem;
+  border-radius: 999px;
+  background: linear-gradient(
+    90deg,
+    var(--our-story-accent),
+    rgba(139, 26, 43, 0.35) 70%,
+    transparent 100%
+  );
+}
+
+.our-story-prose h3 {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: clamp(1.35rem, 2.8vw, 1.625rem);
+  font-weight: 600;
+  line-height: 1.38;
+  letter-spacing: 0.06em;
+  color: #2c1418;
+  margin-block: 0 1.125rem;
+  text-wrap: balance;
+}
+
+.our-story-pull-quote {
+  font-family: var(--font-story-body);
+  font-optical-sizing: auto;
+  font-size: 1.625rem;
+  line-height: 1.58;
+  letter-spacing: 0.03em;
+  color: var(--our-story-text);
+  border-left: 0.3rem solid var(--our-story-accent);
+  border-radius: 0 0.75rem 0.75rem 0;
+  padding: 1.85rem 1.5rem 1.85rem 1.85rem;
+  margin-block: 2.75rem;
+  background:
+    linear-gradient(105deg, rgba(255, 255, 255, 0.65) 0%, rgba(139, 26, 43, 0.05) 100%);
+  box-shadow: var(--our-story-shadow), 0 0 0 1px rgba(139, 26, 43, 0.08);
+}
+
+@media (min-width: 48rem) {
+  .our-story-pull-quote {
+    font-size: 1.75rem;
+    padding: 2rem 1.75rem 2rem 2rem;
+  }
+}
+
+.our-story-pull-quote--closing {
+  border-left: none;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(139, 26, 43, 0.14);
+  padding: 2.25rem 1.5rem;
+  margin-block: 3.25rem 2.25rem;
+  text-align: center;
+  background:
+    radial-gradient(ellipse 85% 120% at 50% 0%, rgba(139, 26, 43, 0.07), transparent 55%),
+    rgba(255, 255, 255, 0.5);
+  box-shadow: var(--our-story-shadow);
+  font-size: clamp(1.625rem, 3.5vw, 2.05rem);
+  line-height: 1.52;
+  letter-spacing: 0.03em;
+}
+
+.our-story-pillar-panel {
+  margin-top: 2.75rem;
+  margin-inline: auto;
+  padding: 1.75rem 1.5rem 1.5rem;
+  max-width: 70ch;
+  background: rgba(255, 255, 255, 0.52);
+  border: 1px solid rgba(139, 26, 43, 0.14);
+  border-radius: 0.875rem;
+  box-shadow: var(--our-story-shadow);
+  backdrop-filter: blur(8px);
+}
+
+@media (min-width: 40rem) {
+  .our-story-pillar-panel {
+    padding: 2rem 1.85rem 1.75rem;
+  }
+}
+
+/* Four pillars: stacked list under From Concept */
+.our-story-pillar-list {
+  font-family: var(--font-story-body);
+  font-optical-sizing: auto;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  color: var(--our-story-text);
+  letter-spacing: 0.03em;
+  word-spacing: 0.08em;
+}
+
+.our-story-pillar-list > li {
+  margin: 0;
+  padding: 0;
+}
+
+.our-story-pillar-list > li:not(:last-child) {
+  padding-block-end: 1.35rem;
+  margin-block-end: 1.35rem;
+  border-bottom: 1px solid rgba(139, 26, 43, 0.1);
+}
+
+.our-story-pillar-list-label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--our-story-accent);
+  margin: 0 0 0.4rem;
+  line-height: 1.5;
+}
+
+.our-story-pillar-list-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--our-story-text);
+  margin: 0;
+  line-height: 1.45;
+}
+
+/*
+ * Figures: full width on small screens; from 40rem up, narrow band whose leading
+ * edge lines up with .our-story-prose (max-width 70ch, margin-inline auto).
+ */
+.our-story-figure {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  margin-inline-start: max(0px, calc((100% - 70ch) / 2));
+  margin-inline-end: auto;
+  margin-block: 3.25rem;
+  min-width: 0;
+}
+
+@media (min-width: 40rem) {
+  .our-story-figure {
+    width: 25%;
+    margin-block: 4.25rem;
+  }
+
+  /* Middle story figure */
+  .our-story-figure.our-story-figure--w8 {
+    width: 20%;
+    max-width: 100%;
+  }
+
+  .our-story-figure.our-story-figure--w20 {
+    width: 40%;
+    max-width: 100%;
+  }
+}
+
+.our-story-figure-img,
+.our-story-figure img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.625rem;
+  object-fit: cover;
+  box-shadow:
+    var(--our-story-shadow-deep),
+    0 0 0 1px rgba(26, 26, 26, 0.06);
+}
+
+.our-story-figcaption {
+  font-family: var(--font-story-body);
+  font-optical-sizing: auto;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  letter-spacing: 0.03em;
+  color: #3d3d3d;
+  margin-top: 1.125rem;
+  padding-top: 0.25rem;
+  border-top: 1px solid rgba(139, 26, 43, 0.15);
+}
+
+/* Section dividers: gradient rule */
+.our-story-divider {
+  border: 0;
+  height: 1px;
+  margin-block: 4rem;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(139, 26, 43, 0.32) 12%,
+    rgba(26, 26, 26, 0.1) 50%,
+    rgba(139, 26, 43, 0.32) 88%,
+    transparent 100%
+  );
+}
+
+@media (min-width: 40rem) {
+  .our-story-divider {
+    margin-block: 5rem;
+  }
+}
+
+.our-story-divider--loose {
+  margin-block: 4rem 6.5rem;
+}
+
+@media (min-width: 40rem) {
+  .our-story-divider--loose {
+    margin-block: 5rem 8rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .our-story-pillar-panel {
+    backdrop-filter: none;
+  }
 }
 
 /* Custom scrollbar */
@@ -338,6 +757,116 @@ body {
   .hero-section-desktop {
     min-height: 100vh !important;
   }
+}
+
+/* ==========================================================================
+   Organizers section – layout/spacing in CSS so it survives static Tailwind
+   src/index.css is a pre-generated utility subset; many class names from
+   OrganizersSection (mb-10, max-w-2xl, gap-x-6, justify-items-*, size-24, …)
+   never emit rules unless added here or the Tailwind build is regenerated.
+   ========================================================================== */
+
+.organizers-section-stack {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(1.625rem, 3.25vw, 3rem);
+}
+
+.organizers-section-intro {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1rem;
+  max-width: 42rem;
+  margin-inline: auto;
+}
+
+/* Full width inside intro so Organizing team heading is centered (flex default shrinks block to content width) */
+.organizers-section-intro .organizers-section-heading {
+  align-self: stretch;
+  width: 100%;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.organizers-section-intro > p {
+  align-self: stretch;
+  width: 100%;
+  text-align: center;
+  text-wrap: balance;
+}
+
+.organizers-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 2.5rem;
+  column-gap: 1.5rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-left: 7.5%;
+  width: calc(100% - 7.5%);
+  justify-items: center;
+}
+
+.organizers-grid > li {
+  min-width: 0;
+  width: 100%;
+  max-width: 28rem;
+}
+
+@media (min-width: 48rem) {
+  .organizers-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    justify-items: stretch;
+    row-gap: 3rem;
+    column-gap: 2rem;
+  }
+
+  .organizers-grid > li {
+    max-width: none;
+  }
+}
+
+.organizer-avatar-frame {
+  position: relative;
+  box-sizing: border-box;
+  width: 6rem;
+  height: 6rem;
+  flex-shrink: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in oklab, var(--border) 85%, transparent);
+  background-color: var(--muted);
+  border-radius: 50%;
+}
+
+.organizer-avatar-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--foreground);
+}
+
+/* Fixed avatar column + fluid text: name length only wraps, layout stays stable */
+.organizer-row {
+  display: grid;
+  grid-template-columns: 6rem minmax(0, 1fr);
+  align-items: center;
+  column-gap: 1rem;
+  min-height: 5.5rem;
+  padding-block: 0.5rem;
+  width: 100%;
+}
+
+.organizer-text {
+  min-width: 0;
+  text-align: left;
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  hyphens: auto;
 }
 
 /* ==========================================================================

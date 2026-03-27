@@ -17,7 +17,7 @@ export function CTASection() {
         <img
           src={exampleImage}
           alt=""
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover object-left"
         />
       </div>
       

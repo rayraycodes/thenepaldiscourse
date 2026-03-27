@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <g stroke="#5c0f1a" stroke-width="0.75" opacity="0.35">
+    <circle cx="100" cy="100" r="88" />
+    <circle cx="100" cy="100" r="72" />
+    <circle cx="100" cy="100" r="56" />
+    <circle cx="100" cy="100" r="40" />
+    <circle cx="100" cy="100" r="12" fill="#5c0f1a" fill-opacity="0.15" stroke="none"/>
+    <!-- eight petals -->
+    <path d="M100 12 L108 48 L100 56 L92 48 Z" />
+    <path d="M100 188 L108 152 L100 144 L92 152 Z" />
+    <path d="M12 100 L48 108 L56 100 L48 92 Z" />
+    <path d="M188 100 L152 108 L144 100 L152 92 Z" />
+    <path d="M30 30 L58 58 L52 66 L38 52 Z" transform="rotate(0 100 100)" />
+    <path d="M170 170 L142 142 L148 134 L162 148 Z" />
+    <path d="M170 30 L142 58 L134 52 L148 38 Z" />
+    <path d="M30 170 L58 142 L66 148 L52 162 Z" />
+    <!-- corner arcs -->
+    <path d="M100 100 L100 28 M100 100 L172 100 M100 100 L100 172 M100 100 L28 100" stroke-opacity="0.4" />
+  </g>
+</svg>

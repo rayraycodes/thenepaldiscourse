@@ -1,10 +1,27 @@
 import { useState, useEffect } from 'react';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+
+type NavSection = { kind: 'section'; label: string; id: string };
+type NavPage = { kind: 'page'; label: string; path: string };
+
+const navItems: (NavSection | NavPage)[] = [
+  { kind: 'section', label: 'Agenda', id: 'agenda' },
+  { kind: 'section', label: 'Team', id: 'organizers' },
+  { kind: 'section', label: 'FAQ', id: 'faq' },
+  { kind: 'section', label: 'Tickets', id: 'cta' },
+  { kind: 'page', label: 'Our Story', path: '/our-story' },
+];
+
+const navLinkClass =
+  'relative text-sm tracking-wide group text-foreground no-underline hover:opacity-90';
 
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -23,12 +40,23 @@ export function Navigation() {
     }
   };
 
-  const navLinks = [
-    { label: 'Agenda', id: 'agenda' },
-    { label: 'Team', id: 'speakers' },
-    { label: 'FAQ', id: 'faq' },
-    { label: 'Tickets', id: 'cta' },
-  ];
+  const goToSection = (id: string) => {
+    setIsMobileMenuOpen(false);
+    if (location.pathname === '/') {
+      scrollToSection(id);
+    } else {
+      navigate(`/#${id}`);
+    }
+  };
+
+  const onLogoClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (location.pathname === '/') {
+      e.preventDefault();
+      scrollToSection('hero');
+    } else {
+      setIsMobileMenuOpen(false);
+    }
+  };
 
   return (
     <>
@@ -44,26 +72,33 @@ export function Navigation() {
       >
         <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
-            {/* Logo */}
-            <button
-              onClick={() => scrollToSection('hero')}
+            <Link
+              to="/"
+              onClick={onLogoClick}
               className="hover:opacity-70 transition-opacity duration-[180ms]"
             >
               <img src="/tnd.png" alt="The Nepal Discourse" className="h-10" />
-            </button>
+            </Link>
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center gap-8">
-              {navLinks.map((link) => (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="relative text-sm tracking-wide group"
-                >
-                  {link.label}
-                  <span className="absolute left-0 bottom-0 w-0 h-px bg-foreground transition-all duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
-                </button>
-              ))}
+              {navItems.map((item) =>
+                item.kind === 'page' ? (
+                  <Link key={item.path} to={item.path} className={navLinkClass}>
+                    {item.label}
+                    <span className="absolute left-0 bottom-0 w-0 h-px bg-foreground transition-all duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
+                  </Link>
+                ) : (
+                  <button
+                    key={item.id}
+                    type="button"
+                    onClick={() => goToSection(item.id)}
+                    className={`${navLinkClass} bg-transparent border-0 cursor-pointer font-inherit p-0`}
+                  >
+                    {item.label}
+                    <span className="absolute left-0 bottom-0 w-0 h-px bg-foreground transition-all duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
+                  </button>
+                ),
+              )}
               <a
                 href="https://www.instagram.com/thenepaldiscourse/"
                 target="_blank"
@@ -84,8 +119,8 @@ export function Navigation() {
               </a>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
+              type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="md:hidden p-2"
               aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
@@ -98,7 +133,6 @@ export function Navigation() {
         </div>
       </motion.nav>
 
-      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <motion.div
@@ -110,22 +144,44 @@ export function Navigation() {
             transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
           >
             <div className="flex flex-col items-center justify-center h-full gap-8">
-              {navLinks.map((link, index) => (
-                <motion.button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className="text-2xl"
-                  initial={{ opacity: 0, y: -8 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{
-                    duration: 0.26,
-                    delay: index * 0.04,
-                    ease: [0.16, 1, 0.3, 1],
-                  }}
-                >
-                  {link.label}
-                </motion.button>
-              ))}
+              {navItems.map((item, index) =>
+                item.kind === 'page' ? (
+                  <motion.div
+                    key={item.path}
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.26,
+                      delay: index * 0.04,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    <Link
+                      to={item.path}
+                      className="text-2xl text-foreground"
+                      onClick={() => setIsMobileMenuOpen(false)}
+                    >
+                      {item.label}
+                    </Link>
+                  </motion.div>
+                ) : (
+                  <motion.button
+                    key={item.id}
+                    type="button"
+                    onClick={() => goToSection(item.id)}
+                    className="text-2xl bg-transparent border-0 cursor-pointer font-inherit text-foreground"
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.26,
+                      delay: index * 0.04,
+                      ease: [0.16, 1, 0.3, 1],
+                    }}
+                  >
+                    {item.label}
+                  </motion.button>
+                ),
+              )}
               <motion.a
                 href="https://www.instagram.com/thenepaldiscourse/"
                 target="_blank"
@@ -136,7 +192,7 @@ export function Navigation() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{
                   duration: 0.26,
-                  delay: navLinks.length * 0.04,
+                  delay: navItems.length * 0.04,
                   ease: [0.16, 1, 0.3, 1],
                 }}
               >

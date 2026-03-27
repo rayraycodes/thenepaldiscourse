@@ -13,7 +13,7 @@ export function Footer() {
       <div className="max-w-[1200px] mx-auto">
         {/* HUNSA logo with overlaid text, fading at edges, over crimson gradient background */}
         <div className="pb-6 pt-4">
-          <div className="relative w-full max-w-[320px] md:max-w-[420px] mx-auto">
+          <div className="relative w-full max-w-[320px] md:max-w-[420px]">
             <img
               src={hunsaLogo}
               alt="Harvard Undergraduate Nepali Student Association logo"

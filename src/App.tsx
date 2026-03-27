@@ -1,37 +1,25 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
-import { HeroSection } from './components/HeroSection';
-import { Marquee } from './components/Marquee';
-import { Countdown } from './components/Countdown';
-import { CrisisSection } from './components/CrisisSection';
-import { StrategicFramework } from './components/StrategicFramework';
-import { SpeakersSection } from './components/SpeakersSection';
-import { Project2035Section } from './components/Project2035Section';
-import { AgendaSection } from './components/AgendaSection';
-import { FAQSection } from './components/FAQSection';
-import { CTASection } from './components/CTASection';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
+import { ScrollToTopOnRoute } from './components/ScrollToTopOnRoute';
+import { HomePage } from './pages/HomePage';
+import { OurStoryPage } from './pages/OurStoryPage';
 
 export default function App() {
   return (
     <div className="min-h-screen">
-      {/* Skip link for keyboard users */}
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
       <Navigation />
-      <main id="main-content" tabIndex={-1} className="pt-[96px] sm:pt-[88px]">
-        <HeroSection />
-        <Marquee />
-        <Countdown />
-        <CrisisSection />
-        <StrategicFramework />
-        <SpeakersSection />
-        <Project2035Section />
-        <AgendaSection />
-        <FAQSection />
-        <CTASection />
+      <ScrollToTopOnRoute />
+      <main id="main-content" tabIndex={-1}>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/our-story" element={<OurStoryPage />} />
+        </Routes>
       </main>
       <Footer />
       <ScrollToTop />
