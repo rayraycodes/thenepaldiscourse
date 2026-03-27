@@ -17,7 +17,7 @@ export const faqCategories: FAQCategory[] = [
         id: 'what-is',
         question: 'What is The Nepal Discourse 2026?',
         answer:
-          'The Nepal Discourse 2026 is a Harvard-based strategic convening on Four Key Pillars: Artificial Intelligence and Future of Work, Institutional Resilience, the Next Generation of Leadership, and Diaspora. The conference culminates in the development of Strategic Foresight 2035: Nepal\'s Human Capital Strategic Foresight Report, a long-term roadmap for national resilience and competitiveness.',
+          'The Nepal Discourse 2026 is a global convenor organised by officially recognised Nepali students organisations at Harvard and MIT focused on four key pillars: Artificial Intelligence and Future of Work, Institutional Resilience, the Next Generation of Leadership, and Diaspora. The conference culminates in the development of Strategic Foresight 2035: Nepal\'s Human Capital Strategic Foresight Report, a long-term roadmap for national resilience and competitiveness.',
       },
       {
         id: 'when-where',
@@ -29,7 +29,7 @@ export const faqCategories: FAQCategory[] = [
         id: 'organizers',
         question: 'Who is organizing the conference?',
         answer:
-          'The event is organized by Nepali students under the banner of the recognized Harvard student organizations: Nepali Student Organization HGSE with support from the Himalayan Caucus and the Harvard Undergraduate Nepali Student Association (HUNSA).',
+          'The event is organized by Nepali students under the banner of the recognized Harvard student organizations: Nepali Student Organization HGSE with support from MITeri, the Himalayan Caucus and the Harvard Undergraduate Nepali Student Association (HUNSA).',
       },
       {
         id: 'open-to-public',
@@ -99,7 +99,7 @@ export const faqCategories: FAQCategory[] = [
         id: 'national-alignment',
         question: 'Is the conference aligned with national institutions in Nepal?',
         answer:
-          'Yes. The Foresight framework includes engagement with national stakeholders, including institutions such as the Nepal Planning Commission, private sector leaders, and policymakers, ensuring policy relevance beyond academic dialogue.',
+          'Yes. The Foresight framework includes engagement with national stakeholders, including institutions such as the Nepal Government, private sector leaders, and policymakers, ensuring policy relevance beyond academic dialogue.',
       },
       {
         id: 'report-release',
