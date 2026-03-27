@@ -88,7 +88,7 @@ export function OurStorySection() {
     <div className="our-story-layout">
       <div className="our-story-page">
         <div className="our-story-watermark" aria-hidden="true" />
-        <div className="our-story-inner pb-24 sm:pb-32 pt-10 sm:pt-16">
+        <div className="our-story-inner">
           <article
             className="our-story-article w-full max-w-full min-w-0 px-4 sm:px-8"
             aria-labelledby="story-title-heading"
@@ -101,7 +101,7 @@ export function OurStorySection() {
                 The Encounter
               </h2>
               <p>
-                In late September 2025, just days after the GenZ protests sparked new
+                In early September 2025, just days after the GenZ protests sparked new
                 conversations across Nepal, a random encounter at Harvard&apos;s Gutman
                 Library set the foundation for a transformative movement. Long-time
                 friends Salome Bhatta (HGSE &apos;24) and Utsav Kharel (HGSE &apos;26)

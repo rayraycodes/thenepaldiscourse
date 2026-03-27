@@ -6,6 +6,7 @@ import { ScrollToTop } from './components/ScrollToTop';
 import { ScrollToTopOnRoute } from './components/ScrollToTopOnRoute';
 import { HomePage } from './pages/HomePage';
 import { OurStoryPage } from './pages/OurStoryPage';
+import { TransparencyPage } from './pages/TransparencyPage';
 
 export default function App() {
   return (
@@ -19,6 +20,7 @@ export default function App() {
         <Routes>
           <Route path="/" element={<HomePage />} />
           <Route path="/our-story" element={<OurStoryPage />} />
+          <Route path="/transparency" element={<TransparencyPage />} />
         </Routes>
       </main>
       <Footer />

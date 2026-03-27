@@ -12,6 +12,7 @@ const navItems: (NavSection | NavPage)[] = [
   { kind: 'section', label: 'FAQ', id: 'faq' },
   { kind: 'section', label: 'Tickets', id: 'cta' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
+  { kind: 'page', label: 'Transparency', path: '/transparency' },
 ];
 
 const navLinkClass =
