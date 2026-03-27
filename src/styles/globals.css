@@ -839,7 +839,7 @@ body {
   margin-inline: auto;
 }
 
-/* Full width inside intro so Organizing team heading is centered (flex default shrinks block to content width) */
+/* Full width inside intro so Organizing Team heading is centered (flex default shrinks block to content width) */
 .organizers-section-intro .organizers-section-heading {
   align-self: stretch;
   width: 100%;

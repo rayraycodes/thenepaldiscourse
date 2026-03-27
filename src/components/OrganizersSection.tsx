@@ -35,7 +35,7 @@ export function OrganizersSection() {
             animate={reduced || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
             transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
           >
-            Organizing team
+            Organizing Team
           </motion.h2>
           <motion.p
             className="text-muted-foreground leading-relaxed"
