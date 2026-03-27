@@ -1,11 +1,26 @@
-
+  import fs from 'node:fs';
+  import path from 'path';
   import { defineConfig } from 'vite';
   import react from '@vitejs/plugin-react-swc';
-  import path from 'path';
+
+  /**
+   * GitHub Pages (and similar static hosts) only serve index.html for "/".
+   * Deep links like /transparency return 404 unless we duplicate the SPA shell.
+   * GitHub serves 404.html for missing paths, so it must match index.html.
+   */
+  function spaFallback404() {
+    return {
+      name: 'spa-fallback-404',
+      closeBundle() {
+        const outDir = path.resolve(__dirname, 'dist');
+        fs.copyFileSync(path.join(outDir, 'index.html'), path.join(outDir, '404.html'));
+      },
+    };
+  }
 
   export default defineConfig({
     base: '/',
-    plugins: [react()],
+    plugins: [react(), spaFallback404()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
