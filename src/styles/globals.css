@@ -595,6 +595,65 @@ body {
   vertical-align: -0.14em;
 }
 
+/* Apply / ticket information page: narrow screens */
+@media (max-width: 29.9375rem) {
+  .our-story-layout--apply .our-story-hero {
+    margin-bottom: clamp(1.75rem, 6vw, 2.75rem);
+  }
+
+  .our-story-layout--apply .our-story-inner {
+    padding-top: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  .our-story-prose--apply {
+    max-width: none;
+    width: 100%;
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    letter-spacing: 0.025em;
+    word-spacing: 0.04em;
+    text-wrap: pretty;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphenate-limit-chars: 10 4 4;
+  }
+
+  .our-story-prose--apply .apply-story-link {
+    text-wrap: pretty;
+    overflow-wrap: break-word;
+  }
+
+  .our-story-prose--apply p:has(a.apply-story-link) {
+    line-height: 1.62;
+  }
+
+  /* Slightly tighter stacks so CTA links do not feel like sparse blocks */
+  .our-story-prose--apply.our-story-prose--compact-transparency p {
+    margin-block-end: calc(1.35 * 1em);
+  }
+
+  .our-story-prose--apply.our-story-prose--compact-transparency h3:not(:first-child) {
+    margin-block-start: 1.125rem;
+  }
+
+  .our-story-prose--apply .apply-vip-contact {
+    line-height: 1.62;
+  }
+
+  .our-story-prose--apply .apply-plain-email {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* Plain-text email (no mailto): match body color; suppress iOS link styling if detectors fire */
+.apply-plain-email {
+  color: inherit;
+  font-weight: 600;
+  overflow-wrap: break-word;
+  -webkit-text-decoration: none;
+  text-decoration: none;
+}
+
 .our-story-pull-quote {
   font-family: var(--font-story-body);
   font-optical-sizing: auto;

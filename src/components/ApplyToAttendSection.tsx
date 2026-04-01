@@ -52,7 +52,7 @@ function PageHeader() {
 
 export function ApplyToAttendSection() {
   return (
-    <div className="our-story-layout">
+    <div className="our-story-layout our-story-layout--apply">
       <div className="our-story-page">
         <div className="our-story-watermark" aria-hidden="true" />
         <div className="our-story-inner">
@@ -63,7 +63,7 @@ export function ApplyToAttendSection() {
             <PageHeader />
 
             <RevealSection aria-label="Admission and registration">
-              <div className="our-story-prose our-story-prose--compact-transparency">
+              <div className="our-story-prose our-story-prose--compact-transparency our-story-prose--apply">
                 <p>
                   Thank you for your interest in The Nepal Discourse 2026.
                 </p>
@@ -121,9 +121,16 @@ export function ApplyToAttendSection() {
                   benefits, including guided Harvard–MIT tours, a dinner reception, and a VIP goodie
                   bag. VIP passes are limited in quantity.
                 </p>
-                <p>
-                  If you are interested, please reach out to info@thenepaldiaspora.com to inquire
-                  about a VIP Patron Pass.
+                <p className="apply-vip-contact">
+                  If you are interested, please reach&nbsp;out to{' '}
+                  <span
+                    className="apply-plain-email"
+                    translate="no"
+                    {...({ 'x-apple-data-detectors': 'false' } as Record<string, string>)}
+                  >
+                    info@thenepaldiaspora.com
+                  </span>{' '}
+                  to inquire about a VIP Patron Pass.
                 </p>
               </div>
             </RevealSection>
