@@ -654,6 +654,210 @@ body {
   text-decoration: none;
 }
 
+/*
+ * Site footer — full-bleed HUNSA mark (hunsa.png) + crimson wash. URL set inline in Footer.tsx.
+ */
+.site-footer {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.site-footer-hunsa-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+  /* Large enough to span the footer width; height follows asset aspect ratio */
+  background-size: min(96rem, 100%) auto;
+  opacity: 0.11;
+  /* Soften into the page above the footer */
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.45) 18%,
+    #000 42%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    to bottom,
+    transparent 0%,
+    rgba(0, 0, 0, 0.45) 18%,
+    #000 42%,
+    #000 100%
+  );
+}
+
+@media (min-width: 48rem) {
+  .site-footer-hunsa-bg {
+    opacity: 0.13;
+    background-size: min(90rem, 100%) auto;
+  }
+}
+
+.site-footer-wash {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  /* Lighter wash so copyright / logos read more clearly */
+  background: linear-gradient(to top, rgba(127, 14, 38, 0.18), rgba(127, 14, 38, 0));
+}
+
+.site-footer-content {
+  position: relative;
+  z-index: 2;
+}
+
+/* Credits sit below “Supported by”; top rule separates from logos */
+.site-footer-credits-wrap {
+  margin-top: 0;
+  padding-top: clamp(1.25rem, 3vw, 2rem);
+  padding-bottom: clamp(1rem, 2.5vw, 1.5rem);
+  border-top: 1px solid rgba(127, 14, 38, 0.25);
+}
+
+/* Attribution: ≥16px, comfortable line-height; pairs with .footer-supported-heading */
+.site-footer-credits-text {
+  margin: 0;
+  font-size: 1.0625rem;
+  line-height: 1.65;
+  font-weight: 500;
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+@media (min-width: 48rem) {
+  .site-footer-credits-text {
+    font-size: 1.125rem;
+    line-height: 1.6;
+  }
+}
+
+.site-footer-credits-text--secondary {
+  margin-top: 0.5625rem;
+  font-weight: 600;
+}
+
+/* Same type scale as credits; serif + semibold marks the label only */
+.footer-supported-heading {
+  margin: 0 0 0.875rem;
+  padding: 0;
+  font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
+  font-size: 1.0625rem;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.02em;
+  text-align: center;
+  color: var(--foreground);
+  text-wrap: balance;
+}
+
+@media (min-width: 48rem) {
+  .footer-supported-heading {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+  }
+}
+
+/*
+ * Footer — “Supported by” marks: one slot size for every logo so unequal PNG
+ * dimensions render at equal footprint; raster scales inside without stretching.
+ */
+.footer-supported {
+  /* First content block in footer; LAN + KMG share equal slots (~20% larger than prior) */
+  --footer-supporter-slot-w: min(20.75rem, calc(100vw - 2.5rem));
+  --footer-supporter-slot-h: clamp(3.75rem, 11.5vmin, 5.125rem);
+
+  margin-top: 0;
+  padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  padding-bottom: clamp(1.25rem, 3.5vw, 2rem);
+  padding-inline: clamp(0.25rem, 1.25vw, 0.65rem);
+}
+
+@media (min-width: 40rem) {
+  .footer-supported {
+    --footer-supporter-slot-w: min(22rem, calc(100vw - 2.75rem));
+    --footer-supporter-slot-h: clamp(3.875rem, 10.75vmin, 5.375rem);
+  }
+}
+
+@media (min-width: 48rem) {
+  .footer-supported {
+    --footer-supporter-slot-w: min(23.5rem, calc(100vw - 3rem));
+    --footer-supporter-slot-h: 5.625rem;
+  }
+}
+
+.footer-supported-logo-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  column-gap: clamp(0.75rem, 3vw, 2rem);
+  row-gap: 0.875rem;
+  width: 100%;
+  max-width: 54rem;
+  margin: 0 auto;
+  padding: 0 clamp(0.375rem, 1.5vw, 0.625rem);
+  list-style: none;
+}
+
+@media (min-width: 48rem) {
+  .footer-supported-logo-list {
+    column-gap: 2rem;
+    row-gap: 1.125rem;
+  }
+}
+
+@media (min-width: 64rem) {
+  .footer-supported-logo-list {
+    column-gap: 2.25rem;
+  }
+}
+
+@media (min-width: 80rem) {
+  .footer-supported-logo-list {
+    column-gap: 2.75rem;
+  }
+}
+
+.footer-supported-logo-item {
+  display: flex;
+  flex-shrink: 0;
+  flex-grow: 0;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  width: auto;
+  padding-block: 0.125rem;
+}
+
+/* Identical box for KMG, LAN, or any future supporter — PNG size is irrelevant */
+.footer-supported-logo-slot {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  width: var(--footer-supporter-slot-w);
+  height: var(--footer-supporter-slot-h);
+  flex-shrink: 0;
+}
+
+.footer-supported-logo-img {
+  display: block;
+  box-sizing: border-box;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+}
+
 .our-story-pull-quote {
   font-family: var(--font-story-body);
   font-optical-sizing: auto;

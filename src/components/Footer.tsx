@@ -2,47 +2,59 @@ import hunsaLogo from '../assets/hunsa.png';
 
 export function Footer() {
   return (
-    <footer
-      className="pt-10 pb-0 px-4 sm:px-6 lg:px-12"
-      style={{
-        // Softer, more subtle crimson fade at the bottom of the page
-        background:
-          'linear-gradient(to top, rgba(127, 14, 38, 0.35), rgba(127, 14, 38, 0))',
-      }}
-    >
-      <div className="max-w-[1200px] mx-auto">
-        {/* HUNSA logo with overlaid text, fading at edges, over crimson gradient background */}
-        <div className="pb-6 pt-4">
-          <div className="relative w-full max-w-[320px] md:max-w-[420px]">
-            <img
-              src={hunsaLogo}
-              alt="Harvard Undergraduate Nepali Student Association logo"
-              className="w-full h-auto"
-              style={{
-                opacity: 0.15,
-                // Fade out on left/right and top edges
-                WebkitMaskImage:
-                  'linear-gradient(to right, transparent, black 20%, black 80%, transparent), linear-gradient(transparent, black 25%, black 100%)',
-                maskImage:
-                  'linear-gradient(to right, transparent, black 20%, black 80%, transparent), linear-gradient(transparent, black 25%, black 100%)',
-                WebkitMaskComposite: 'source-in',
-                maskComposite: 'intersect',
-              }}
-            />
-            <div className="absolute inset-0 flex flex-col items-center justify-center text-center pointer-events-none px-4 sm:px-6">
-              <p
-                className="text-xs sm:text-sm md:text-base lg:text-lg text-[#7F0E26] md:text-[#DC143C] font-medium [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none] max-w-full"
-              >
-                ©️ 2026 An initiative by: Nepali Student Organization HGSE in
-                collaboration with Harvard Undergraduate Nepali Student Association
-                (HUNSA), MITeri (MIT) and Himalayan Caucus (HKS).
-              </p>
-              <p
-                className="text-xs sm:text-sm md:text-base lg:text-lg text-[#7F0E26] md:text-[#DC143C] mt-2 sm:mt-3 [text-shadow:0_1px_2px_rgba(255,255,255,0.8)] md:[text-shadow:none]"
-              >
-                Officially Recognized Student Organizations at Harvard and MIT
-              </p>
-            </div>
+    <footer className="site-footer pt-7 pb-0 px-4 sm:px-6 lg:px-12 sm:pt-8">
+      <div
+        className="site-footer-hunsa-bg"
+        style={{ backgroundImage: `url(${hunsaLogo})` }}
+        aria-hidden="true"
+      />
+      <div className="site-footer-wash" aria-hidden="true" />
+      <div className="site-footer-content max-w-[1200px] mx-auto">
+        <section className="footer-supported" aria-labelledby="footer-supported-heading">
+          <h2 className="footer-supported-heading" id="footer-supported-heading">
+            Supported by:
+          </h2>
+          <ul className="footer-supported-logo-list">
+            <li className="footer-supported-logo-item">
+              <div className="footer-supported-logo-slot">
+                <img
+                  src="/supporters/lan-logo.png"
+                  alt="LAN partner logo"
+                  className="footer-supported-logo-img"
+                  width={200}
+                  height={200}
+                  decoding="async"
+                  loading="lazy"
+                />
+              </div>
+            </li>
+            <li className="footer-supported-logo-item">
+              <div className="footer-supported-logo-slot">
+                <img
+                  src="/supporters/kmg-logo.png"
+                  alt="Kathmandu Media Group (KMG) logo"
+                  className="footer-supported-logo-img"
+                  width={920}
+                  height={802}
+                  decoding="async"
+                  loading="lazy"
+                />
+              </div>
+            </li>
+          </ul>
+        </section>
+
+        <div className="site-footer-credits-wrap">
+          <div className="site-footer-credits mx-auto w-full max-w-[min(40rem,calc(100vw-2rem))] px-4 text-center sm:px-6">
+            <p className="site-footer-credits-text">
+              ©{' '}
+              <span className="whitespace-nowrap">2026</span> An initiative by: Nepali Student
+              Organization HGSE in collaboration with Harvard Undergraduate Nepali Student
+              Association (HUNSA), MITeri (MIT) and Himalayan Caucus (HKS).
+            </p>
+            <p className="site-footer-credits-text site-footer-credits-text--secondary">
+              Officially Recognized Student Organizations at Harvard and MIT
+            </p>
           </div>
         </div>
       </div>
