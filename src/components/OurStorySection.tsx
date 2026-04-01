@@ -197,7 +197,7 @@ export function OurStorySection() {
                 Dr. Joshi, drawing on his over two-decade career leading education
                 portfolios for The World Bank across multiple countries and as the founder
                 of Leadership Academy Nepal, the team, with support from Anup Kaphle and
-                Mahesh Swar from Movers and Shakers, engaged industry leaders, academics,
+                Mahesh Swar from Kathmandu Media Group (KMG), engaged industry leaders, academics,
                 grassroots organisations, bureaucrats, and civil society members from both
                 Nepal and the diaspora. Through multiple iterations, the vision for the
                 first convening shaped into four key pillars:

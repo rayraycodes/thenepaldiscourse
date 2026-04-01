@@ -7,6 +7,7 @@ import { ScrollToTopOnRoute } from './components/ScrollToTopOnRoute';
 import { HomePage } from './pages/HomePage';
 import { OurStoryPage } from './pages/OurStoryPage';
 import { TransparencyPage } from './pages/TransparencyPage';
+import { ApplyToAttendPage } from './pages/ApplyToAttendPage';
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/our-story" element={<OurStoryPage />} />
           <Route path="/transparency" element={<TransparencyPage />} />
+          <Route path="/apply" element={<ApplyToAttendPage />} />
         </Routes>
       </main>
       <Footer />
