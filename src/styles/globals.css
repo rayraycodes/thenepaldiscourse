@@ -655,7 +655,7 @@ body {
 }
 
 /*
- * Site footer — full-bleed HUNSA mark (hunsa.png) + crimson wash. URL set inline in Footer.tsx.
+ * Site footer — full-bleed HUNSA mark (/hunsa.png from public/) + crimson wash. URL set inline in Footer.tsx.
  */
 .site-footer {
   position: relative;
@@ -670,8 +670,8 @@ body {
   pointer-events: none;
   background-repeat: no-repeat;
   background-position: center bottom;
-  /* Large enough to span the footer width; height follows asset aspect ratio */
-  background-size: min(96rem, 100%) auto;
+  /* Span full footer width; height follows asset aspect ratio */
+  background-size: 100% auto;
   opacity: 0.11;
   /* Soften into the page above the footer */
   -webkit-mask-image: linear-gradient(
@@ -693,7 +693,6 @@ body {
 @media (min-width: 48rem) {
   .site-footer-hunsa-bg {
     opacity: 0.13;
-    background-size: min(90rem, 100%) auto;
   }
 }
 
@@ -709,9 +708,12 @@ body {
 .site-footer-content {
   position: relative;
   z-index: 2;
+  /* One size for “Sponsors”, “Supported by:”, and aligned subtitle */
+  --footer-heading-font-size: 1.0625rem;
+  --footer-heading-font-size-md: 1.125rem;
 }
 
-/* Credits sit below “Supported by”; top rule separates from logos */
+/* Credits sit below sponsor blocks; top rule separates from logos */
 .site-footer-credits-wrap {
   margin-top: 0;
   padding-top: clamp(1.25rem, 3vw, 2rem);
@@ -746,7 +748,7 @@ body {
   margin: 0 0 0.875rem;
   padding: 0;
   font-family: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-  font-size: 1.0625rem;
+  font-size: var(--footer-heading-font-size);
   font-weight: 600;
   line-height: 1.35;
   letter-spacing: 0.02em;
@@ -757,7 +759,7 @@ body {
 
 @media (min-width: 48rem) {
   .footer-supported-heading {
-    font-size: 1.125rem;
+    font-size: var(--footer-heading-font-size-md);
     margin-bottom: 1rem;
   }
 }
@@ -767,14 +769,15 @@ body {
  * dimensions render at equal footprint; raster scales inside without stretching.
  */
 .footer-supported {
-  /* First content block in footer; LAN + KMG share equal slots (~20% larger than prior) */
+  /* LAN + KMG share equal slots (~20% larger than prior); sits below Sponsors */
   --footer-supporter-slot-w: min(20.75rem, calc(100vw - 2.5rem));
   --footer-supporter-slot-h: clamp(3.75rem, 11.5vmin, 5.125rem);
 
   margin-top: 0;
-  padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  padding-top: clamp(1.25rem, 3vw, 2rem);
   padding-bottom: clamp(1.25rem, 3.5vw, 2rem);
   padding-inline: clamp(0.25rem, 1.25vw, 0.65rem);
+  border-top: 1px solid rgba(127, 14, 38, 0.25);
 }
 
 @media (min-width: 40rem) {
@@ -856,6 +859,69 @@ body {
   height: auto;
   object-fit: contain;
   object-position: center;
+}
+
+.footer-supported-logo-slot > svg.footer-supported-logo-img {
+  object-fit: unset;
+}
+
+/* Sponsors / Ecosystem Contributor — first footer block; equal-width columns + slots */
+.footer-sponsors {
+  margin-top: 0;
+  padding-top: clamp(0.5rem, 1.5vw, 1rem);
+  padding-bottom: clamp(1.25rem, 3.5vw, 2rem);
+  padding-inline: clamp(0.25rem, 1.25vw, 0.65rem);
+}
+
+.footer-sponsors .footer-supported-logo-list {
+  max-width: 40rem;
+  column-gap: clamp(1rem, 4vw, 2rem);
+}
+
+.footer-sponsors .footer-supported-logo-item {
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: none;
+  justify-content: center;
+}
+
+.footer-sponsors .footer-supported-logo-slot {
+  width: 100%;
+  max-width: none;
+  height: clamp(3.5rem, 10vmin, 4.75rem);
+}
+
+/* Same rendered height for Flips + Fuse so both read at equal scale */
+.footer-sponsors .footer-supported-logo-slot > .footer-supported-logo-img,
+.footer-sponsors .footer-supported-logo-slot > svg.footer-supported-logo-img {
+  max-height: unset;
+  max-width: 100%;
+  width: auto;
+  height: clamp(1.65rem, 4.35vmin, 2.15rem);
+  object-fit: contain;
+  object-position: center;
+}
+
+/* Inter + muted like CTA body, but same px size as section headings above/below */
+.footer-sponsors-subtitle {
+  margin: -0.25rem 0 1rem;
+  padding: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: var(--footer-heading-font-size);
+  font-weight: var(--font-weight-normal);
+  line-height: 1.625;
+  letter-spacing: normal;
+  text-align: center;
+  color: var(--muted-foreground);
+  text-wrap: balance;
+}
+
+@media (min-width: 48rem) {
+  .footer-sponsors-subtitle {
+    font-size: var(--footer-heading-font-size-md);
+    margin-top: -0.125rem;
+    margin-bottom: 1.125rem;
+  }
 }
 
 .our-story-pull-quote {
