@@ -794,6 +794,23 @@ body {
   }
 }
 
+/* LAN + KMG: one row, equal columns — wide fixed slots were forcing wrap on phones */
+.footer-supported .footer-supported-logo-list {
+  flex-wrap: nowrap;
+  max-width: min(44rem, 100%);
+}
+
+.footer-supported .footer-supported-logo-item {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+.footer-supported .footer-supported-logo-slot {
+  width: 100%;
+  max-width: min(22rem, 100%);
+  margin-inline: auto;
+}
+
 .footer-supported-logo-list {
   display: flex;
   flex-direction: row;
