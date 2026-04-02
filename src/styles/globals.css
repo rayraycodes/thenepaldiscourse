@@ -886,14 +886,19 @@ body {
 }
 
 .footer-sponsors .footer-supported-logo-slot {
+  position: relative;
   width: 100%;
   max-width: none;
   height: clamp(3.5rem, 10vmin, 4.75rem);
 }
 
-/* Same rendered height for Flips + Fuse so both read at equal scale */
+/* Same rendered height for Flips + Fuse; translate centers mark in slot */
 .footer-sponsors .footer-supported-logo-slot > .footer-supported-logo-img,
 .footer-sponsors .footer-supported-logo-slot > svg.footer-supported-logo-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
   max-height: unset;
   max-width: 100%;
   width: auto;
@@ -1197,6 +1202,9 @@ body {
   display: flex;
   flex-direction: column;
   gap: clamp(1.625rem, 3.25vw, 3rem);
+  width: 85%;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .organizers-section-intro {
@@ -1232,8 +1240,7 @@ body {
   list-style: none;
   padding: 0;
   margin: 0;
-  margin-left: 7.5%;
-  width: calc(100% - 7.5%);
+  width: 100%;
   justify-items: center;
 }
 
@@ -1253,6 +1260,32 @@ body {
 
   .organizers-grid > li {
     max-width: none;
+  }
+
+  /* 3 columns + count 3n+1: lone last card */
+  .organizers-grid > li:last-child:nth-child(3n + 1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: min(28rem, 100%);
+  }
+}
+
+/* Four per row when there is enough width for avatar + affiliation text */
+@media (min-width: 64rem) {
+  .organizers-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .organizers-grid > li:last-child:nth-child(3n + 1) {
+    grid-column: auto;
+    justify-self: stretch;
+    max-width: none;
+  }
+
+  .organizers-grid > li:last-child:nth-child(4n + 1) {
+    grid-column: 1 / -1;
+    justify-self: center;
+    max-width: min(28rem, 100%);
   }
 }
 

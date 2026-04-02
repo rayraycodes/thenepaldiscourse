@@ -26,7 +26,7 @@ export function OrganizersSection() {
       className="py-24 px-6 lg:px-12"
       aria-labelledby="organizers-heading"
     >
-      <div className="max-w-[1200px] mx-auto organizers-section-stack">
+      <div className="organizers-section-stack">
         <header className="organizers-section-intro">
           <motion.h2
             id="organizers-heading"
@@ -43,7 +43,7 @@ export function OrganizersSection() {
             animate={reduced || isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
             transition={{ duration: 0.48, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
           >
-            Nepali student leaders and collaborators helping build The Nepal Discourse.
+            Nepali student leaders and collaborators building The Nepal Discourse.
           </motion.p>
         </header>
 

@@ -1,7 +1,7 @@
 export type Organizer = {
   name: string;
   affiliation: string;
-  /** Path under /public/organizers (JPEG) or null for initials placeholder */
+  /** Path under /public/organizers or null for initials placeholder */
   imageSrc: string | null;
 };
 
@@ -30,4 +30,8 @@ export const organizers: Organizer[] = [
     affiliation: "Northeastern '26",
     imageSrc: '/organizers/prajjawaljungpratapsingh.jpeg',
   },
+  { name: 'Yumi Parajuli', affiliation: "Idaho State University '21", imageSrc: '/organizers/yumiparajuli.png' },
+  { name: 'Dr. Bibas Guragai', affiliation: "The University of Tokyo '17", imageSrc: '/organizers/drbibasguragai.png' },
+  { name: 'Sudan Duwadi', affiliation: "Boston University '26", imageSrc: '/organizers/sudanduwadi.png' },
+  { name: 'Aayushma Gautam', affiliation: "Tufts University '24", imageSrc: '/organizers/aayushmagautam.jpg' },
 ];
