@@ -8,6 +8,7 @@ import { HomePage } from './pages/HomePage';
 import { OurStoryPage } from './pages/OurStoryPage';
 import { TransparencyPage } from './pages/TransparencyPage';
 import { ApplyToAttendPage } from './pages/ApplyToAttendPage';
+import { FAQPage } from './pages/FAQPage';
 
 export default function App() {
   return (
@@ -23,6 +24,7 @@ export default function App() {
           <Route path="/our-story" element={<OurStoryPage />} />
           <Route path="/transparency" element={<TransparencyPage />} />
           <Route path="/apply" element={<ApplyToAttendPage />} />
+          <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </main>
       <Footer />
