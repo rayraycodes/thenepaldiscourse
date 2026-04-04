@@ -7,6 +7,9 @@ const transitionEase = [0.16, 1, 0.3, 1] as const;
 const REGISTRATION_FORM_URL =
   'https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo';
 
+const STUDENT_TICKET_URL =
+  'https://calendar.gse.harvard.edu/en/36YmkP6/the-nepal-discourse-human-development-ai-and-the-next-generation-of-leadership-5a5YUc2TDOv/overview';
+
 function RevealSection({
   children,
   ...props
@@ -97,28 +100,41 @@ export function ApplyToAttendSection() {
                 </p>
 
                 <h3 id="student-admission">Student Admission</h3>
-                <p id="student-admission-details">
-                  We are working hard to secure additional funding so we can keep the conference
-                  accessible to students. Our goal is to subsidize student tickets by 50%, bringing
-                  the price to $50 per day. Please register for a student ticket and keep an eye out
-                  for the purchase link when it becomes available. Purchases will require a .edu
-                  email, and a valid student ID is required at check-in.
+                <p id="student-admission-intro">
+                  We are pleased to announce that the highly anticipated student tickets are now
+                  available.
+                </p>
+                <p>
+                  <strong>Ticket Link:</strong>
                 </p>
                 <p>
                   <a
-                    href={REGISTRATION_FORM_URL}
+                    href={STUDENT_TICKET_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="apply-story-link"
-                    aria-describedby="student-admission-details"
+                    aria-describedby="student-admission-intro"
                   >
-                    Register for a student ticket to The Nepal Discourse 2026 (.edu email; student ID
-                    at check-in).
+                    The Nepal Discourse — Human Development, AI and the Next Generation of Leadership
+                    (Harvard GSE calendar)
                     <span className="apply-story-external-suffix" aria-hidden="true">
                       {'\u00A0'}
                       <ExternalLink className="apply-story-external-icon" />
                     </span>
                   </a>
+                </p>
+                <p>
+                  To secure your spot, please click the link above to view available ticket tiers.
+                  Then click &ldquo;Register Today,&rdquo; select the Student Ticket option for your
+                  preferred day (Day 1 or Day 2 or both), and complete your details at checkout. Once
+                  your purchase is confirmed, you will receive a confirmation email with the option to
+                  add the event to your calendar. Subsidized tickets are reserved exclusively for
+                  students with a valid .edu email address. This tier is capped at 100 tickets, and
+                  student IDs will be verified at the event.
+                </p>
+                <p>
+                  We highly encourage you to secure your tickets within the next few days before they
+                  sell out.
                 </p>
 
                 <h3 id="vip-patron">VIP Patron Pass</h3>
@@ -129,15 +145,34 @@ export function ApplyToAttendSection() {
                   bag. VIP passes are limited in quantity.
                 </p>
                 <p className="apply-vip-contact">
-                  If you are interested, please reach&nbsp;out to{' '}
-                  <span
-                    className="apply-plain-email"
-                    translate="no"
+                  If you are interested, please reach out to{' '}
+                  <a
+                    href="mailto:info@thenepaldiaspora.com"
+                    className="apply-story-link"
                     {...({ 'x-apple-data-detectors': 'false' } as Record<string, string>)}
                   >
-                    info@thenepaldiscourse.com
-                  </span>{' '}
+                    info@thenepaldiaspora.com
+                  </a>{' '}
                   to inquire about a VIP Patron Pass.
+                </p>
+
+                <h3 id="other-ticket-tiers">Other Ticket Tiers</h3>
+                <p id="hgse-student-ticket">
+                  <strong>HGSE Student Ticket:</strong> Per Harvard guidelines, at least 20 tickets are
+                  reserved strictly for the Harvard Graduate School of Education (HGSE) community.
+                </p>
+
+                <h3 id="event-details-preparation">Event Details and Preparation</h3>
+                <p>
+                  We are also sharing the Onboarding Guide, which includes the run of show featuring
+                  confirmed panelists (subject to last-minute changes). A more detailed handbook will be
+                  shared after your ticket is confirmed.
+                </p>
+
+                <h3 id="important-note">Important Note</h3>
+                <p>
+                  As this is a student-led conference, we are unable to provide travel, visa, or
+                  accommodation support for participants.
                 </p>
               </div>
             </RevealSection>
