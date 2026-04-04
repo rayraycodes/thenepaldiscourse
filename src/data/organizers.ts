@@ -21,6 +21,7 @@ export const organizers: Organizer[] = [
   { name: 'Ang Sonam Sherpa', affiliation: "Harvard '23", imageSrc: '/organizers/angsonamsherpa.jpeg' },
   { name: 'Dr. Bibas Guragai', affiliation: "The University of Tokyo '17", imageSrc: '/organizers/drbibasguragai.png' },
   { name: 'Dr Pradish Poudel', affiliation: "Harvard MS '25", imageSrc: '/organizers/pradishpoudel.jpeg' },
+  { name: 'Bibek Raj Kandel', affiliation: "HKS '24", imageSrc: '/organizers/bibekrajkandel.jpeg' },
   { name: 'Aayushma Gautam', affiliation: "Tufts University '24", imageSrc: '/organizers/aayushmagautam.jpg' },
   { name: 'Samrat Dhungana', affiliation: "Harvard '27", imageSrc: '/organizers/samratdhungana.jpeg' },
   { name: 'Ashmita Gautam', affiliation: "HKS '26", imageSrc: '/organizers/ashmitagautam.jpeg' },
