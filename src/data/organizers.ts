@@ -34,4 +34,9 @@ export const organizers: Organizer[] = [
   { name: 'Sudan Duwadi', affiliation: "Boston University '26", imageSrc: '/organizers/sudanduwadi.png' },
   { name: 'Nabin Poudel', affiliation: "Harvard '25", imageSrc: '/organizers/nabinpoudel.jpeg' },
   { name: 'Sam Adhikari', affiliation: "HBS '28", imageSrc: '/organizers/samadhikari.jpeg' },
+  {
+    name: 'Simran Tamang',
+    affiliation: "Harvard '28",
+    imageSrc: '/organizers/simrantamang.png',
+  },
 ];

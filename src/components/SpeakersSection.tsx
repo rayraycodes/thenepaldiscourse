@@ -13,21 +13,21 @@ const prayerFlagColors = [
 const speakerCategories = [
   {
     icon: Lightbulb,
-    title: 'Keynote Targets',
+    title: 'Panelists',
     description: 'Leading Voices in Governance, Technology, and Global Affairs',
     color: prayerFlagColors[0], // Blue
   },
   {
     icon: GraduationCap,
-    title: 'Harvard Academics',
+    title: 'Harvard and MIT Academics',
     description:
-      'Faculty from the Harvard Graduate School of Education, Harvard Kennedy School, Mittal Institute, and Harvard College',
+      'Faculty from the Harvard Graduate School of Education, Harvard Kennedy School, and MIT',
     color: prayerFlagColors[1], // Yellow
   },
   {
     icon: Users,
-    title: 'Policy Stakeholders',
-    description: 'Senior Policymakers in National Planning, Education, and Technology',
+    title: 'Senior Policymakers from Nepal',
+    description: 'In national planning, education, and technology',
     color: prayerFlagColors[2], // Red
   },
   {
@@ -43,7 +43,7 @@ export function SpeakersSection() {
   const isInView = useInView(ref, { once: true, margin: '-100px' });
 
   return (
-    <section id="speakers" ref={ref} className="py-24 px-6 lg:px-12">
+    <section id="speaker-themes" ref={ref} className="py-24 px-6 lg:px-12">
       <div className="max-w-[1200px] mx-auto">
         <motion.h2
           className="text-3xl md:text-4xl font-serif mb-16 text-center"

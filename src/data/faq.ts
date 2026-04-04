@@ -35,7 +35,7 @@ export const faqCategories: FAQCategory[] = [
         id: 'open-to-public',
         question: 'Is the event open to the public?',
         answer:
-          'The Nepal Discourse is an invitation-only conference. Participation requires either a formal invitation or a form submission through the official Request an Invitation process form on our website.',
+          'Due to overwhelming requests from our community members, we have increased the number of attendees through ticketing. Please purchase your tickets to secure your spot to be part of this historic conversation.',
       },
       {
         id: 'core-themes',

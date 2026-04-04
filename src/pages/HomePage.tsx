@@ -6,6 +6,7 @@ import { Countdown } from '../components/Countdown';
 import { CrisisSection } from '../components/CrisisSection';
 import { StrategicFramework } from '../components/StrategicFramework';
 import { SpeakersSection } from '../components/SpeakersSection';
+import { FeaturedSpeakersSection } from '../components/FeaturedSpeakersSection';
 import { OrganizersSection } from '../components/OrganizersSection';
 import { Project2035Section } from '../components/Project2035Section';
 import { AgendaSection } from '../components/AgendaSection';
@@ -36,6 +37,7 @@ export function HomePage() {
       <CrisisSection />
       <StrategicFramework />
       <SpeakersSection />
+      <FeaturedSpeakersSection />
       <OrganizersSection />
       <Project2035Section />
       <AgendaSection />

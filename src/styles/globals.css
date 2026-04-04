@@ -43,6 +43,9 @@
   --sidebar-ring: oklch(0.708 0 0);
   /* Fixed primary nav uses h-20 (= 5rem at default root font size) */
   --nav-bar-height: 5rem;
+  /* Speaker flip face stays #fff in all themes; dark text ≥7:1 vs white (WCAG 2.1 AAA 1.4.6) */
+  --speaker-flip-name: #121212;
+  --speaker-flip-title: #454545;
 }
 
 .dark {
@@ -1429,4 +1432,329 @@ body {
   [data-slot="accordion-trigger"] svg {
     transition: none !important;
   }
+
+  .speaker-card,
+  .speaker-card-inner {
+    transition: none !important;
+  }
+
+  @media (hover: hover) and (pointer: fine) {
+    .speaker-card:hover {
+      transform: none;
+    }
+  }
+
+  .speaker-card.is-flipped {
+    transform: none;
+  }
+}
+
+/* ==========================================================================
+   Featured Speakers – 3D flip bubbles, organic desktop layout
+   ========================================================================== */
+
+.featured-speakers-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(1.35rem, 4vw, 2rem) clamp(1rem, 3vw, 1.5rem);
+  justify-items: center;
+  align-items: start;
+  width: 100%;
+  max-width: none;
+}
+
+.featured-speakers-item {
+  position: relative;
+  /* Perspective on this wrapper (not the interactive surface) improves 3D flip painting in WebKit */
+  perspective: 1100px;
+}
+
+/* iPhone / narrow phones: 2×2 grid, smaller portraits, larger type on flip */
+@media (max-width: 639px) {
+  .featured-speakers-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: 100%;
+    max-width: none;
+    column-gap: clamp(0.5rem, 2.5vw, 0.85rem);
+    row-gap: clamp(0.85rem, 3.5vw, 1.25rem);
+    justify-items: center;
+    align-items: start;
+  }
+
+  .featured-speakers-item {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+/* Tablet: two columns, wider track */
+@media (min-width: 640px) and (max-width: 1023px) {
+  .featured-speakers-list {
+    width: 100%;
+    max-width: none;
+    gap: 2rem 1.75rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Grid instead of absolute positions — avoids face overlap at any count */
+  .featured-speakers-stage {
+    position: relative;
+    min-height: 0;
+    padding-block: clamp(0.75rem, 2vw, 1.5rem);
+  }
+
+  .featured-speakers-list {
+    display: grid;
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+    gap: clamp(1.75rem, 3vw, 3rem) clamp(1.25rem, 2.5vw, 2rem);
+    width: 100%;
+    max-width: none;
+    min-height: 0;
+    justify-items: center;
+    align-items: center;
+  }
+
+  .featured-speakers-item {
+    display: block;
+    position: relative;
+    width: max-content;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+  }
+
+  /* Slight tilt per cell — repeats each row of 6 */
+  .featured-speakers-item:nth-child(6n + 1) {
+    transform: rotate(-5deg);
+  }
+  .featured-speakers-item:nth-child(6n + 2) {
+    transform: rotate(4deg);
+  }
+  .featured-speakers-item:nth-child(6n + 3) {
+    transform: rotate(5deg);
+  }
+  .featured-speakers-item:nth-child(6n + 4) {
+    transform: rotate(-4deg);
+  }
+  .featured-speakers-item:nth-child(6n + 5) {
+    transform: rotate(5deg);
+  }
+  .featured-speakers-item:nth-child(6n + 6) {
+    transform: rotate(-4deg);
+  }
+}
+
+.speaker-card {
+  --speaker-bubble: 6.75rem;
+  --speaker-motion-duration: 0.42s;
+  --speaker-motion-ease: cubic-bezier(0.16, 1, 0.3, 1);
+  display: block;
+  width: var(--speaker-bubble);
+  height: var(--speaker-bubble);
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  position: relative;
+  z-index: 1;
+  border-radius: 50%;
+  transition:
+    transform var(--speaker-motion-duration) var(--speaker-motion-ease),
+    z-index 0s linear;
+  line-height: 0;
+  box-sizing: border-box;
+}
+
+@media (max-width: 639px) {
+  .speaker-card {
+    --speaker-bubble: min(
+      7.95rem,
+      calc(
+        (
+            100vw - 1.25rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)
+          ) /
+          2 -
+          0.45rem
+      )
+    );
+  }
+
+  .speaker-card-back {
+    padding: clamp(0.48rem, 3vw, 0.78rem);
+  }
+
+  .speaker-card-back-text {
+    gap: 0.34rem;
+    padding-inline: 0.1rem;
+  }
+
+  .speaker-card-name {
+    font-size: clamp(1.05rem, 5.2vw, 1.28rem);
+    line-height: 1.32;
+    letter-spacing: -0.014em;
+  }
+
+  .speaker-card-title {
+    font-size: clamp(0.975rem, 4.5vw, 1.16rem);
+    line-height: 1.44;
+    max-width: 100%;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .speaker-card.is-flipped {
+    transform: scale(1.04);
+  }
+}
+
+@media (min-width: 640px) and (max-width: 1023px) {
+  .speaker-card {
+    --speaker-bubble: min(10rem, calc((100vw - 5rem) / 2 - 0.75rem));
+  }
+
+  .speaker-card-back {
+    padding: clamp(0.5rem, 1.75vw, 0.9rem);
+  }
+
+  .speaker-card-name {
+    font-size: clamp(0.75rem, 2.1vmin, 0.95rem);
+    line-height: 1.36;
+  }
+
+  .speaker-card-title {
+    font-size: clamp(0.6875rem, 1.85vmin, 0.8125rem);
+    line-height: 1.48;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (min-width: 1024px) {
+  .speaker-card {
+    /* Six per row: shrink on narrower desktops so circles don’t collide */
+    --speaker-bubble: min(
+      10.75rem,
+      calc(
+        (
+            100vw - 6rem - 5 * clamp(1.25rem, 2.5vw, 2rem) -
+              env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px)
+          ) /
+          6 -
+          0.125rem
+      )
+    );
+  }
+}
+
+/* Spans are inline by default — without block, height:100% is ignored and the box
+   collapses when both faces are position:absolute (no in-flow content). */
+.speaker-card-inner {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 100%;
+  transform-style: preserve-3d;
+  transition: transform var(--speaker-motion-duration) var(--speaker-motion-ease);
+  border-radius: 50%;
+}
+
+.speaker-card-front,
+.speaker-card-back {
+  display: block;
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  overflow: hidden;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+.speaker-card-front {
+  transform: rotateY(0deg);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+}
+
+.speaker-card-back {
+  transform: rotateY(180deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(0.4rem, 1.5vw, 0.85rem);
+  box-sizing: border-box;
+  background: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.14);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+.speaker-card-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.speaker-card-back-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  gap: 0.35rem;
+  max-width: 100%;
+}
+
+.speaker-card-name {
+  font-weight: 700;
+  color: var(--speaker-flip-name);
+  font-size: clamp(0.65rem, 2.4vmin, 0.95rem);
+  line-height: 1.35;
+  text-wrap: balance;
+}
+
+.speaker-card-title {
+  color: var(--speaker-flip-title);
+  font-size: clamp(0.55rem, 2vmin, 0.78rem);
+  line-height: 1.45;
+  font-weight: 500;
+  text-wrap: balance;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .speaker-card:hover {
+    z-index: 50;
+    transform: scale(1.12);
+  }
+
+  .speaker-card:hover .speaker-card-inner {
+    transform: rotateY(180deg);
+  }
+}
+
+.speaker-card.is-flipped {
+  z-index: 50;
+  transform: scale(1.12);
+}
+
+.speaker-card.is-flipped .speaker-card-inner {
+  transform: rotateY(180deg);
+}
+
+.speaker-card:focus-visible {
+  outline: 2px solid #dc143c;
+  outline-offset: 4px;
 }
