@@ -6,11 +6,12 @@ import {
   type KeyboardEvent,
 } from 'react';
 import { motion, useInView } from 'motion/react';
+import { ChevronDown } from 'lucide-react';
 
 const FINE_POINTER_HOVER_MQ = '(hover: hover) and (pointer: fine)';
-/** Align with Tailwind `md` (768px): collapse long grid only below md */
-const MOBILE_SPEAKERS_GRID_MQ = '(max-width: 767px)';
-const MOBILE_SPEAKERS_INITIAL_COUNT = 6;
+/** Below Tailwind `lg` (1024px): 2-col grid — collapse long roster before desktop 6-col */
+const NARROW_SPEAKERS_GRID_MQ = '(max-width: 1023px)';
+const SPEAKERS_PREVIEW_COUNT = 10;
 
 function subscribeFinePointerHover(onChange: () => void) {
   const mq = window.matchMedia(FINE_POINTER_HOVER_MQ);
@@ -26,21 +27,21 @@ function usePrefersFinePointerHover() {
   return useSyncExternalStore(subscribeFinePointerHover, getFinePointerHoverSnapshot, () => false);
 }
 
-function subscribeMobileSpeakersGrid(onChange: () => void) {
-  const mq = window.matchMedia(MOBILE_SPEAKERS_GRID_MQ);
+function subscribeNarrowSpeakersGrid(onChange: () => void) {
+  const mq = window.matchMedia(NARROW_SPEAKERS_GRID_MQ);
   mq.addEventListener('change', onChange);
   return () => mq.removeEventListener('change', onChange);
 }
 
-function getMobileSpeakersGridSnapshot() {
-  return window.matchMedia(MOBILE_SPEAKERS_GRID_MQ).matches;
+function getNarrowSpeakersGridSnapshot() {
+  return window.matchMedia(NARROW_SPEAKERS_GRID_MQ).matches;
 }
 
-/** True when featured speaker grid uses narrow (2-col) layout */
-function useMobileFeaturedSpeakersGrid() {
+/** True when featured speaker grid uses narrow (2-col) layout — not desktop 6-col */
+function useNarrowFeaturedSpeakersGrid() {
   return useSyncExternalStore(
-    subscribeMobileSpeakersGrid,
-    getMobileSpeakersGridSnapshot,
+    subscribeNarrowSpeakersGrid,
+    getNarrowSpeakersGridSnapshot,
     () => false,
   );
 }
@@ -159,22 +160,20 @@ export function FeaturedSpeakersSection() {
   const sectionRef = useRef(null);
   const isInView = useInView(sectionRef, { once: true, margin: '-100px' });
   const [flippedId, setFlippedId] = useState<string | null>(null);
-  const [mobileShowAllSpeakers, setMobileShowAllSpeakers] = useState(false);
+  const [narrowGridShowAllSpeakers, setNarrowGridShowAllSpeakers] = useState(false);
   const prefersHover = usePrefersFinePointerHover();
-  const isMobileGrid = useMobileFeaturedSpeakersGrid();
+  const isNarrowGrid = useNarrowFeaturedSpeakersGrid();
 
-  const needsMobileMoreSpeakers =
-    isMobileGrid && speakers.length > MOBILE_SPEAKERS_INITIAL_COUNT;
+  const previewCount = Math.min(SPEAKERS_PREVIEW_COUNT, speakers.length);
+  const hiddenSpeakersCount = Math.max(0, speakers.length - previewCount);
+
+  const needsShowMoreSpeakers =
+    isNarrowGrid && hiddenSpeakersCount > 0;
 
   const visibleSpeakers =
-    needsMobileMoreSpeakers && !mobileShowAllSpeakers
-      ? speakers.slice(0, MOBILE_SPEAKERS_INITIAL_COUNT)
+    needsShowMoreSpeakers && !narrowGridShowAllSpeakers
+      ? speakers.slice(0, previewCount)
       : speakers;
-
-  const hiddenMobileSpeakersCount = Math.max(
-    0,
-    speakers.length - MOBILE_SPEAKERS_INITIAL_COUNT,
-  );
 
   const handleCardActivate = useCallback(
     (id: string) => {
@@ -255,20 +254,35 @@ export function FeaturedSpeakersSection() {
             })}
           </ul>
 
-          {needsMobileMoreSpeakers ? (
-            <div className="flex justify-center mt-10 md:hidden">
+          {needsShowMoreSpeakers ? (
+            <div className="featured-speakers-more-wrap lg:hidden">
               <button
                 type="button"
-                className="border border-border bg-background px-6 py-3 text-sm font-medium tracking-wide text-foreground hover:border-foreground/25 hover:bg-muted/40 transition-colors duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)]"
-                aria-expanded={mobileShowAllSpeakers}
+                className="featured-speakers-more-btn"
+                aria-expanded={narrowGridShowAllSpeakers}
                 aria-controls="featured-speakers-list"
                 onClick={() => {
-                  setMobileShowAllSpeakers((open) => !open);
+                  setNarrowGridShowAllSpeakers((open) => !open);
                 }}
               >
-                {mobileShowAllSpeakers
-                  ? 'Show fewer speakers'
-                  : `Show ${hiddenMobileSpeakersCount} more speakers`}
+                <span className="featured-speakers-more-btn__row">
+                  <span className="featured-speakers-more-btn__label">
+                    {narrowGridShowAllSpeakers
+                      ? 'Show fewer speakers'
+                      : `Show ${hiddenSpeakersCount} more ${hiddenSpeakersCount === 1 ? 'speaker' : 'speakers'}`}
+                  </span>
+                  <ChevronDown
+                    className={`featured-speakers-more-btn__chevron${narrowGridShowAllSpeakers ? ' featured-speakers-more-btn__chevron--open' : ''}`}
+                    size={20}
+                    strokeWidth={2}
+                    aria-hidden
+                  />
+                </span>
+                <span className="featured-speakers-more-btn__meta">
+                  {narrowGridShowAllSpeakers
+                    ? `Showing all ${speakers.length} featured speakers`
+                    : `${hiddenSpeakersCount} executives & leaders not shown · ${speakers.length} total`}
+                </span>
               </button>
             </div>
           ) : null}
