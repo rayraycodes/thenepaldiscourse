@@ -5,7 +5,7 @@ export type Organizer = {
   imageSrc: string | null;
 };
 
-/** Order: hosting entities (GSE → MiTeri → …) per organizing team; `imageSrc` null uses initials fallback */
+/** Hosting cohort first; from Regan, order per lead-team sequence; then remaining members */
 export const organizers: Organizer[] = [
   { name: 'Salome Bhatta', affiliation: "Harvard GSE '24", imageSrc: '/organizers/salomebhatta.jpeg' },
   { name: 'Utsav Kharel', affiliation: "Harvard GSE '26", imageSrc: '/organizers/utsavkharel.jpeg' },
@@ -18,20 +18,20 @@ export const organizers: Organizer[] = [
   },
   { name: 'Nirupama Roka Magar', affiliation: "Harvard '24", imageSrc: '/organizers/nirupamarokamagar.jpeg' },
   { name: 'Regan Maharjan', affiliation: "UMich '25", imageSrc: '/organizers/reganmaharjan.jpeg' },
-  { name: 'Nabin Poudel', affiliation: "Harvard '25", imageSrc: '/organizers/nabinpoudel.jpeg' },
   { name: 'Ang Sonam Sherpa', affiliation: "Harvard '23", imageSrc: '/organizers/angsonamsherpa.jpeg' },
+  { name: 'Dr. Bibas Guragai', affiliation: "The University of Tokyo '17", imageSrc: '/organizers/drbibasguragai.png' },
   { name: 'Dr Pradish Poudel', affiliation: "Harvard MS '25", imageSrc: '/organizers/pradishpoudel.jpeg' },
-  { name: 'Sam Adhikari', affiliation: "HBS '28", imageSrc: '/organizers/samadhikari.jpeg' },
-  { name: 'Ashmita Gautam', affiliation: "HKS '26", imageSrc: '/organizers/ashmitagautam.jpeg' },
   { name: 'Bibek Raj Kandel', affiliation: "HKS '24", imageSrc: '/organizers/bibekrajkandel.jpeg' },
+  { name: 'Aayushma Gautam', affiliation: "Tufts University '24", imageSrc: '/organizers/aayushmagautam.jpg' },
   { name: 'Samrat Dhungana', affiliation: "Harvard '27", imageSrc: '/organizers/samratdhungana.jpeg' },
+  { name: 'Ashmita Gautam', affiliation: "HKS '26", imageSrc: '/organizers/ashmitagautam.jpeg' },
   {
     name: 'Prajjawal Jung Pratap Singh',
     affiliation: "Northeastern '26",
     imageSrc: '/organizers/prajjawaljungpratapsingh.jpeg',
   },
   { name: 'Yumi Parajuli', affiliation: "Idaho State University '21", imageSrc: '/organizers/yumiparajuli.png' },
-  { name: 'Dr. Bibas Guragai', affiliation: "The University of Tokyo '17", imageSrc: '/organizers/drbibasguragai.png' },
   { name: 'Sudan Duwadi', affiliation: "Boston University '26", imageSrc: '/organizers/sudanduwadi.png' },
-  { name: 'Aayushma Gautam', affiliation: "Tufts University '24", imageSrc: '/organizers/aayushmagautam.jpg' },
+  { name: 'Nabin Poudel', affiliation: "Harvard '25", imageSrc: '/organizers/nabinpoudel.jpeg' },
+  { name: 'Sam Adhikari', affiliation: "HBS '28", imageSrc: '/organizers/samadhikari.jpeg' },
 ];

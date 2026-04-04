@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { Calendar, MapPin, Users } from 'lucide-react';
 
@@ -87,20 +86,14 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
-          <a 
-            href="https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo" 
-            target="_blank" 
+          <a
+            href="https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo"
+            target="_blank"
             rel="noopener noreferrer"
-            className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center"
-          >
-            Request an Invitation
-          </a>
-          <Link
-            to="/apply"
-            className="px-8 py-4 border-2 border-[#DC143C] text-[#DC143C] font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-md ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center no-underline"
+            className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center no-underline"
           >
             Apply to Attend
-          </Link>
+          </a>
         </motion.div>
       </div>
     </section>

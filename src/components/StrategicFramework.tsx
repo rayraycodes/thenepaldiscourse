@@ -29,7 +29,7 @@ const pillars = [
   },
   {
     number: 'Pillar II',
-    title: 'Adaptive Leadership',
+    title: 'Next Generation Leadership',
     subtitle: 'Leadership in a Changing World Order',
     description:
       'Develop ethical and intellectual standards for leadership capable of navigating geopolitical uncertainty, economic shifts, and digital power dynamics.',
@@ -48,7 +48,7 @@ const pillars = [
         subtitle: 'Institutional Leadership in the Digital Age',
       },
       {
-        title: 'Breakout 3: Adaptive Leadership',
+        title: 'Breakout 3: Next Generation Leadership',
         subtitle: 'Decision-Making Under Digital Duress',
       },
     ],
