@@ -151,11 +151,11 @@ export function ApplyToAttendSection() {
                 <p className="apply-vip-contact">
                   If you are interested, please reach out to{' '}
                   <a
-                    href="mailto:info@thenepaldiaspora.com"
+                    href="mailto:info@thenepaldiscourse.com"
                     className="apply-story-link"
                     {...({ 'x-apple-data-detectors': 'false' } as Record<string, string>)}
                   >
-                    info@thenepaldiaspora.com
+                    info@thenepaldiscourse.com
                   </a>{' '}
                   to inquire about a VIP Patron Pass.
                 </p>
@@ -194,11 +194,11 @@ export function ApplyToAttendSection() {
                 <p className="apply-important-contact">
                   For ticketing or access questions, contact{' '}
                   <a
-                    href="mailto:info@thenepaldiaspora.com"
+                    href="mailto:info@thenepaldiscourse.com"
                     className="apply-story-link"
                     {...({ 'x-apple-data-detectors': 'false' } as Record<string, string>)}
                   >
-                    info@thenepaldiaspora.com
+                    info@thenepaldiscourse.com
                   </a>
                   .
                 </p>
