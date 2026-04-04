@@ -40,10 +40,10 @@ function PageHeader() {
       <p className="our-story-eyebrow">The Nepal Discourse 2026</p>
       <div className="our-story-title-block">
         <h1
-          id="apply-heading"
+          id="tickets-heading"
           className="our-story-h1 font-serif font-semibold leading-[1.12] text-[#1A1A1A] m-0"
         >
-          Apply to Attend
+          Tickets
         </h1>
       </div>
     </motion.header>
@@ -58,7 +58,7 @@ export function ApplyToAttendSection() {
         <div className="our-story-inner">
           <article
             className="our-story-article w-full max-w-full min-w-0 px-4 sm:px-8"
-            aria-labelledby="apply-heading"
+            aria-labelledby="tickets-heading"
           >
             <PageHeader />
 
@@ -87,6 +87,13 @@ export function ApplyToAttendSection() {
                       <ExternalLink className="apply-story-external-icon" />
                     </span>
                   </a>
+                </p>
+                <p>
+                  To secure your spot, please click the link above to view available ticket tiers.
+                  Then click &ldquo;Register Today,&rdquo; select the Standard Ticket option for your
+                  preferred day (Day 1 or Day 2 or both), and complete your details at checkout. Once
+                  your purchase is confirmed, you will receive a confirmation email with the option to
+                  add the event to your calendar.
                 </p>
 
                 <h3 id="student-admission">Student Admission</h3>

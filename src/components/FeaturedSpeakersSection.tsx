@@ -12,6 +12,8 @@ const FINE_POINTER_HOVER_MQ = '(hover: hover) and (pointer: fine)';
 /** Below Tailwind `lg` (1024px): 2-col grid — collapse long roster before desktop 6-col */
 const NARROW_SPEAKERS_GRID_MQ = '(max-width: 1023px)';
 const SPEAKERS_PREVIEW_COUNT = 10;
+/** Planned lineup size; remaining slots shown under the section title */
+const FEATURED_SPEAKERS_PLANNED_TOTAL = 40;
 
 function subscribeFinePointerHover(onChange: () => void) {
   const mq = window.matchMedia(FINE_POINTER_HOVER_MQ);
@@ -175,6 +177,11 @@ export function FeaturedSpeakersSection() {
       ? speakers.slice(0, previewCount)
       : speakers;
 
+  const upcomingSpeakersSlots = Math.max(
+    0,
+    FEATURED_SPEAKERS_PLANNED_TOTAL - speakers.length,
+  );
+
   const handleCardActivate = useCallback(
     (id: string) => {
       if (prefersHover) return;
@@ -200,13 +207,26 @@ export function FeaturedSpeakersSection() {
     >
       <div className="w-full">
         <motion.h2
-          className="text-3xl md:text-4xl font-serif mb-16 text-center"
+          className={`text-3xl md:text-4xl font-serif text-center ${
+            upcomingSpeakersSlots > 0 ? 'mb-4' : 'mb-12 md:mb-16'
+          }`}
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.52, ease: [0.16, 1, 0.3, 1] }}
         >
           Featured Speakers
         </motion.h2>
+        {upcomingSpeakersSlots > 0 ? (
+          <motion.p
+            className="text-center text-muted-foreground text-base md:text-lg leading-relaxed max-w-2xl mx-auto mb-12 md:mb-16 px-1"
+            initial={{ opacity: 0, y: 12 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 12 }}
+            transition={{ duration: 0.48, delay: 0.06, ease: [0.16, 1, 0.3, 1] }}
+          >
+            {upcomingSpeakersSlots} more speaker{upcomingSpeakersSlots !== 1 ? 's' : ''} will be
+            announced — {speakers.length} of {FEATURED_SPEAKERS_PLANNED_TOTAL} confirmed so far.
+          </motion.p>
+        ) : null}
 
         {/* Plain div: avoid opacity gating + Safari/WebKit often paints 3D flip incorrectly inside <button> */}
         <div

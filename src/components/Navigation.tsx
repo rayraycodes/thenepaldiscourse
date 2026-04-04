@@ -7,9 +7,9 @@ type NavSection = { kind: 'section'; label: string; id: string };
 type NavPage = { kind: 'page'; label: string; path: string };
 
 const navItems: (NavSection | NavPage)[] = [
-  { kind: 'section', label: 'Agenda', id: 'agenda' },
+  { kind: 'section', label: 'Speakers', id: 'speakers' },
   { kind: 'section', label: 'Team', id: 'organizers' },
-  { kind: 'page', label: 'Ticket Information', path: '/apply' },
+  { kind: 'page', label: 'Tickets', path: '/apply' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
   { kind: 'page', label: 'Transparency', path: '/transparency' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
