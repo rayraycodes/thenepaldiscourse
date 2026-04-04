@@ -598,6 +598,36 @@ body {
   vertical-align: -0.14em;
 }
 
+/* Apply page: embedded onboarding PDF + download */
+.apply-onboarding-fallback-hint {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: var(--muted-foreground);
+  margin-block-end: 0.85em;
+}
+
+.apply-onboarding-pdf-shell {
+  margin-block: 0.85rem 1.1rem;
+  border-radius: 0.5rem;
+  border: 1px solid color-mix(in srgb, var(--foreground) 14%, transparent);
+  overflow: hidden;
+  background: color-mix(in srgb, var(--card) 88%, var(--muted-foreground) 12%);
+  box-shadow: 0 1px 2px color-mix(in srgb, var(--foreground) 8%, transparent);
+}
+
+.apply-onboarding-pdf-iframe {
+  display: block;
+  width: 100%;
+  height: min(72vh, 52rem);
+  min-height: 20rem;
+  border: 0;
+  background: transparent;
+}
+
+.apply-onboarding-download-wrap {
+  margin-block-start: 0.35rem;
+}
+
 /* Apply / ticket information page: narrow screens */
 @media (max-width: 29.9375rem) {
   .our-story-layout--apply .our-story-hero {
@@ -1642,16 +1672,6 @@ body {
 
 .featured-speakers-more-btn__chevron--open {
   transform: rotate(180deg);
-}
-
-.featured-speakers-more-btn__meta {
-  font-size: 0.72rem;
-  line-height: 1.45;
-  letter-spacing: 0.06em;
-  text-transform: uppercase;
-  color: var(--muted-foreground);
-  text-align: center;
-  max-width: 18rem;
 }
 
 .speaker-card {

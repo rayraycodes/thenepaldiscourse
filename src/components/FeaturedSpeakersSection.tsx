@@ -4,6 +4,7 @@ import {
   useState,
   useSyncExternalStore,
   type KeyboardEvent,
+  type SyntheticEvent,
 } from 'react';
 import { motion, useInView } from 'motion/react';
 import { ChevronDown } from 'lucide-react';
@@ -156,7 +157,77 @@ const speakers: Speaker[] = [
     title: 'Founder & CEO, Xuno',
     image: '/speakers/balkrishnajoshi.jpeg',
   },
+  {
+    id: 'karvika-thapa',
+    name: 'Karvika Thapa',
+    title: 'CEO, Kimbu Tech',
+    image: '/speakers/karvikathapa.png',
+  },
+  {
+    id: 'prasanna-dhungel',
+    name: 'Prasanna Dhungel',
+    title: 'Co-Founder, Grow by Data',
+    image: '/speakers/prasannadhungel.png',
+  },
+  {
+    id: 'semanta-dahal',
+    name: 'Semanta Dahal',
+    title: 'Advocate and Partner, Abhinawa Law Chambers',
+    image: '/speakers/semantadahal.png',
+  },
+  {
+    id: 'michael-p-foley',
+    name: 'Michael P. Foley',
+    title: 'CEO, Ncell',
+    image: '/speakers/michaelpfoley.jpg',
+  },
+  {
+    id: 'dadhiram-bhandari',
+    name: 'Dadhiram Bhandari',
+    title: 'Consul General of Nepal',
+    image: '/speakers/dadhirambhandari.jpeg',
+  },
+  {
+    id: 'hitesh-hathi',
+    name: 'Hitesh Hathi',
+    title: 'Executive Director, Harvard South Asia Institute',
+    image: '/speakers/hiteshhathi.jpg',
+  },
+  {
+    id: 'sharad-aryan',
+    name: 'Sharad Aryan',
+    title: 'Embassy of Nepal, USA',
+    image: '/speakers/sharadaryan.jpg',
+  },
+  {
+    id: 'rakshya-bam',
+    name: 'Rakshya Bam',
+    title: 'Youth Activist',
+    image: '/speakers/rakshyabam.png',
+  },
+  {
+    id: 'swastika-shrestha',
+    name: 'Swastika Shrestha',
+    title: 'CEO, Teach for Nepal',
+    image: '/speakers/swastikashrestha.jpg',
+  },
+  {
+    id: 'arun-r-joshi',
+    name: 'Dr. Arun R. Joshi',
+    title: 'CEO, Leadership Academy Nepal; Distinguished Fellow, IIDS',
+    image: '/speakers/arunjoshi.png',
+  },
 ];
+
+/** Fallback when a headshot file is missing from /public/speakers/ */
+const SPEAKER_PHOTO_PLACEHOLDER = '/speakers/speaker-photo-placeholder.svg';
+
+function onSpeakerPhotoError(e: SyntheticEvent<HTMLImageElement>) {
+  const img = e.currentTarget;
+  if (img.dataset.fallbackApplied === '1') return;
+  img.dataset.fallbackApplied = '1';
+  img.src = SPEAKER_PHOTO_PLACEHOLDER;
+}
 
 export function FeaturedSpeakersSection() {
   const sectionRef = useRef(null);
@@ -259,6 +330,7 @@ export function FeaturedSpeakersSection() {
                           loading="lazy"
                           decoding="async"
                           className="speaker-card-photo"
+                          onError={onSpeakerPhotoError}
                         />
                       </span>
                       <span className="speaker-card-back">
@@ -297,11 +369,6 @@ export function FeaturedSpeakersSection() {
                     strokeWidth={2}
                     aria-hidden
                   />
-                </span>
-                <span className="featured-speakers-more-btn__meta">
-                  {narrowGridShowAllSpeakers
-                    ? `Showing all ${speakers.length} featured speakers`
-                    : `${hiddenSpeakersCount} executives & leaders not shown · ${speakers.length} total`}
                 </span>
               </button>
             </div>
