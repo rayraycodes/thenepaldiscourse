@@ -4,10 +4,8 @@ import { motion, useInView, useReducedMotion } from 'motion/react';
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
 
-const REGISTRATION_FORM_URL =
-  'https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo';
-
-const STUDENT_TICKET_URL =
+/** Harvard GSE calendar — general and student ticket tiers */
+const HARVARD_GSE_EVENT_URL =
   'https://calendar.gse.harvard.edu/en/36YmkP6/the-nepal-discourse-human-development-ai-and-the-next-generation-of-leadership-5a5YUc2TDOv/overview';
 
 const ONBOARDING_PDF_PATH = '/onboarding.pdf';
@@ -82,7 +80,7 @@ export function ApplyToAttendSection() {
                 </p>
                 <p>
                   <a
-                    href={REGISTRATION_FORM_URL}
+                    href={HARVARD_GSE_EVENT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="apply-story-link"
@@ -113,7 +111,7 @@ export function ApplyToAttendSection() {
                 </p>
                 <p>
                   <a
-                    href={STUDENT_TICKET_URL}
+                    href={HARVARD_GSE_EVENT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="apply-story-link"
