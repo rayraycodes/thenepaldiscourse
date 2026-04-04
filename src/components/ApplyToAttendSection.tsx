@@ -128,7 +128,7 @@ export function ApplyToAttendSection() {
                     translate="no"
                     {...({ 'x-apple-data-detectors': 'false' } as Record<string, string>)}
                   >
-                    info@thenepaldiaspora.com
+                    info@thenepaldiscourse.com
                   </span>{' '}
                   to inquire about a VIP Patron Pass.
                 </p>
