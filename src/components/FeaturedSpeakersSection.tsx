@@ -182,22 +182,16 @@ const speakers: Speaker[] = [
     image: '/speakers/michaelpfoley.jpg',
   },
   {
-    id: 'dadhiram-bhandari',
-    name: 'Dadhiram Bhandari',
-    title: 'Consul General of Nepal',
-    image: '/speakers/dadhirambhandari.jpeg',
+    id: 'sharad-raj-aran',
+    name: 'Sharad Raj Aran',
+    title: 'Embassy of Nepal, USA',
+    image: '/speakers/sharadaryan.jpg',
   },
   {
     id: 'hitesh-hathi',
     name: 'Hitesh Hathi',
     title: 'Executive Director, Harvard South Asia Institute',
     image: '/speakers/hiteshhathi.jpg',
-  },
-  {
-    id: 'sharad-aryan',
-    name: 'Sharad Aryan',
-    title: 'Embassy of Nepal, USA',
-    image: '/speakers/sharadaryan.jpg',
   },
   {
     id: 'rakshya-bam',
