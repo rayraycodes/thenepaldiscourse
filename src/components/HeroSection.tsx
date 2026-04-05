@@ -87,7 +87,7 @@ export function HeroSection() {
           transition={{ duration: 0.26, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}
         >
           <a
-            href="https://harvard.az1.qualtrics.com/jfe/form/SV_4Iu7svN4Y3gAaRo"
+            href="https://calendar.gse.harvard.edu/en/36YmkP6/the-nepal-discourse-human-development-ai-and-the-next-generation-of-leadership-5a5YUc2TDOv/overview"
             target="_blank"
             rel="noopener noreferrer"
             className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center no-underline"
