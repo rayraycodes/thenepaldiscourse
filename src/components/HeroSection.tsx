@@ -92,7 +92,7 @@ export function HeroSection() {
             rel="noopener noreferrer"
             className="px-8 py-4 bg-[#DC143C] text-background font-medium transition-all duration-[180ms] hover:-translate-y-0.5 hover:shadow-lg ease-[cubic-bezier(0.16,1,0.3,1)] inline-block text-center no-underline"
           >
-            Apply to Attend
+            Get Your Tickets
           </a>
         </motion.div>
       </div>
