@@ -1,12 +1,7 @@
 import { useRef, type ComponentPropsWithoutRef } from 'react';
 import { motion, useInView, useReducedMotion } from 'motion/react';
-
-const STORY_PILLARS = [
-  { number: 'Pillar I', title: 'AI and the Future of Work' },
-  { number: 'Pillar II', title: 'The Next Generation of Leadership' },
-  { number: 'Pillar III', title: 'Resilient Institutions' },
-  { number: 'Pillar IV', title: 'The Diaspora' },
-] as const;
+import { STRATEGIC_PILLARS } from '../data/strategicPillars';
+import { PillarCard } from './PillarCard';
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
 
@@ -81,6 +76,31 @@ function SectionRule({ extraBelow }: { extraBelow?: boolean }) {
       className={extraBelow ? 'our-story-divider our-story-divider--loose' : 'our-story-divider'}
       aria-hidden="true"
     />
+  );
+}
+
+/** Same expandable cards as home Strategic Framework */
+function OurStoryStrategicPillars() {
+  const ref = useRef<HTMLElement>(null);
+  const isInView = useInView(ref, { once: true, margin: '-100px' });
+
+  return (
+    <section
+      ref={ref}
+      className="w-full max-w-[1200px] mx-auto pt-12 md:pt-20 space-y-6"
+      aria-label="Four pillars of the first convening"
+    >
+      {STRATEGIC_PILLARS.map((pillar, index) => (
+        <PillarCard
+          key={pillar.number}
+          {...pillar}
+          delay={index * 0.1}
+          isInView={isInView}
+          showSessions={false}
+          showDescriptionAndOutcome={false}
+        />
+      ))}
+    </section>
   );
 }
 
@@ -164,7 +184,7 @@ export function OurStorySection() {
                 we need to be proactive about technology to bridge growing disparities? The
                 answer was a resounding no. Perhaps this is &apos;the Nepal Moment.&apos;
               </p>
-              <blockquote className="our-story-pull-quote">
+              <blockquote className="our-story-pull-quote our-story-pull-quote--harvard">
                 <p className="m-0 p-0 text-inherit leading-inherit">
                   Can we really afford to wait ten years?
                 </p>
@@ -193,7 +213,7 @@ export function OurStorySection() {
               <h2 id="section-concept" className="!mt-0">
                 From Concept to Collaboration
               </h2>
-              <p>
+              <p className="our-story-key-pillars-lede">
                 Treating their vision like a startup, they drafted a concept note as a
                 minimum viable product (MVP) and shared it with their peers from other
                 schools, alumni and professors for rigorous feedback. Guided further by
@@ -207,19 +227,7 @@ export function OurStorySection() {
               </p>
             </div>
 
-            <div className="our-story-pillar-panel">
-              <ul
-                className="our-story-pillar-list"
-                aria-label="Four pillars of the first convening"
-              >
-                {STORY_PILLARS.map((pillar) => (
-                  <li key={pillar.number}>
-                    <p className="our-story-pillar-list-label">{pillar.number}</p>
-                    <p className="our-story-pillar-list-title">{pillar.title}</p>
-                  </li>
-                ))}
-              </ul>
-            </div>
+            <OurStoryStrategicPillars />
           </RevealSection>
 
           <RevealFigure className={storyFigureNaturalCenterClassName}>

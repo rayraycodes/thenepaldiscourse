@@ -475,6 +475,11 @@ body {
   margin-block-end: 0;
 }
 
+/* Our Story: paragraph before pillar cards — override :last-child zero so gap is visible */
+.our-story-layout .our-story-prose p.our-story-key-pillars-lede {
+  margin-block-end: clamp(2.5rem, 5vw, 4rem);
+}
+
 .our-story-prose h2 {
   font-family: 'Crimson Pro', Georgia, serif;
   font-size: clamp(1.875rem, 3.8vw, 2.35rem);
@@ -698,7 +703,9 @@ body {
   text-align: start;
 }
 
-.our-story-layout .our-story-prose .our-story-pull-quote:not(.our-story-pull-quote--closing) {
+.our-story-layout
+  .our-story-prose
+  .our-story-pull-quote:not(.our-story-pull-quote--closing):not(.our-story-pull-quote--harvard) {
   text-align: start;
 }
 
@@ -1109,10 +1116,13 @@ body {
   margin-block-start: 1.25rem;
 }
 
-/* Tickets page: start-aligned utility lines */
+/* Tickets page: center primary CTAs; keep labels / hints start-aligned */
 .our-story-layout--apply .our-story-prose--apply p:has(a.apply-register-cta),
+.our-story-layout--apply .our-story-prose--apply .apply-onboarding-download-wrap {
+  text-align: center;
+}
+
 .our-story-layout--apply .our-story-prose--apply p:has(> strong:only-child),
-.our-story-layout--apply .our-story-prose--apply .apply-onboarding-download-wrap,
 .our-story-layout--apply .our-story-prose--apply .apply-onboarding-fallback-hint {
   text-align: start;
 }
@@ -1492,6 +1502,32 @@ body {
   }
 }
 
+/* Aha-moment pull quote: Harvard crimson, centered type — layered gradient */
+.our-story-pull-quote--harvard {
+  text-align: center;
+  text-wrap: balance;
+  color: #fdf8f6;
+  border-left: none;
+  border-radius: 0.75rem;
+  background:
+    radial-gradient(ellipse 110% 90% at 85% 15%, rgba(255, 255, 255, 0.14) 0%, transparent 52%),
+    radial-gradient(ellipse 80% 70% at 12% 88%, rgba(0, 0, 0, 0.18) 0%, transparent 48%),
+    linear-gradient(155deg, #c72742 0%, #b01e35 22%, #a51c30 48%, #8f1829 78%, #6d1422 100%);
+  box-shadow:
+    var(--our-story-shadow-deep),
+    inset 0 1px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+  padding: 2rem 1.75rem;
+}
+
+@media (min-width: 48rem) {
+  .our-story-pull-quote--harvard {
+    font-size: 1.85rem;
+    line-height: 1.52;
+    padding: 2.35rem 2.25rem;
+  }
+}
+
 .our-story-pull-quote--closing {
   border-left: none;
   border-radius: 0.75rem;
@@ -1506,66 +1542,6 @@ body {
   font-size: clamp(1.625rem, 3.5vw, 2.05rem);
   line-height: 1.52;
   letter-spacing: 0.03em;
-}
-
-.our-story-pillar-panel {
-  margin-top: 2.75rem;
-  margin-inline: auto;
-  padding: 1.75rem 1.5rem 1.5rem;
-  max-width: min(90ch, 100%);
-  background: rgba(255, 255, 255, 0.52);
-  border: 1px solid rgba(139, 26, 43, 0.14);
-  border-radius: 0.875rem;
-  box-shadow: var(--our-story-shadow);
-  backdrop-filter: blur(8px);
-}
-
-@media (min-width: 40rem) {
-  .our-story-pillar-panel {
-    padding: 2rem 1.85rem 1.75rem;
-  }
-}
-
-/* Four pillars: stacked list under From Concept */
-.our-story-pillar-list {
-  font-family: var(--font-story-body);
-  font-optical-sizing: auto;
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  color: var(--our-story-text);
-  letter-spacing: 0.03em;
-  word-spacing: 0.08em;
-}
-
-.our-story-pillar-list > li {
-  margin: 0;
-  padding: 0;
-}
-
-.our-story-pillar-list > li:not(:last-child) {
-  padding-block-end: 1.35rem;
-  margin-block-end: 1.35rem;
-  border-bottom: 1px solid rgba(139, 26, 43, 0.1);
-}
-
-.our-story-pillar-list-label {
-  font-size: 0.9375rem;
-  font-weight: 600;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--our-story-accent);
-  margin: 0 0 0.4rem;
-  line-height: 1.5;
-}
-
-.our-story-pillar-list-title {
-  font-size: 1.25rem;
-  font-weight: 600;
-  letter-spacing: 0.03em;
-  color: var(--our-story-text);
-  margin: 0;
-  line-height: 1.45;
 }
 
 /*
@@ -1711,12 +1687,6 @@ body {
 @media (min-width: 40rem) {
   .our-story-divider--loose {
     margin-block: 5rem 8rem;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .our-story-pillar-panel {
-    backdrop-filter: none;
   }
 }
 

@@ -109,7 +109,13 @@ export function ApplyToAttendSection() {
                   available.
                 </p>
                 <p>
-                  <strong>Ticket Link:</strong>
+                  To secure your spot, please use the button below to view available ticket tiers.
+                  Then click &ldquo;Register Today,&rdquo; select the Student Ticket option for your
+                  preferred day (Day 1 or Day 2 or both), and complete your details at checkout. Once
+                  your purchase is confirmed, you will receive a confirmation email with the option to
+                  add the event to your calendar. Subsidized tickets are reserved exclusively for
+                  students with a valid .edu email address. This tier is capped at 100 tickets, and
+                  student IDs will be verified at the event.
                 </p>
                 <p>
                   <a
@@ -128,15 +134,6 @@ export function ApplyToAttendSection() {
                       <ExternalLink className="apply-story-external-icon" />
                     </span>
                   </a>
-                </p>
-                <p>
-                  To secure your spot, please use the button above to view available ticket tiers.
-                  Then click &ldquo;Register Today,&rdquo; select the Student Ticket option for your
-                  preferred day (Day 1 or Day 2 or both), and complete your details at checkout. Once
-                  your purchase is confirmed, you will receive a confirmation email with the option to
-                  add the event to your calendar. Subsidized tickets are reserved exclusively for
-                  students with a valid .edu email address. This tier is capped at 100 tickets, and
-                  student IDs will be verified at the event.
                 </p>
                 <p>
                   We highly encourage you to secure your tickets within the next few days before they

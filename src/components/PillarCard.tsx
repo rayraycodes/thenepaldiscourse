@@ -17,6 +17,10 @@ interface PillarCardProps {
   tone: 'sky' | 'fire' | 'earth' | 'ocean';
   delay?: number;
   isInView: boolean;
+  /** When false, no session list or expand control (e.g. Our Story page). Default true. */
+  showSessions?: boolean;
+  /** When false, hide description and target outcome (Our Story). Default true. */
+  showDescriptionAndOutcome?: boolean;
 }
 
 export function PillarCard({
@@ -29,49 +33,64 @@ export function PillarCard({
   tone,
   delay = 0,
   isInView,
+  showSessions = true,
+  showDescriptionAndOutcome = true,
 }: PillarCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
-  const buttonRef = React.useRef<HTMLButtonElement>(null);
 
-  // Soft, subtle backgrounds for each pillar:
-  // - sky: blue
-  // - fire: red
-  // - earth: green
-  // - ocean: teal/cyan
-  // Use RGBA so underlying paper texture subtly shows through
   const toneColors: Record<'sky' | 'fire' | 'earth' | 'ocean', string> = {
-    sky: 'rgba(0, 56, 147, 0.06)', // light blue with transparency
-    fire: 'rgba(212, 24, 61, 0.06)', // light red with transparency
-    earth: 'rgba(0, 128, 0, 0.06)', // light green with transparency
-    ocean: 'rgba(0, 128, 128, 0.06)', // light teal with transparency
+    sky: 'rgba(0, 56, 147, 0.06)',
+    fire: 'rgba(212, 24, 61, 0.06)',
+    earth: 'rgba(0, 128, 0, 0.06)',
+    ocean: 'rgba(0, 128, 128, 0.06)',
   };
 
   const contentId = `${number.replace(/\s+/g, '-').toLowerCase()}-content`;
   const buttonId = `${number.replace(/\s+/g, '-').toLowerCase()}-toggle`;
 
-  // #region agent log
-  React.useEffect(() => {
-    const button = buttonRef.current;
-    if (!button) return;
-    
-    const handleFocus = (e: FocusEvent) => {
-      const target = e.target as HTMLButtonElement;
-      const computed = window.getComputedStyle(target);
-      fetch('http://127.0.0.1:7242/ingest/b6e517b8-fe9e-4552-a1c4-cc8b6b6b15c6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'PillarCard.tsx:handleFocus',message:'Focus event on pillar button',data:{pillarNumber:number,outline:computed.outline,outlineWidth:computed.outlineWidth,outlineColor:computed.outlineColor,boxShadow:computed.boxShadow,ringColor:computed.getPropertyValue('--tw-ring-color'),overflow:computed.overflow,parentOverflow:window.getComputedStyle(target.parentElement!).overflow,hasFocusVisible:target.matches(':focus-visible'),hasPillarClass:target.classList.contains('pillar-card-button')},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix-v2',hypothesisId:'A,B,C,D,E'})}).catch(()=>{});
-    };
-    
-    const handleBlur = () => {
-      fetch('http://127.0.0.1:7242/ingest/b6e517b8-fe9e-4552-a1c4-cc8b6b6b15c6',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({location:'PillarCard.tsx:handleBlur',message:'Blur event on pillar button',data:{pillarNumber:number},timestamp:Date.now(),sessionId:'debug-session',runId:'post-fix',hypothesisId:'A,B,C,D,E'})}).catch(()=>{});
-    };
-    
-    button.addEventListener('focus', handleFocus);
-    button.addEventListener('blur', handleBlur);
-    return () => {
-      button.removeEventListener('focus', handleFocus);
-      button.removeEventListener('blur', handleBlur);
-    };
-  }, [number]);
-  // #endregion
+  const expandable = showSessions && sessions.length > 0;
+
+  const pillarBody = (
+    <div className="flex items-start justify-between gap-6 relative">
+      <div className="flex-1">
+        <div className="text-sm uppercase tracking-[0.2em] text-[#DC143C] mb-3">
+          {number}
+        </div>
+        <h3 className="text-2xl md:text-3xl font-serif mb-2">{title}</h3>
+        <div
+          className={`text-lg text-muted-foreground ${showDescriptionAndOutcome ? 'mb-6' : 'mb-0'}`}
+        >
+          {subtitle}
+        </div>
+        {showDescriptionAndOutcome && (
+          <>
+            <p className="text-muted-foreground leading-relaxed mb-6">{description}</p>
+            <div className="inline-block px-4 py-2 bg-muted/50 border border-border">
+              <span className="text-sm font-medium">Target Outcome: </span>
+              <span className="text-sm text-muted-foreground">{targetOutcome}</span>
+            </div>
+          </>
+        )}
+      </div>
+
+      {expandable && (
+        <div className="flex-shrink-0 flex flex-col items-end gap-2 pt-2">
+          <motion.div
+            animate={{ rotate: isExpanded ? 180 : 0 }}
+            transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-muted/20 group-hover:bg-muted/40 transition-colors duration-[180ms]"
+          >
+            <ChevronDown className="w-5 h-5 text-foreground" />
+          </motion.div>
+          {!isExpanded && (
+            <div className="text-xs text-muted-foreground uppercase tracking-wide">
+              {sessions.length} sessions
+            </div>
+          )}
+        </div>
+      )}
+    </div>
+  );
 
   return (
     <motion.div
@@ -81,61 +100,30 @@ export function PillarCard({
       animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
       transition={{ duration: 0.52, delay, ease: [0.16, 1, 0.3, 1] }}
     >
-      <button
-        ref={buttonRef}
-        id={buttonId}
-        type="button"
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="pillar-card-button w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30 hover:shadow-md group relative overflow-hidden"
-        aria-expanded={isExpanded}
-        aria-controls={contentId}
-      >
-        {/* Subtle gradient fade at bottom when collapsed - suggests more content */}
-        {!isExpanded && (
-          <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
-        )}
-        
-        <div className="flex items-start justify-between gap-6 relative">
-          <div className="flex-1">
-            <div className="text-sm uppercase tracking-[0.2em] text-[#DC143C] mb-3">
-              {number}
-            </div>
-            <h3 className="text-2xl md:text-3xl font-serif mb-2">{title}</h3>
-            <div className="text-lg text-muted-foreground mb-6">{subtitle}</div>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              {description}
-            </p>
-            <div className="inline-block px-4 py-2 bg-muted/50 border border-border">
-              <span className="text-sm font-medium">Target Outcome: </span>
-              <span className="text-sm text-muted-foreground">
-                {targetOutcome}
-              </span>
-            </div>
-          </div>
-          
-          {/* Elegant expandable indicator - bottom right corner */}
-          <div className="flex-shrink-0 flex flex-col items-end gap-2 pt-2">
-            <motion.div
-              animate={{ rotate: isExpanded ? 180 : 0 }}
-              transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
-              className="w-10 h-10 flex items-center justify-center rounded-full bg-muted/20 group-hover:bg-muted/40 transition-colors duration-[180ms]"
-            >
-              <ChevronDown className="w-5 h-5 text-foreground" />
-            </motion.div>
-            {!isExpanded && (
-              <div className="text-xs text-muted-foreground uppercase tracking-wide">
-                {sessions.length} sessions
-              </div>
-            )}
-          </div>
+      {expandable ? (
+        <button
+          id={buttonId}
+          type="button"
+          onClick={() => setIsExpanded(!isExpanded)}
+          className="pillar-card-button w-full p-8 md:p-10 text-left transition-all duration-[180ms] hover:bg-muted/30 hover:shadow-md group relative overflow-hidden"
+          aria-expanded={isExpanded}
+          aria-controls={contentId}
+        >
+          {!isExpanded && (
+            <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-background via-background/80 to-transparent pointer-events-none" />
+          )}
+          {pillarBody}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-foreground/20 transition-colors duration-[180ms]" />
+        </button>
+      ) : (
+        <div className="w-full p-8 md:p-10 text-left relative">
+          {pillarBody}
+          <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent" />
         </div>
-        
-        {/* Subtle bottom border that suggests expansion */}
-        <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-border to-transparent group-hover:via-foreground/20 transition-colors duration-[180ms]" />
-      </button>
+      )}
 
       <AnimatePresence>
-        {isExpanded && (
+        {expandable && isExpanded && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
@@ -169,9 +157,7 @@ export function PillarCard({
                 >
                   <div className="font-medium mb-1 text-foreground">{session.title}</div>
                   {session.subtitle && (
-                    <div className="text-sm text-muted-foreground mt-1">
-                      {session.subtitle}
-                    </div>
+                    <div className="text-sm text-muted-foreground mt-1">{session.subtitle}</div>
                   )}
                 </motion.div>
               ))}
