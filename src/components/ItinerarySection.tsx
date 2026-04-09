@@ -49,14 +49,17 @@ function PageHeader() {
 
 export function ItinerarySection() {
   return (
-    <div className="our-story-layout our-story-layout--itinerary">
+    <div className="our-story-layout our-story-layout--itinerary our-story-layout--itinerary-aaa">
       <div className="our-story-page">
         <div className="our-story-watermark" aria-hidden="true" />
         <div className="our-story-inner">
           <article
-            className="our-story-article w-full max-w-full min-w-0 px-4 sm:px-8"
+            className="our-story-article relative w-full max-w-full min-w-0 px-4 sm:px-8"
             aria-labelledby="itinerary-heading"
           >
+            <a href="#itinerary-toc" className="itinerary-skip-toc">
+              Skip to table of contents
+            </a>
             <PageHeader />
 
             <RevealSection aria-label="Conference itinerary and onboarding guide">
