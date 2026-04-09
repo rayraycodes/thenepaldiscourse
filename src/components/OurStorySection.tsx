@@ -5,7 +5,7 @@ import { PillarCard } from './PillarCard';
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
 
-/** First image: full column + 16:9 crop. Second: full column, uncropped centered image + full-width caption. Closing: `--w20` on large screens. */
+/** First image: full column + 16:9 crop. Second: full column, uncropped centered image + full-width caption. Closing: narrow `--w20` band, centered on large screens. */
 const storyFigureLandscapeClassName = 'our-story-figure our-story-figure--landscape-full';
 const storyFigureNaturalCenterClassName =
   'our-story-figure our-story-figure--landscape-full our-story-figure--natural-center';

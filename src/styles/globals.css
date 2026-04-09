@@ -1678,8 +1678,8 @@ body {
 }
 
 /*
- * Figures: full width on small screens; from 40rem up, narrow band whose leading
- * edge lines up with .our-story-prose (max-width 90ch, margin-inline auto).
+ * Figures: full width on small screens; from 40rem up, non-landscape figures use a narrow band.
+ * Default narrow figures align to prose leading edge; `--w20` closing image is centered (`margin-inline: auto`).
  * `--landscape-full`: story column width; first photo uses 16:9 crop. `--natural-center`: uncropped centered image + full-width caption.
  */
 .our-story-figure {
@@ -1708,9 +1708,11 @@ body {
     margin-block: 4.25rem;
   }
 
+  /* Closing story image: narrow band, centered in the article column */
   .our-story-figure.our-story-figure--w20 {
     width: 40%;
     max-width: 100%;
+    margin-inline: auto;
   }
 }
 
