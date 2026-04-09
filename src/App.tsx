@@ -9,6 +9,7 @@ import { OurStoryPage } from './pages/OurStoryPage';
 import { TransparencyPage } from './pages/TransparencyPage';
 import { ApplyToAttendPage } from './pages/ApplyToAttendPage';
 import { FAQPage } from './pages/FAQPage';
+import { ItineraryPage } from './pages/ItineraryPage';
 
 export default function App() {
   return (
@@ -24,6 +25,7 @@ export default function App() {
           <Route path="/our-story" element={<OurStoryPage />} />
           <Route path="/transparency" element={<TransparencyPage />} />
           <Route path="/apply" element={<ApplyToAttendPage />} />
+          <Route path="/itinerary" element={<ItineraryPage />} />
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </main>

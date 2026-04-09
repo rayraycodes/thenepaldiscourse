@@ -586,6 +586,42 @@ body {
   text-decoration-thickness: 0.12em;
 }
 
+/* Tickets page: CTAs — brand maroon (matches .apply-story-link) */
+.apply-register-cta {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  max-width: 100%;
+  padding: 0.75rem 1.25rem;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  line-height: 1.45;
+  color: #fff;
+  background: #481018;
+  border-radius: 0.375rem;
+  text-decoration: none;
+  box-shadow: 0 1px 2px color-mix(in srgb, #000 12%, transparent);
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.apply-register-cta:hover {
+  background: #350c12;
+  color: #fff;
+}
+
+.apply-register-cta:focus {
+  outline: none;
+}
+
+.apply-register-cta:focus-visible {
+  outline: 3px solid #1a1a1a;
+  outline-offset: 3px;
+}
+
+.apply-register-cta .apply-story-external-suffix {
+  margin-top: 0.2em;
+}
+
 /* NBSP + nowrap keeps the external-link glyph on the same line as the last words */
 .apply-story-external-suffix {
   white-space: nowrap;
@@ -628,6 +664,288 @@ body {
   margin-block-start: 0.35rem;
 }
 
+/* Story-style pages (Our Story, Transparency, Tickets): wider shell + justified column */
+.our-story-layout .our-story-page {
+  width: min(96%, 100%);
+}
+
+.our-story-layout .our-story-hero {
+  max-width: min(90ch, 100%);
+}
+
+.our-story-layout .our-story-prose {
+  max-width: min(90ch, 100%);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
+}
+
+.our-story-layout .our-story-prose h2,
+.our-story-layout .our-story-prose h3 {
+  text-align: start;
+}
+
+.our-story-layout .our-story-prose ul,
+.our-story-layout .our-story-prose ol {
+  text-align: start;
+}
+
+.our-story-layout .our-story-prose .our-story-pull-quote:not(.our-story-pull-quote--closing) {
+  text-align: start;
+}
+
+/* Transparency + Itinerary: justified reading column (explicit scope; matches other story layouts) */
+.our-story-layout--transparency .our-story-prose.our-story-prose--compact-transparency,
+.our-story-layout--itinerary .our-story-prose.our-story-prose--compact-transparency {
+  max-width: min(90ch, 100%);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
+}
+
+.our-story-layout--transparency .our-story-prose.our-story-prose--compact-transparency h3,
+.our-story-layout--itinerary .our-story-prose.our-story-prose--compact-transparency h3 {
+  text-align: start;
+}
+
+.our-story-layout--transparency .our-story-prose.our-story-prose--compact-transparency ul,
+.our-story-layout--transparency .our-story-prose.our-story-prose--compact-transparency ol,
+.our-story-layout--itinerary .our-story-prose.our-story-prose--compact-transparency ul,
+.our-story-layout--itinerary .our-story-prose.our-story-prose--compact-transparency ol {
+  text-align: start;
+}
+
+/* Itinerary page: onboarding guide layout (nested in .our-story-prose) */
+.our-story-layout--itinerary .itinerary-text-start,
+.our-story-layout--itinerary .not-justify {
+  text-align: start;
+}
+
+.our-story-layout--itinerary .itinerary-onboarding-guide {
+  margin-block-start: 0.5rem;
+}
+
+.our-story-layout--itinerary .itinerary-guide-lead {
+  font-size: 0.9375rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-block-end: 1.25rem;
+}
+
+.our-story-layout--itinerary .itinerary-guide-section {
+  margin-block-start: 2.75rem;
+}
+
+.our-story-layout--itinerary .itinerary-guide-section:first-of-type {
+  margin-block-start: 0;
+}
+
+.our-story-layout--itinerary .itinerary-guide-h2 {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: clamp(1.65rem, 3.2vw, 2rem);
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: 0.05em;
+  color: var(--our-story-text);
+  margin-block: 0 1rem;
+  text-align: start;
+  text-wrap: balance;
+}
+
+.our-story-layout--itinerary .itinerary-guide-h3 {
+  font-family: 'Crimson Pro', Georgia, serif;
+  font-size: clamp(1.2rem, 2.4vw, 1.45rem);
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: 0.05em;
+  color: #2c1418;
+  margin-block: 1.75rem 0.75rem;
+  text-align: start;
+}
+
+.our-story-layout--itinerary .itinerary-guide-toc {
+  padding: 1.25rem 1.35rem;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(139, 26, 43, 0.14);
+  background: rgba(255, 255, 255, 0.45);
+  margin-block: 1rem 2rem;
+}
+
+.our-story-layout--itinerary .itinerary-guide-toc .itinerary-guide-h2 {
+  margin-block-start: 0;
+  font-size: clamp(1.35rem, 2.6vw, 1.55rem);
+}
+
+.our-story-layout--itinerary .itinerary-guide-toc-list {
+  list-style: none;
+  margin: 0.75rem 0 0;
+  padding: 0;
+  line-height: 1.65;
+}
+
+.our-story-layout--itinerary .itinerary-guide-toc-list li {
+  margin-block-end: 0.45em;
+  padding-inline-start: 0;
+}
+
+.our-story-layout--itinerary .itinerary-guide-toc-list a {
+  color: #481018;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
+.our-story-layout--itinerary .itinerary-guide-toc-list a:hover {
+  color: #350c12;
+}
+
+.our-story-layout--itinerary .itinerary-guide-signature {
+  margin-block-start: 1.5rem;
+  line-height: 1.65;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-period {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--our-story-accent);
+  margin-block: 1.5rem 0.65rem;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-label {
+  font-weight: 600;
+  margin-block: 1.25rem 0.5rem;
+  color: #2c1418;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-row {
+  display: grid;
+  grid-template-columns: minmax(4.5rem, 6.5rem) minmax(0, 1fr);
+  gap: 0.65rem 1rem;
+  padding-block: 0.85rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+/* Sessions without a time column (e.g. Remittance Plus Economy): use full width */
+.our-story-layout--itinerary .itinerary-schedule-row:not(:has(.itinerary-schedule-time)) {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+@media (max-width: 29.9375rem) {
+  .our-story-layout--itinerary .itinerary-schedule-row {
+    grid-template-columns: 1fr;
+  }
+
+  .our-story-layout--itinerary .itinerary-schedule-time {
+    font-weight: 700;
+  }
+}
+
+.our-story-layout--itinerary .itinerary-schedule-time {
+  font-weight: 600;
+  font-size: 0.9375rem;
+  color: #3d3d3d;
+  white-space: nowrap;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-title {
+  font-weight: 600;
+  color: var(--our-story-text);
+  margin-block-end: 0.2rem;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-venue {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--our-story-accent);
+  margin-block-end: 0.25rem;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-note {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #3d3d3d;
+}
+
+.our-story-layout--itinerary .itinerary-parallel-list {
+  list-style: none;
+  margin: 0 0 1rem;
+  padding: 0;
+}
+
+.our-story-layout--itinerary .itinerary-parallel-item {
+  padding: 1rem 1.1rem;
+  margin-block-end: 0.65rem;
+  border-radius: 0.45rem;
+  border: 1px solid rgba(139, 26, 43, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+}
+
+.our-story-layout--itinerary .itinerary-accommodation {
+  margin-block: 1.25rem 1.75rem;
+  padding-block-end: 1.25rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.our-story-layout--itinerary .itinerary-accommodation:last-child {
+  border-bottom: none;
+}
+
+.our-story-layout--itinerary .itinerary-accommodation-name {
+  font-weight: 600;
+  color: var(--our-story-text);
+  margin-block-end: 0.35rem;
+}
+
+.our-story-layout--itinerary .itinerary-accommodation-line {
+  font-size: 0.9375rem;
+  line-height: 1.55;
+  color: #3d3d3d;
+}
+
+.our-story-layout--itinerary .itinerary-conduct-h3 {
+  font-family: var(--font-story-body);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-block: 1.35rem 0.5rem;
+  color: #2c1418;
+}
+
+.our-story-layout--itinerary .itinerary-conduct-list {
+  margin-block: 0.5rem 1rem;
+  padding-inline-start: 1.25em;
+}
+
+.our-story-layout--itinerary .itinerary-conduct-list li {
+  margin-block-end: 0.45em;
+}
+
+.our-story-layout--itinerary .itinerary-maps-links {
+  margin-block: 0.75rem 1rem;
+  padding-inline-start: 1.25em;
+}
+
+.our-story-layout--itinerary .itinerary-maps-links li {
+  margin-block-end: 0.4em;
+}
+
+.our-story-layout--itinerary .itinerary-pdf-download {
+  margin-block-start: 1.25rem;
+}
+
+/* Tickets page: start-aligned utility lines */
+.our-story-layout--apply .our-story-prose--apply p:has(a.apply-register-cta),
+.our-story-layout--apply .our-story-prose--apply p:has(> strong:only-child),
+.our-story-layout--apply .our-story-prose--apply .apply-onboarding-download-wrap,
+.our-story-layout--apply .our-story-prose--apply .apply-onboarding-fallback-hint {
+  text-align: start;
+}
+
 /* Apply / ticket information page: narrow screens */
 @media (max-width: 29.9375rem) {
   .our-story-layout--apply .our-story-hero {
@@ -638,7 +956,7 @@ body {
     padding-top: clamp(1.75rem, 4vw, 2.5rem);
   }
 
-  .our-story-prose--apply {
+  .our-story-layout--apply .our-story-prose--apply {
     max-width: none;
     width: 100%;
     font-size: 1.0625rem;
@@ -651,29 +969,30 @@ body {
     hyphenate-limit-chars: 10 4 4;
   }
 
-  .our-story-prose--apply .apply-story-link {
+  .our-story-layout--apply .our-story-prose--apply .apply-story-link {
     text-wrap: pretty;
     overflow-wrap: break-word;
   }
 
-  .our-story-prose--apply p:has(a.apply-story-link) {
+  .our-story-layout--apply .our-story-prose--apply p:has(a.apply-story-link),
+  .our-story-layout--apply .our-story-prose--apply p:has(a.apply-register-cta) {
     line-height: 1.62;
   }
 
   /* Slightly tighter stacks so CTA links do not feel like sparse blocks */
-  .our-story-prose--apply.our-story-prose--compact-transparency p {
+  .our-story-layout--apply .our-story-prose--apply.our-story-prose--compact-transparency p {
     margin-block-end: calc(1.35 * 1em);
   }
 
-  .our-story-prose--apply.our-story-prose--compact-transparency h3:not(:first-child) {
+  .our-story-layout--apply .our-story-prose--apply.our-story-prose--compact-transparency h3:not(:first-child) {
     margin-block-start: 1.125rem;
   }
 
-  .our-story-prose--apply .apply-vip-contact {
+  .our-story-layout--apply .our-story-prose--apply .apply-vip-contact {
     line-height: 1.62;
   }
 
-  .our-story-prose--apply .apply-plain-email {
+  .our-story-layout--apply .our-story-prose--apply .apply-plain-email {
     overflow-wrap: anywhere;
   }
 }
@@ -1022,7 +1341,7 @@ body {
   margin-top: 2.75rem;
   margin-inline: auto;
   padding: 1.75rem 1.5rem 1.5rem;
-  max-width: 70ch;
+  max-width: min(90ch, 100%);
   background: rgba(255, 255, 255, 0.52);
   border: 1px solid rgba(139, 26, 43, 0.14);
   border-radius: 0.875rem;
@@ -1080,13 +1399,13 @@ body {
 
 /*
  * Figures: full width on small screens; from 40rem up, narrow band whose leading
- * edge lines up with .our-story-prose (max-width 70ch, margin-inline auto).
+ * edge lines up with .our-story-prose (max-width 90ch, margin-inline auto).
  */
 .our-story-figure {
   box-sizing: border-box;
   width: 100%;
   max-width: 100%;
-  margin-inline-start: max(0px, calc((100% - 70ch) / 2));
+  margin-inline-start: max(0px, calc((100% - 90ch) / 2));
   margin-inline-end: auto;
   margin-block: 3.25rem;
   min-width: 0;

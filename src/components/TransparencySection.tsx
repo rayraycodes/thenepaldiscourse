@@ -48,7 +48,7 @@ function PageHeader() {
 
 export function TransparencySection() {
   return (
-    <div className="our-story-layout">
+    <div className="our-story-layout our-story-layout--transparency">
       <div className="our-story-page">
         <div className="our-story-watermark" aria-hidden="true" />
         <div className="our-story-inner">

@@ -22,6 +22,10 @@ export function HomePage() {
       navigate('/faq', { replace: true });
       return;
     }
+    if (id === 'itinerary') {
+      navigate('/itinerary', { replace: true });
+      return;
+    }
     if (!id) return;
     const frame = window.requestAnimationFrame(() => {
       document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });

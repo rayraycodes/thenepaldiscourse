@@ -83,18 +83,20 @@ export function ApplyToAttendSection() {
                     href={HARVARD_GSE_EVENT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="apply-story-link"
+                    className="apply-register-cta"
                     aria-describedby="general-admission-details"
                   >
-                    Register for general admission to The Nepal Discourse 2026 ($100 per day).
-                    <span className="apply-story-external-suffix" aria-hidden="true">
+                    <span className="text-left text-pretty">
+                      Register for general admission to The Nepal Discourse 2026 ($100 per day).
+                    </span>
+                    <span className="apply-story-external-suffix shrink-0" aria-hidden="true">
                       {'\u00A0'}
                       <ExternalLink className="apply-story-external-icon" />
                     </span>
                   </a>
                 </p>
                 <p>
-                  To secure your spot, please click the link above to view available ticket tiers.
+                  To secure your spot, please use the button above to view available ticket tiers.
                   Then click &ldquo;Register Today,&rdquo; select the Standard Ticket option for your
                   preferred day (Day 1 or Day 2 or both), and complete your details at checkout. Once
                   your purchase is confirmed, you will receive a confirmation email with the option to
@@ -114,19 +116,21 @@ export function ApplyToAttendSection() {
                     href={HARVARD_GSE_EVENT_URL}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="apply-story-link"
+                    className="apply-register-cta"
                     aria-describedby="student-admission-intro"
                   >
-                    The Nepal Discourse — Human Development, AI and the Next Generation of Leadership
-                    (Harvard GSE calendar)
-                    <span className="apply-story-external-suffix" aria-hidden="true">
+                    <span className="text-left text-pretty">
+                      The Nepal Discourse — Human Development, AI and the Next Generation of Leadership
+                      (Harvard GSE calendar)
+                    </span>
+                    <span className="apply-story-external-suffix shrink-0" aria-hidden="true">
                       {'\u00A0'}
                       <ExternalLink className="apply-story-external-icon" />
                     </span>
                   </a>
                 </p>
                 <p>
-                  To secure your spot, please click the link above to view available ticket tiers.
+                  To secure your spot, please use the button above to view available ticket tiers.
                   Then click &ldquo;Register Today,&rdquo; select the Student Ticket option for your
                   preferred day (Day 1 or Day 2 or both), and complete your details at checkout. Once
                   your purchase is confirmed, you will receive a confirmation email with the option to

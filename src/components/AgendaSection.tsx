@@ -1,4 +1,5 @@
 import { useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { motion, useInView } from 'motion/react';
 
 export function AgendaSection() {
@@ -31,7 +32,11 @@ export function AgendaSection() {
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-lg text-muted-foreground">
-            The detailed agenda to be shared with conference participants only.
+            The detailed itinerary will be shared with conference participants.{' '}
+            <Link to="/itinerary" className="text-foreground font-medium underline underline-offset-4 hover:opacity-90">
+              Read more on the Itinerary page
+            </Link>
+            .
           </p>
         </motion.div>
       </div>

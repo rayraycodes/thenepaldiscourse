@@ -10,6 +10,7 @@ const navItems: (NavSection | NavPage)[] = [
   { kind: 'section', label: 'Speakers', id: 'speakers' },
   { kind: 'section', label: 'Team', id: 'organizers' },
   { kind: 'page', label: 'Tickets', path: '/apply' },
+  { kind: 'page', label: 'Itinerary', path: '/itinerary' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
   { kind: 'page', label: 'Transparency', path: '/transparency' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
