@@ -7,12 +7,13 @@ type NavSection = { kind: 'section'; label: string; id: string };
 type NavPage = { kind: 'page'; label: string; path: string };
 
 const navItems: (NavSection | NavPage)[] = [
+  { kind: 'page', label: 'Home', path: '/' },
   { kind: 'section', label: 'Speakers', id: 'speakers' },
-  { kind: 'section', label: 'Team', id: 'organizers' },
-  { kind: 'page', label: 'Tickets', path: '/apply' },
   { kind: 'page', label: 'Itinerary', path: '/itinerary' },
-  { kind: 'page', label: 'Our Story', path: '/our-story' },
+  { kind: 'page', label: 'Register Now', path: '/apply' },
   { kind: 'page', label: 'Transparency', path: '/transparency' },
+  { kind: 'section', label: 'Team', id: 'organizers' },
+  { kind: 'page', label: 'Our Story', path: '/our-story' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
 ];
 
@@ -60,6 +61,14 @@ export function Navigation() {
     }
   };
 
+  const onPageLinkClick = (path: string) => (e: React.MouseEvent<HTMLAnchorElement>) => {
+    if (path === '/' && location.pathname === '/') {
+      e.preventDefault();
+      scrollToSection('hero');
+    }
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <>
       <motion.nav
@@ -85,7 +94,12 @@ export function Navigation() {
             <div className="hidden md:flex items-center gap-8">
               {navItems.map((item) =>
                 item.kind === 'page' ? (
-                  <Link key={item.path} to={item.path} className={navLinkClass}>
+                  <Link
+                    key={item.path}
+                    to={item.path}
+                    className={navLinkClass}
+                    onClick={onPageLinkClick(item.path)}
+                  >
                     {item.label}
                     <span className="absolute left-0 bottom-0 w-0 h-px bg-foreground transition-all duration-[180ms] ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:w-full" />
                   </Link>
@@ -177,7 +191,7 @@ export function Navigation() {
                     <Link
                       to={item.path}
                       className="text-2xl text-foreground"
-                      onClick={() => setIsMobileMenuOpen(false)}
+                      onClick={onPageLinkClick(item.path)}
                     >
                       {item.label}
                     </Link>

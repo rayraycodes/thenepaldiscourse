@@ -45,10 +45,10 @@ function PageHeader() {
       <p className="our-story-eyebrow">The Nepal Discourse 2026</p>
       <div className="our-story-title-block">
         <h1
-          id="tickets-heading"
+          id="register-heading"
           className="our-story-h1 font-serif font-semibold leading-[1.12] text-[#1A1A1A] m-0"
         >
-          Tickets
+          Register Now
         </h1>
       </div>
     </motion.header>
@@ -63,7 +63,7 @@ export function ApplyToAttendSection() {
         <div className="our-story-inner">
           <article
             className="our-story-article w-full max-w-full min-w-0 px-4 sm:px-8"
-            aria-labelledby="tickets-heading"
+            aria-labelledby="register-heading"
           >
             <PageHeader />
 

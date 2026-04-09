@@ -10,9 +10,10 @@ const STORY_PILLARS = [
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
 
-/** Width in globals.css: 15% default; `--w8` middle figure; `--w20` closing figure from 40rem */
-const storyFigureClassName = 'our-story-figure';
-const storyFigureNarrowClassName = 'our-story-figure our-story-figure--w8';
+/** First image: full column + 16:9 crop. Second: full column, uncropped centered image + full-width caption. Closing: `--w20` on large screens. */
+const storyFigureLandscapeClassName = 'our-story-figure our-story-figure--landscape-full';
+const storyFigureNaturalCenterClassName =
+  'our-story-figure our-story-figure--landscape-full our-story-figure--natural-center';
 const storyFigureClosingClassName = 'our-story-figure our-story-figure--w20';
 
 function RevealSection({
@@ -126,17 +127,19 @@ export function OurStorySection() {
             </div>
           </RevealSection>
 
-          <RevealFigure className={storyFigureClassName}>
-            <img
-              src="/storyimages/story1.png"
-              alt="Scene from the founding chapter of The Nepal Discourse: collaboration among Harvard community members invested in Nepal"
-              className="our-story-figure-img"
-              width={1200}
-              height={675}
-              sizes="(max-width: 39.99rem) 92vw, 15vw"
-              loading="lazy"
-              decoding="async"
-            />
+          <RevealFigure className={storyFigureLandscapeClassName}>
+            <div className="our-story-figure-crop">
+              <img
+                src="/storyimages/story1.png"
+                alt="Scene from the founding chapter of The Nepal Discourse: collaboration among Harvard community members invested in Nepal"
+                className="our-story-figure-img our-story-figure-img--story1"
+                width={1200}
+                height={675}
+                sizes="(max-width: 39.99rem) 92vw, min(90ch, 92vw)"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
             <figcaption className="our-story-figcaption">
               Early trust and curiosity at Harvard helped turn a chance meeting into a
               sustained rhythm of dialogue about Nepal&apos;s human capital future.
@@ -219,18 +222,20 @@ export function OurStorySection() {
             </div>
           </RevealSection>
 
-          <RevealFigure className={storyFigureNarrowClassName}>
-            <img
-              src="/storyimages/story2.png"
-              alt="Visual representing partnership across Nepali institutions, diaspora networks, and global academia"
-              className="our-story-figure-img"
-              width={1200}
-              height={675}
-              sizes="(max-width: 39.99rem) 92vw, 8vw"
-              loading="lazy"
-              decoding="async"
-            />
-            <figcaption className="our-story-figcaption">
+          <RevealFigure className={storyFigureNaturalCenterClassName}>
+            <div className="our-story-figure-natural-wrap">
+              <img
+                src="/storyimages/story2.png"
+                alt="Visual representing partnership across Nepali institutions, diaspora networks, and global academia"
+                className="our-story-figure-img our-story-figure-img--natural"
+                width={1200}
+                height={675}
+                sizes="(max-width: 39.99rem) 92vw, min(90ch, 92vw)"
+                loading="lazy"
+                decoding="async"
+              />
+            </div>
+            <figcaption className="our-story-figcaption our-story-figcaption--full-width">
               Iteration with peers and practitioners helped turn a concept note into a
               shared framework with room for accountability.
             </figcaption>

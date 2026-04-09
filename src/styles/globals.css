@@ -712,16 +712,18 @@ body {
   hyphenate-limit-chars: 10 4 4;
 }
 
-/*
- * Itinerary (AAA-oriented): WCAG 2.2 — 1.4.6 contrast, 1.4.8 no justification / measure / line height
- * 2.4.8 location (breadcrumb), 2.4.1 skip target, 2.5.5 minimum target size for TOC
- */
+/* Itinerary: wider reading column + justified body (lists/headings stay start-aligned below) */
+.our-story-layout--itinerary.our-story-layout--itinerary-aaa .our-story-hero {
+  max-width: min(82ch, 100%);
+}
+
 .our-story-layout--itinerary.our-story-layout--itinerary-aaa .our-story-prose.our-story-prose--compact-transparency {
-  max-width: min(70ch, 100%);
-  text-align: start;
-  text-justify: auto;
-  hyphens: manual;
-  -webkit-hyphens: manual;
+  max-width: min(82ch, 100%);
+  text-align: justify;
+  text-justify: inter-word;
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  hyphenate-limit-chars: 10 4 4;
   line-height: 1.58;
   color: #141414;
 }
@@ -971,6 +973,7 @@ body {
   font-size: 0.9375rem;
   line-height: 1.55;
   color: #141414;
+  text-align: start;
 }
 
 .our-story-layout--itinerary .itinerary-schedule-table .itinerary-schedule-caption {
@@ -1568,6 +1571,7 @@ body {
 /*
  * Figures: full width on small screens; from 40rem up, narrow band whose leading
  * edge lines up with .our-story-prose (max-width 90ch, margin-inline auto).
+ * `--landscape-full`: story column width; first photo uses 16:9 crop. `--natural-center`: uncropped centered image + full-width caption.
  */
 .our-story-figure {
   box-sizing: border-box;
@@ -1579,16 +1583,20 @@ body {
   min-width: 0;
 }
 
+.our-story-figure--landscape-full {
+  max-width: min(90ch, 100%);
+  margin-inline: auto;
+}
+
 @media (min-width: 40rem) {
-  .our-story-figure {
+  .our-story-figure:not(.our-story-figure--landscape-full) {
     width: 25%;
     margin-block: 4.25rem;
   }
 
-  /* Middle story figure */
-  .our-story-figure.our-story-figure--w8 {
-    width: 20%;
-    max-width: 100%;
+  .our-story-figure--landscape-full {
+    width: 100%;
+    margin-block: 4.25rem;
   }
 
   .our-story-figure.our-story-figure--w20 {
@@ -1608,6 +1616,59 @@ body {
   box-shadow:
     var(--our-story-shadow-deep),
     0 0 0 1px rgba(26, 26, 26, 0.06);
+}
+
+.our-story-figure--landscape-full .our-story-figure-crop {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  border-radius: 0.625rem;
+  box-shadow:
+    var(--our-story-shadow-deep),
+    0 0 0 1px rgba(26, 26, 26, 0.06);
+}
+
+/* Must follow generic img rule so height/object-fit win */
+.our-story-figure--landscape-full .our-story-figure-crop .our-story-figure-img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+/* Portrait group photo: faces sit upper-mid; trim ceiling and floor */
+.our-story-figure--landscape-full .our-story-figure-img--story1 {
+  object-position: center 36%;
+}
+
+/* Second story image: no crop — centered in column; caption spans full column width */
+.our-story-figure--natural-center {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.our-story-figure--natural-center .our-story-figure-natural-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  min-width: 0;
+}
+
+.our-story-figure--natural-center .our-story-figure-img--natural {
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.our-story-figcaption--full-width {
+  width: 100%;
+  max-width: none;
+  align-self: stretch;
+  box-sizing: border-box;
 }
 
 .our-story-figcaption {
