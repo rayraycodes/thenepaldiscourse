@@ -4,6 +4,72 @@ import { Download, ExternalLink } from 'lucide-react';
 const ONBOARDING_PDF_PATH = '/onboarding.pdf';
 const ONBOARDING_PDF_DOWNLOAD_NAME = 'The-Nepal-Discourse-2026-Onboarding-Guide.pdf';
 
+/** Reference figures from onboarding guide PDF page 8 (Harvard area and MIT) */
+const ONBOARDING_PAGE8_MAP_1 = '/itinerary-maps/onboarding-guide-page8-map-1.png';
+const ONBOARDING_PAGE8_MAP_2 = '/itinerary-maps/onboarding-guide-page8-map-2.png';
+
+function googleMapsSearchUrl(query: string) {
+  return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(query)}`;
+}
+
+function appleMapsSearchUrl(query: string) {
+  return `https://maps.apple.com/?q=${encodeURIComponent(query)}`;
+}
+
+type WayfindingPlaceProps = {
+  title: string;
+  mapSearch: string;
+  children: ReactNode;
+};
+
+function WayfindingPlace({ title, mapSearch, children }: WayfindingPlaceProps) {
+  return (
+    <article className="itinerary-wayfinding-place" aria-labelledby={`wayfinding-${slugId(title)}`}>
+      <h3 id={`wayfinding-${slugId(title)}`} className="itinerary-guide-h3">
+        {title}
+      </h3>
+      <div className="itinerary-wayfinding-desc">{children}</div>
+      <p className="itinerary-maps-app-links">
+        <a
+          href={googleMapsSearchUrl(mapSearch)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="apply-story-link itinerary-aaa-link"
+          aria-label={`Open directions to ${title} in Google Maps`}
+        >
+          Google Maps
+          <NewTabAuxiliary />
+          <span className="apply-story-external-suffix" aria-hidden="true">
+            {'\u00A0'}
+            <ExternalLink className="apply-story-external-icon" />
+          </span>
+        </a>
+        <a
+          href={appleMapsSearchUrl(mapSearch)}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="apply-story-link itinerary-aaa-link"
+          aria-label={`Open directions to ${title} in Apple Maps`}
+        >
+          Apple Maps
+          <NewTabAuxiliary />
+          <span className="apply-story-external-suffix" aria-hidden="true">
+            {'\u00A0'}
+            <ExternalLink className="apply-story-external-icon" />
+          </span>
+        </a>
+      </p>
+    </article>
+  );
+}
+
+function slugId(title: string) {
+  return title
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 /** WCAG 2.2 AAA-oriented: link purpose + new-window disclosure for assistive tech */
 function NewTabAuxiliary() {
   return <span className="itinerary-sr-only"> Opens in a new tab.</span>;
@@ -526,9 +592,110 @@ export function ItineraryOnboardingGuide() {
       <section id="itinerary-maps" className="itinerary-guide-section itinerary-text-start">
         <h2 className="itinerary-guide-h2">Maps and wayfinding</h2>
         <p>
-          Full-page maps from the printed onboarding guide (Boston subway, Harvard campus, MIT
-          campus) are available in the PDF download. Quick links:
+          Below are the same reference illustrations from page 8 of the onboarding guide (Harvard
+          area and MIT), followed by tap-to-open directions for each venue. Use{' '}
+          <strong>Google Maps</strong> or <strong>Apple Maps</strong>—on a phone, they usually
+          hand off to the installed maps app. Additional full-page maps (Boston subway, Harvard
+          campus, MIT campus) are in the PDF download at the end of this section.
         </p>
+
+        <div
+          className="itinerary-onboarding-maps-grid"
+          role="group"
+          aria-label="Reference map illustrations from the onboarding guide, page 8"
+        >
+          <figure className="itinerary-onboarding-map-figure">
+            <img
+              src={ONBOARDING_PAGE8_MAP_1}
+              alt="3D-style aerial map of the Harvard area in Cambridge, Massachusetts. Colored pins mark Harvard Square, Larsen Hall, Askwith Hall at Longfellow Hall, the Longfellow Hall entrance from Radcliffe Yard, and Cambridge Common. Garden Street, Brattle Street, green space at Cambridge Common, campus buildings, and the Charles River toward the northeast are visible."
+              width={1212}
+              height={757}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption className="itinerary-onboarding-map-caption">
+              Harvard and Cambridge reference · onboarding guide page 8 · map 1 of 2
+            </figcaption>
+          </figure>
+          <figure className="itinerary-onboarding-map-figure">
+            <img
+              src={ONBOARDING_PAGE8_MAP_2}
+              alt="MIT campus map centered on Building 45 (labeled N4), Schwarzman College of Computing. A location panel shows the street address 51 Vassar Street, Cambridge, and notes facilities there including the dean's office, Schwarzman College, MIT Quest for Intelligence, IBM Watson, the Center for Computational Science and Engineering, an MIT ID card printing kiosk, and a lactation room. Adjacent text mentions trained volunteers and professional security for the conference."
+              width={622}
+              height={471}
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption className="itinerary-onboarding-map-caption">
+              MIT reference · onboarding guide page 8 · map 2 of 2
+            </figcaption>
+          </figure>
+        </div>
+
+        <div
+          className="itinerary-wayfinding-day"
+          role="region"
+          aria-label="Harvard and Cambridge venues, Saturday"
+        >
+          <h3 className="itinerary-wayfinding-day-heading">Saturday — Harvard and Cambridge</h3>
+          <div className="itinerary-wayfinding-stack">
+            <WayfindingPlace
+              title="Harvard Square"
+              mapSearch="Harvard Square, Cambridge, MA"
+            >
+              <p>
+                Central square beside the Harvard campus; nearby transit, dining, and the walk toward
+                Harvard Graduate School of Education venues.
+              </p>
+            </WayfindingPlace>
+            <WayfindingPlace title="Larsen Hall" mapSearch="Larsen Hall, 14 Appian Way, Cambridge, MA">
+              <p>
+                Harvard Graduate School of Education building used for conference programming. Near
+                Radcliffe Yard and Longfellow Hall.
+              </p>
+            </WayfindingPlace>
+            <WayfindingPlace
+              title="Askwith Hall (Longfellow Hall)"
+              mapSearch="Askwith Hall, Longfellow Hall, 13 Appian Way, Cambridge, MA"
+            >
+              <p>
+                Session space inside Longfellow Hall at HGSE. Address is often listed as 13 Appian
+                Way.
+              </p>
+            </WayfindingPlace>
+            <WayfindingPlace
+              title="Longfellow Hall entrance from Radcliffe Yard"
+              mapSearch="Longfellow Hall, Radcliffe Yard, Harvard University, Cambridge, MA"
+            >
+              <p>
+                Pedestrian approach from Radcliffe Yard to Longfellow Hall—useful if you are
+                navigating from the Yard side of campus.
+              </p>
+            </WayfindingPlace>
+            <WayfindingPlace title="Cambridge Common" mapSearch="Cambridge Common, Cambridge, MA">
+              <p>Large public green west of Harvard Square, a nearby landmark for orientation.</p>
+            </WayfindingPlace>
+          </div>
+        </div>
+
+        <div className="itinerary-wayfinding-day" role="region" aria-label="MIT venue, Sunday">
+          <h3 className="itinerary-wayfinding-day-heading">Sunday — MIT</h3>
+          <div className="itinerary-wayfinding-stack">
+            <WayfindingPlace
+              title="Schwarzman College of Computing (Building 45)"
+              mapSearch="Schwarzman College of Computing, 51 Vassar Street, Cambridge, MA 02139"
+            >
+              <p>
+                MIT Building 45. Street address: 51 Vassar Street, Cambridge, MA 02139. The
+                building hosts the dean&apos;s office, Schwarzman College spaces, related computing
+                programs, an MIT ID card kiosk, and other facilities—use campus signage and the MIT
+                map for room numbers.
+              </p>
+            </WayfindingPlace>
+          </div>
+        </div>
+
+        <p>Campus map tools and transit:</p>
         <ul className="itinerary-maps-links">
           <li>
             <a

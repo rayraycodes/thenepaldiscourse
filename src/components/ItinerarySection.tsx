@@ -40,7 +40,7 @@ function PageHeader() {
           id="itinerary-heading"
           className="our-story-h1 font-serif font-semibold leading-[1.12] text-[#1A1A1A] m-0"
         >
-          Itinerary
+          Conference Schedule
         </h1>
       </div>
     </motion.header>
@@ -62,7 +62,7 @@ export function ItinerarySection() {
             </a>
             <PageHeader />
 
-            <RevealSection aria-label="Conference itinerary and onboarding guide">
+            <RevealSection aria-label="Conference schedule and onboarding guide">
               <ItineraryOnboardingGuide />
             </RevealSection>
           </article>

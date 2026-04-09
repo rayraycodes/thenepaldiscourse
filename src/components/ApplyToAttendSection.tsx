@@ -87,7 +87,8 @@ export function ApplyToAttendSection() {
                     aria-describedby="general-admission-details"
                   >
                     <span className="text-left text-pretty">
-                      Register for general admission to The Nepal Discourse 2026 ($100 per day).
+                      Click here to purchase a general admission ticket to The Nepal Discourse 2026 ($100
+                      per day).
                     </span>
                     <span className="apply-story-external-suffix shrink-0" aria-hidden="true">
                       {'\u00A0'}
@@ -126,8 +127,7 @@ export function ApplyToAttendSection() {
                     aria-describedby="student-admission-intro"
                   >
                     <span className="text-left text-pretty">
-                      The Nepal Discourse — Human Development, AI and the Next Generation of Leadership
-                      (Harvard GSE calendar)
+                      Click here to Purchase Student Discount Tickets ($50 per day)
                     </span>
                     <span className="apply-story-external-suffix shrink-0" aria-hidden="true">
                       {'\u00A0'}

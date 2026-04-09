@@ -276,12 +276,10 @@ export function OurStorySection() {
                 Closing
               </h2>
               <p>
-                What began as an accidental meeting in a library has blossomed into a
-                source of immense hope and enthusiasm. It is a unified effort across the
-                diaspora and the local ecosystem to build something deep, meaningful, and
-                enduring for Nepal&apos;s future.
+                It is a unified effort across the diaspora and the local ecosystem to build
+                something deep, meaningful, and enduring for Nepal&apos;s future.
               </p>
-              <blockquote className="our-story-pull-quote our-story-pull-quote--closing">
+              <blockquote className="our-story-pull-quote our-story-pull-quote--harvard our-story-pull-quote--harvard-wide-sm">
                 <p className="m-0 p-0 text-inherit leading-inherit">
                   What began as an accidental meeting in a library has blossomed into a
                   source of immense hope and enthusiasm

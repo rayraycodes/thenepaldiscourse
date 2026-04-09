@@ -8,11 +8,11 @@ type NavPage = { kind: 'page'; label: string; path: string };
 
 const navItems: (NavSection | NavPage)[] = [
   { kind: 'page', label: 'Home', path: '/' },
-  { kind: 'section', label: 'Speakers', id: 'speakers' },
-  { kind: 'page', label: 'Itinerary', path: '/itinerary' },
+  { kind: 'page', label: 'Speakers', path: '/speakers' },
+  { kind: 'page', label: 'Conference Schedule', path: '/itinerary' },
   { kind: 'page', label: 'Register Now', path: '/apply' },
   { kind: 'page', label: 'Transparency', path: '/transparency' },
-  { kind: 'section', label: 'Team', id: 'organizers' },
+  { kind: 'page', label: 'Team', path: '/team' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
 ];
@@ -81,7 +81,7 @@ export function Navigation() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
-        <div className="max-w-[1200px] mx-auto px-6 lg:px-12">
+        <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
           <div className="flex items-center justify-between h-20">
             <Link
               to="/"
