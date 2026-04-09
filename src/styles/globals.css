@@ -308,7 +308,7 @@ body::before {
   flex-shrink: 0;
   display: inline-block;
   padding-inline: 0.25rem;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   line-height: 1.25;
   letter-spacing: 0.025em;
   text-align: center;
@@ -321,10 +321,10 @@ body::before {
   font-family: inherit;
 }
 @media (min-width: 1280px) {
-  .tnd-nav-link { padding-inline: 0.375rem; font-size: 0.8125rem; }
+  .tnd-nav-link { padding-inline: 0.375rem; font-size: 0.9375rem; }
 }
 @media (min-width: 1536px) {
-  .tnd-nav-link { padding-inline: 0.5rem; font-size: 0.875rem; }
+  .tnd-nav-link { padding-inline: 0.5rem; font-size: 1rem; }
 }
 .tnd-nav-link:hover { opacity: 0.9; }
 
@@ -404,7 +404,7 @@ body::before {
   .tnd-nav-overlay-inner { gap: 2rem; }
 }
 .tnd-nav-overlay-link {
-  font-size: 1.25rem;
+  font-size: 1.5rem;
   line-height: 1.4;
   color: var(--foreground);
   text-align: center;
@@ -415,7 +415,7 @@ body::before {
   font-family: inherit;
 }
 @media (min-width: 640px) {
-  .tnd-nav-overlay-link { font-size: 1.5rem; }
+  .tnd-nav-overlay-link { font-size: 1.75rem; }
 }
 .tnd-nav-overlay-socials {
   display: flex;
