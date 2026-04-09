@@ -1116,6 +1116,29 @@ body {
   margin-block-start: 1.25rem;
 }
 
+/* Apply page: hero — centered eyebrow, rule, and “Register Now” */
+.our-story-layout--apply .our-story-hero {
+  text-align: center;
+}
+
+.our-story-layout--apply .our-story-hero .our-story-eyebrow {
+  margin-inline: auto;
+  width: fit-content;
+  max-width: 100%;
+  text-align: center;
+}
+
+.our-story-layout--apply .our-story-hero .our-story-title-block {
+  margin-inline: auto;
+  width: fit-content;
+  max-width: 100%;
+  text-align: center;
+}
+
+.our-story-layout--apply .our-story-hero .our-story-h1 {
+  text-align: center;
+}
+
 /* Tickets page: center primary CTAs; keep labels / hints start-aligned */
 .our-story-layout--apply .our-story-prose--apply p:has(a.apply-register-cta),
 .our-story-layout--apply .our-story-prose--apply .apply-onboarding-download-wrap {
@@ -1749,6 +1772,20 @@ body {
     background-size: 20% auto;
     padding-bottom: 18%;
     min-height: 50px;
+  }
+}
+
+/* Hero section: min-height + vertical rhythm.
+   sm:/md: justify-* for flex-col are not in src/index.css utility subset — apply here. */
+@media (min-width: 40rem) and (max-width: 47.9375rem) {
+  .hero-section-desktop {
+    justify-content: center;
+  }
+}
+
+@media (min-width: 48rem) {
+  .hero-section-desktop {
+    justify-content: flex-start;
   }
 }
 

@@ -5,7 +5,7 @@ export function HeroSection() {
   return (
     <section
       id="hero"
-      className="min-h-screen hero-section-desktop flex flex-col items-center sm:justify-center md:justify-start pt-20 sm:pt-8 pb-8 md:pb-0"
+      className="min-h-screen hero-section-desktop flex flex-col items-center pt-20 sm:pt-8 pb-8 md:pb-0"
     >
       <div className="max-w-[1000px] w-full px-6 lg:px-12 md:py-0">
         {/* Headline */}
@@ -81,7 +81,7 @@ export function HeroSection() {
 
         {/* CTA Buttons */}
         <motion.div
-          className="flex flex-col sm:flex-row gap-4 md:mb-0"
+          className="flex flex-col items-center justify-center sm:flex-row gap-4 md:mb-0"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.26, delay: 0.6, ease: [0.16, 1, 0.3, 1] }}

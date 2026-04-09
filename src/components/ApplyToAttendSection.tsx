@@ -37,7 +37,7 @@ function PageHeader() {
   const reduced = useReducedMotion();
   return (
     <motion.header
-      className="our-story-hero"
+      className="our-story-hero flex w-full flex-col items-center text-center"
       initial={reduced ? { opacity: 1, y: 0 } : { opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reduced ? 0 : 0.45, ease: transitionEase }}
@@ -46,7 +46,7 @@ function PageHeader() {
       <div className="our-story-title-block">
         <h1
           id="register-heading"
-          className="our-story-h1 font-serif font-semibold leading-[1.12] text-[#1A1A1A] m-0"
+          className="our-story-h1 font-serif font-semibold leading-[1.12] text-[#1A1A1A] m-0 text-center"
         >
           Register Now
         </h1>
