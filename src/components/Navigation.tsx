@@ -10,7 +10,7 @@ const navItems: (NavSection | NavPage)[] = [
   { kind: 'page', label: 'Home', path: '/' },
   { kind: 'page', label: 'Speakers', path: '/speakers' },
   { kind: 'page', label: 'Conference Schedule', path: '/itinerary' },
-  { kind: 'page', label: 'Register Now', path: '/apply' },
+  { kind: 'page', label: 'Buy Tickets', path: '/apply' },
   { kind: 'page', label: 'Transparency', path: '/transparency' },
   { kind: 'page', label: 'Team', path: '/team' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },

@@ -48,7 +48,7 @@ function PageHeader() {
           id="register-heading"
           className="our-story-h1 font-serif font-semibold leading-[1.12] text-[#1A1A1A] m-0 text-center"
         >
-          Register Now
+          Buy Tickets
         </h1>
       </div>
     </motion.header>
