@@ -20,9 +20,20 @@ const navItems: (NavSection | NavPage)[] = [
 const navLinkClass =
   'relative text-sm tracking-wide group text-foreground no-underline hover:opacity-90';
 
+/** Full link row for mouse‑first desktops at md+; touch tablets keep the menu until xl */
+function computeInlinePrimaryNav(): boolean {
+  if (typeof window === 'undefined') return false;
+  if (window.matchMedia('(min-width: 1280px)').matches) return true;
+  return (
+    window.matchMedia('(min-width: 768px)').matches &&
+    window.matchMedia('(hover: hover)').matches
+  );
+}
+
 export function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [inlineNav, setInlineNav] = useState(computeInlinePrimaryNav);
   const location = useLocation();
   const navigate = useNavigate();
 
@@ -34,6 +45,26 @@ export function Navigation() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
+
+  useEffect(() => {
+    const w1280 = window.matchMedia('(min-width: 1280px)');
+    const md = window.matchMedia('(min-width: 768px)');
+    const hover = window.matchMedia('(hover: hover)');
+    const update = () => setInlineNav(computeInlinePrimaryNav());
+    w1280.addEventListener('change', update);
+    md.addEventListener('change', update);
+    hover.addEventListener('change', update);
+    update();
+    return () => {
+      w1280.removeEventListener('change', update);
+      md.removeEventListener('change', update);
+      hover.removeEventListener('change', update);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (inlineNav) setIsMobileMenuOpen(false);
+  }, [inlineNav]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -82,16 +113,16 @@ export function Navigation() {
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
       >
         <div className="max-w-[1400px] mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20">
+          <div className="flex items-center justify-between gap-4 min-w-0 h-20">
             <Link
               to="/"
               onClick={onLogoClick}
-              className="hover:opacity-70 transition-opacity duration-[180ms]"
+              className="shrink-0 hover:opacity-70 transition-opacity duration-[180ms]"
             >
               <img src="/tnd.png" alt="The Nepal Discourse" className="h-10" />
             </Link>
 
-            <div className="hidden md:flex items-center gap-8">
+            <div className={`items-center gap-6 2xl:gap-8 ${inlineNav ? 'flex' : 'hidden'}`}>
               {navItems.map((item) =>
                 item.kind === 'page' ? (
                   <Link
@@ -154,7 +185,9 @@ export function Navigation() {
             <button
               type="button"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="md:hidden p-2"
+              className={`shrink-0 min-h-11 min-w-11 items-center justify-center p-2 -mr-2 rounded-md hover:bg-foreground/5 transition-colors ${
+                inlineNav ? 'hidden' : 'flex'
+              }`}
               aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-primary-navigation"
@@ -166,16 +199,16 @@ export function Navigation() {
       </motion.nav>
 
       <AnimatePresence>
-        {isMobileMenuOpen && (
+        {isMobileMenuOpen && !inlineNav && (
           <motion.div
             id="mobile-primary-navigation"
-            className="fixed inset-0 z-40 nav-bg-match md:hidden"
+            className="fixed inset-0 z-40 nav-bg-match overflow-y-auto overscroll-contain"
             initial={{ opacity: 0, y: -12 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -12 }}
             transition={{ duration: 0.26, ease: [0.16, 1, 0.3, 1] }}
           >
-            <div className="flex flex-col items-center justify-center h-full gap-8">
+            <div className="flex flex-col items-center justify-center min-h-full gap-6 sm:gap-8 px-6 py-12 pt-24 pb-[max(3rem,env(safe-area-inset-bottom))]">
               {navItems.map((item, index) =>
                 item.kind === 'page' ? (
                   <motion.div
