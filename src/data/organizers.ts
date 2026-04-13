@@ -22,17 +22,13 @@ export const organizers: Organizer[] = [
   { name: 'Dr. Bibas Guragai', affiliation: "The University of Tokyo '17", imageSrc: '/organizers/drbibasguragai.png' },
   { name: 'Dr Pradish Poudel', affiliation: "Harvard MS '25", imageSrc: '/organizers/pradishpoudel.jpeg' },
   { name: 'Bibek Raj Kandel', affiliation: "HKS '24", imageSrc: '/organizers/bibekrajkandel.jpeg' },
-  { name: 'Aayushma Gautam', affiliation: "Tufts University '24", imageSrc: '/organizers/aayushmagautam.jpg' },
-  { name: 'Samrat Dhungana', affiliation: "Harvard '27", imageSrc: '/organizers/samratdhungana.jpeg' },
   { name: 'Ashmita Gautam', affiliation: "HKS '26", imageSrc: '/organizers/ashmitagautam.jpeg' },
   {
     name: 'Prajjawal Jung Pratap Singh',
     affiliation: "Northeastern '26",
     imageSrc: '/organizers/prajjawaljungpratapsingh.jpeg',
   },
-  { name: 'Yumi Parajuli', affiliation: "Idaho State University '21", imageSrc: '/organizers/yumiparajuli.png' },
   { name: 'Sudan Duwadi', affiliation: "Boston University '26", imageSrc: '/organizers/sudanduwadi.png' },
-  { name: 'Nabin Poudel', affiliation: "Harvard '25", imageSrc: '/organizers/nabinpoudel.jpeg' },
   { name: 'Sam Adhikari', affiliation: "HBS '28", imageSrc: '/organizers/samadhikari.jpeg' },
   {
     name: 'Simran Tamang',

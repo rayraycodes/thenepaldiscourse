@@ -3,6 +3,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { HeroSection } from '../components/HeroSection';
 import { Marquee } from '../components/Marquee';
 import { Countdown } from '../components/Countdown';
+import { FeaturedSpeakersSection } from '../components/FeaturedSpeakersSection';
+import { SpeakersSection } from '../components/SpeakersSection';
 import { CrisisSection } from '../components/CrisisSection';
 import { StrategicFramework } from '../components/StrategicFramework';
 import { Project2035Section } from '../components/Project2035Section';
@@ -23,12 +25,6 @@ export function HomePage() {
       navigate('/itinerary', { replace: true });
       return;
     }
-    if (id === 'speakers' || id === 'speaker-themes') {
-      navigate(id === 'speaker-themes' ? '/speakers#speaker-themes' : '/speakers', {
-        replace: true,
-      });
-      return;
-    }
     if (id === 'organizers') {
       navigate('/team', { replace: true });
       return;
@@ -45,6 +41,8 @@ export function HomePage() {
       <HeroSection />
       <Marquee />
       <Countdown />
+      <FeaturedSpeakersSection />
+      <SpeakersSection />
       <CrisisSection />
       <StrategicFramework />
       <Project2035Section />
