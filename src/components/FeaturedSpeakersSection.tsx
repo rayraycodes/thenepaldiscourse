@@ -206,6 +206,12 @@ const speakers: Speaker[] = [
     image: '/speakers/swastikashrestha.jpg',
   },
   {
+    id: 'samjhana-gurung-shrestha',
+    name: 'Samjhana Gurung Shrestha',
+    title: 'Program Lead, Nepali Class Boston',
+    image: '/speakers/samjhana.png',
+  },
+  {
     id: 'arun-r-joshi',
     name: 'Dr. Arun R. Joshi',
     title: 'CEO, Leadership Academy Nepal; Distinguished Fellow, IIDS',
