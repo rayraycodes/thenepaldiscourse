@@ -241,6 +241,24 @@ const speakers: Speaker[] = [
     title: 'CEO, Leadership Academy Nepal; Distinguished Fellow, IIDS',
     image: '/speakers/arunjoshi.png',
   },
+  {
+    id: 'bishnu-maya-pariyar',
+    name: 'Dr. Bishnu Maya Pariyar',
+    title: 'Co-Founder, NJ Speaks',
+    image: '/speakers/bishnu-maya-pariyar.jpg',
+  },
+  {
+    id: 'william-wisser',
+    name: 'Dr. William Wisser',
+    title: 'Director, Teaching Learning Lab, HGSE',
+    image: '/speakers/william-wisser.jpg',
+  },
+  {
+    id: 'lino-ahlering',
+    name: 'Lino Ahlering',
+    title: 'Former Managing Director, Daraz Nepal',
+    image: '/speakers/lino-ahlering.png',
+  },
 ];
 
 /** Fallback when a headshot file is missing from /public/speakers/ */
