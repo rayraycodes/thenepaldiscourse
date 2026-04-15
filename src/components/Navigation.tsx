@@ -117,7 +117,7 @@ export function Navigation() {
       <Link
         key={item.path}
         to={item.path}
-        className="tnd-nav-link"
+        className={`tnd-nav-link${item.path === '/apply' ? ' tnd-nav-link--cta' : ''}`}
         onClick={onPageLinkClick(item.path)}
         aria-current={location.pathname === item.path ? 'page' : undefined}
       >
@@ -193,16 +193,21 @@ export function Navigation() {
           {/* Hamburger row: phones + tablets (< 1024px) */}
           <div className="tnd-nav-mobile-row">
             {renderLogo()}
-            <button
-              type="button"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="tnd-nav-toggle"
-              aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
-              aria-expanded={isMobileMenuOpen}
-              aria-controls="mobile-primary-navigation"
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="tnd-nav-mobile-actions">
+              <Link to="/apply" className="tnd-nav-mobile-cta" onClick={onPageLinkClick('/apply')}>
+                Buy Tickets
+              </Link>
+              <button
+                type="button"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                className="tnd-nav-toggle"
+                aria-label={isMobileMenuOpen ? 'Close main menu' : 'Open main menu'}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-primary-navigation"
+              >
+                {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
           </div>
 
           {/* Inline desktop nav: >= 1024px */}
@@ -244,7 +249,7 @@ export function Navigation() {
                   >
                     <Link
                       to={item.path}
-                      className="tnd-nav-overlay-link"
+                      className={`tnd-nav-overlay-link${item.path === '/apply' ? ' tnd-nav-overlay-link--cta' : ''}`}
                       onClick={onPageLinkClick(item.path)}
                       aria-current={location.pathname === item.path ? 'page' : undefined}
                     >

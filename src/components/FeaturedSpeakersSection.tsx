@@ -200,6 +200,30 @@ const speakers: Speaker[] = [
     image: '/speakers/rakshyabam.png',
   },
   {
+    id: 'rumee-singh',
+    name: 'Rumee Singh',
+    title: 'Moderator | CEO & Co-Founder, Rumsan',
+    image: '/speakers/rumee.png',
+  },
+  {
+    id: 'sulav-budathoki',
+    name: 'Sulav Budathoki',
+    title: 'Chairman, CEO, ING Group',
+    image: '/speakers/sulav.png',
+  },
+  {
+    id: 'kiran-bhakta-joshi',
+    name: 'Kiran Bhakta Joshi',
+    title: 'Founder/CEO, Incessant Rain Studios',
+    image: '/speakers/kiranbhaktajoshi.png',
+  },
+  {
+    id: 'nishcal-rai',
+    name: 'Nishcal Rai',
+    title: 'Member of Parliament, Government of Nepal',
+    image: '/speakers/nishcalrai.png',
+  },
+  {
     id: 'swastika-shrestha',
     name: 'Swastika Shrestha',
     title: 'CEO, Teach for Nepal',

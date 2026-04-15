@@ -57,12 +57,9 @@ export function ItinerarySection() {
             className="our-story-article relative w-full max-w-full min-w-0 px-4 sm:px-8"
             aria-labelledby="itinerary-heading"
           >
-            <a href="#itinerary-toc" className="itinerary-skip-toc">
-              Skip to table of contents
-            </a>
             <PageHeader />
 
-            <RevealSection aria-label="Conference schedule and onboarding guide">
+            <RevealSection aria-label="Conference schedule lineup PDF">
               <ItineraryOnboardingGuide />
             </RevealSection>
           </article>

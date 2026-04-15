@@ -32,9 +32,12 @@ export function AgendaSection() {
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-lg text-muted-foreground">
-            The detailed conference schedule will be shared with conference participants.{' '}
-            <Link to="/itinerary" className="text-foreground font-medium underline underline-offset-4 hover:opacity-90">
-              Read more on the Conference Schedule page
+            View the sneakpeak PDF here:{' '}
+            <Link
+              to="/itinerary"
+              className="text-foreground font-medium underline underline-offset-4 hover:opacity-90"
+            >
+              Open sneakpeakpdf
             </Link>
             .
           </p>
