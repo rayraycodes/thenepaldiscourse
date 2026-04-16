@@ -253,12 +253,6 @@ const speakers: Speaker[] = [
     title: 'Director, Teaching Learning Lab, HGSE',
     image: '/speakers/william-wisser.jpg',
   },
-  {
-    id: 'lino-ahlering',
-    name: 'Lino Ahlering',
-    title: 'Former Managing Director, Daraz Nepal',
-    image: '/speakers/lino-ahlering.png',
-  },
 ];
 
 /** Fallback when a headshot file is missing from /public/speakers/ */
