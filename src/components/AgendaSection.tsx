@@ -1,5 +1,4 @@
 import { useRef } from 'react';
-import { Link } from 'react-router-dom';
 import { motion, useInView } from 'motion/react';
 
 export function AgendaSection() {
@@ -32,14 +31,8 @@ export function AgendaSection() {
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-lg text-muted-foreground">
-            View the{' '}
-            <Link
-              to="/itinerary"
-              className="text-foreground font-medium underline underline-offset-4 hover:opacity-90"
-            >
-              conference schedule
-            </Link>{' '}
-            for day-by-day sessions, speakers, and venues.
+            A detailed day-by-day schedule will be shared closer to the event. Watch this space for
+            sessions, speakers, and venues.
           </p>
         </motion.div>
       </div>

@@ -21,10 +21,6 @@ export function HomePage() {
       navigate('/faq', { replace: true });
       return;
     }
-    if (id === 'itinerary') {
-      navigate('/itinerary', { replace: true });
-      return;
-    }
     if (id === 'organizers') {
       navigate('/team', { replace: true });
       return;
