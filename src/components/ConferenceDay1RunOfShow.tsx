@@ -19,7 +19,7 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
   {
     time: '9:20–9:30 a.m.',
     title: 'Special address by the Hon’ble Finance Minister',
-    summary: 'Recorded message from Dr. Swarnim Wagle, Hon’ble Finance Minister.',
+    summary: 'Live address from Dr. Swarnim Wagle, Hon’ble Finance Minister (video dial-in).',
     location: 'Askwith Hall, Harvard University',
   },
   {
