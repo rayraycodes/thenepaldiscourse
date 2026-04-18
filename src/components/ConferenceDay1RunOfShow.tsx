@@ -127,10 +127,10 @@ export function ConferenceDay1RunOfShow() {
       title="Day 1 run of show — Saturday, April 25, 2026"
       intro={
         <>
-          <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-prose">
+          <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
             Saturday&apos;s program is at <strong className="font-semibold text-[#2c1418]">Harvard University</strong>, Cambridge. Specific rooms are listed in the venue column; times and rooms may be adjusted—follow on-site signage and organizer updates. Concurrent sessions share a time window—choose one breakout per block.
           </p>
-          <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-prose">
+          <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
             <strong className="font-semibold text-[#2c1418]">Optional:</strong> From 3:15–4:00 p.m.,
             VIPs and select speakers may join an MIT Media Lab tour instead of part of the closing
             block.

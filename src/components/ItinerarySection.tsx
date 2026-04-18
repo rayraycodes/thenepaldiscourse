@@ -54,7 +54,7 @@ export function ItinerarySection() {
         <div className="our-story-watermark" aria-hidden="true" />
         <div className="our-story-inner">
           <article
-            className="our-story-article relative w-full max-w-full min-w-0 px-4 sm:px-8"
+            className="our-story-article relative w-full max-w-full min-w-0 px-4 sm:px-8 lg:px-12"
             aria-labelledby="itinerary-heading"
           >
             <PageHeader />

@@ -103,7 +103,7 @@ export function ConferenceDay2RunOfShow() {
       headingId="day-2-heading"
       title="Day 2 run of show — Sunday, April 26, 2026"
       intro={
-        <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-prose">
+        <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
           Sunday&apos;s program is primarily at <strong className="font-semibold text-[#2c1418]">MIT</strong>, Cambridge; one session is at Larsen Hall on the Harvard Graduate School of Education campus—allow travel time if you switch venues. Specific rooms are listed in the venue column. Times and rooms may be adjusted; follow the conference program PDF, on-site signage, and organizer updates. Overlapping windows list concurrent options—choose one session per block.
         </p>
       }

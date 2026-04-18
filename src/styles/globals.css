@@ -972,11 +972,11 @@ body {
 }
 
 .our-story-layout .our-story-hero {
-  max-width: min(90ch, 100%);
+  max-width: min(100ch, 100%);
 }
 
 .our-story-layout .our-story-prose {
-  max-width: min(90ch, 100%);
+  max-width: min(100ch, 100%);
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
@@ -1002,7 +1002,7 @@ body {
 
 /* Transparency: justified reading column */
 .our-story-layout--transparency .our-story-prose.our-story-prose--compact-transparency {
-  max-width: min(90ch, 100%);
+  max-width: min(100ch, 100%);
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;
@@ -1010,13 +1010,13 @@ body {
   hyphenate-limit-chars: 10 4 4;
 }
 
-/* Conference schedule page: wider reading column + justified body (lists/headings stay start-aligned below) */
+/* Conference schedule page: wide column for tables + justified body (lists/headings stay start-aligned below) */
 .our-story-layout--itinerary.our-story-layout--itinerary-aaa .our-story-hero {
-  max-width: min(82ch, 100%);
+  max-width: min(112ch, 100%);
 }
 
 .our-story-layout--itinerary.our-story-layout--itinerary-aaa .our-story-prose.our-story-prose--compact-transparency {
-  max-width: min(82ch, 100%);
+  max-width: min(112ch, 100%);
   text-align: justify;
   text-justify: inter-word;
   hyphens: auto;

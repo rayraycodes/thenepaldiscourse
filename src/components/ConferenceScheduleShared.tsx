@@ -73,7 +73,7 @@ export function ConferenceScheduleDaySection({
         role="region"
         aria-label={scrollRegionLabel}
       >
-        <table className="itinerary-schedule-table min-w-[44rem]">
+        <table className="itinerary-schedule-table min-w-[52rem]">
           <caption className="itinerary-schedule-caption">{tableCaption}</caption>
           <thead>
             <tr>
@@ -96,7 +96,7 @@ export function ConferenceScheduleDaySection({
                   <td>
                     <div className="itinerary-schedule-cell--session">{sessionLabel}</div>
                     {row.summary ? (
-                      <p className="itinerary-schedule-note m-0 mt-1 max-w-prose">{row.summary}</p>
+                      <p className="itinerary-schedule-note m-0 mt-1 max-w-none">{row.summary}</p>
                     ) : null}
                   </td>
                   <td>
