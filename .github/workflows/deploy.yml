@@ -32,6 +32,9 @@ jobs:
         run: npm install
 
       - name: Build
+        env:
+          # Optional: override default GA4 id (see index.html + GoogleAnalytics.tsx)
+          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
         run: npm run build
 
       - name: Configure Pages

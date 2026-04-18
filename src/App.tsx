@@ -12,10 +12,12 @@ import { FAQPage } from './pages/FAQPage';
 import { ItineraryPage } from './pages/ItineraryPage';
 import { SpeakersPage } from './pages/SpeakersPage';
 import { OrganizingTeamPage } from './pages/OrganizingTeamPage';
+import { GoogleAnalytics } from './components/GoogleAnalytics';
 
 export default function App() {
   return (
     <div className="min-h-screen">
+      <GoogleAnalytics />
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
