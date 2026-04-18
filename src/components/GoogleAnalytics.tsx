@@ -2,7 +2,7 @@ import { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 
 /** Default GA4 property; override with `VITE_GA_MEASUREMENT_ID` if needed. */
-const DEFAULT_MEASUREMENT_ID = 'G-0WS6E1VCHH';
+const DEFAULT_MEASUREMENT_ID = 'G-LEBTX9YWGE';
 const MEASUREMENT_ID =
   (import.meta.env.VITE_GA_MEASUREMENT_ID as string | undefined)?.trim() || DEFAULT_MEASUREMENT_ID;
 
