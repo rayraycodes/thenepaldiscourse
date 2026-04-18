@@ -3,96 +3,100 @@ import {
   type ScheduleSessionRow,
 } from './ConferenceScheduleShared';
 
-/** Sunday lineup aligned with public sneak-peak PDF; times may be corrected by organizers. */
+/** Sunday at MIT — aligned with organizer Day II run-of-show; times may be finalized on site. */
 const DAY2_SESSIONS: ScheduleSessionRow[] = [
   {
-    time: '9:45–11:00 a.m.',
-    track: 'Breakout',
-    title: 'Nepal and emerging industries',
+    time: '8:00–9:00 a.m.',
+    title: 'Breakfast',
+    summary: 'Morning registration and networking; confirm room with on-site staff.',
+    location: 'MIT (details at registration)',
+  },
+  {
+    time: '9:00–9:40 a.m.',
+    title: 'Main plenary — Creating Nepal’s unicorn: anchoring growth in human capital',
     summary:
-      'Industrial policy, entrepreneurship, and global linkages shaping Nepal’s next-stage economy.',
-    moderator: 'Shuvangi Rana (MIT International Design Center)',
+      'How Nepal can build globally competitive, high-growth companies by investing in human capital: startup ecosystem barriers, talent and leadership for innovation, access to capital and global networks, and policy and institutional support for inclusive growth.',
+    moderator: 'Anup Kaphle (KMG)',
     panelists:
-      'Dr. Biswash Gauchan (IIDS); Nishchal Banskota (Nepal Tea Collective); Subarna Basnet (MIT)',
-    location: 'MIT, Cambridge (building announced on site)',
+      'Dipta Shah (53i Ventures); Biswas Dhakal (F1Soft); Sambhav Sirohiya (M&S Ventures); Pukar C. Hamal (SecurityPal)',
+    location: 'Schwarzman Building, MIT',
   },
   {
     time: '9:45–11:00 a.m.',
-    track: 'Breakout',
+    track: 'Breakout 3A',
+    title: 'Next-generation leadership — navigating multipolarity and strategic autonomy',
+    summary:
+      'Nepal in a shifting world order: from rule-based expectations toward multipolarity, implications for emerging democracies, balancing relations with India, China, and wider partners, and pathways to strategic autonomy and long-term national interests.',
+    moderator: 'Ang Sonam Sherpa (Harvard)',
+    panelists:
+      'Nishcal Rai (Member of Parliament, Nepali Congress); Semanta Dahal (Purak Asia); Pukar Bam (Member of Parliament, Rastriya Swatantra Party)',
+    location: 'Schwarzman Building, MIT',
+  },
+  {
+    time: '9:45–11:00 a.m.',
+    track: 'Breakout 3B',
     title:
       'The trust deficit — leading institutions in the age of digital mobilization and dissent',
     summary:
-      'Institutional legitimacy, digital discourse, and diplomacy in a polarized information environment.',
+      'Institutional legitimacy and public trust: root causes of declining trust, digital platforms and information flows, leadership through dissent and polarization, innovation with accountability and data security, and pathways toward transparent, inclusive governance.',
     moderator: 'Hitesh Hathi (Harvard South Asia Institute)',
     panelists:
-      'Ashish Luitel (N-able); Sharad Raj Aran (Embassy of Nepal, Washington, D.C.); additional speaker to be announced',
-    location: 'MIT Room 45-102, Cambridge',
-  },
-  {
-    time: '9:45–11:00 a.m.',
-    track: 'Breakout',
-    title: 'Next-generation leadership — navigating multipolarity and strategic autonomy',
-    summary:
-      'Youth leadership, governance, and Nepal’s place in a shifting global order.',
-    moderator: 'Ang Sonam Sherpa (Cornerstone Research)',
-    panelists:
-      'Nishcal Rai (Member of Parliament, Nepal); Raksha Bam (youth activist); Pukar Bam (Member of Parliament, Nepal); Semanta Dahal (Abhinawa Law Chambers; Chair, Purak Asia)',
-    location: 'MIT Room 45-230, Cambridge',
+      'Ashish Luitel (Microsoft AI and Governance); Sharad Raj Aran (Embassy of Nepal, USA)',
+    location: 'MIT (breakout room)',
   },
   {
     time: '11:00 a.m.–12:15 p.m.',
-    title: 'Designing Nepal’s AI skills strategy',
+    title: 'Main plenary — Designing Nepal’s AI skills strategy',
     summary:
-      'Workforce development, public–private collaboration, and scalable models for AI literacy and deployment.',
-    moderator: 'Dipta Shah (VikasaTech)',
-    panelists:
-      'Dr. Sanjay Manandhar (Zifino); Biswas Dhakal (F1Soft); Rumee Singh (Rumsan); Swastika Shrestha (Teach For Nepal)',
-    location: 'MIT Room 45-230, Cambridge',
+      'National AI readiness: mapping strengths, gaps, and risks; priority sectors for AI-related skills; roles of ecosystem partners; scaling talent pipelines; and frameworks for evaluation and long-term adaptability.',
+    moderator: 'Roshan Bhattarai (DLA Piper)',
+    panelists: 'Dr. Sanjay Manandhar (MIT); Biswas Dhakal (F1Soft); Rumee Singh (Rumsan)',
+    location: 'Schwarzman Building, MIT',
   },
   {
     time: '12:15–1:00 p.m.',
-    title: 'Lunch / recess',
-    summary: 'Meal service and break. Confirm timing and room with on-site volunteers.',
+    title: 'Lunch and recess',
+    summary: 'Meal service and break; confirm venue with volunteers.',
     location: 'MIT campus (details at registration)',
   },
   {
     time: '1:00–2:15 p.m.',
+    track: 'Breakout 4A',
+    title: 'Remittance-plus economy',
+    summary:
+      'From remittance dependence to productive investment: sustainability of remittances amid AI and workforce change, demand in key labor markets, competitiveness of Nepal’s human capital abroad, and channels into entrepreneurship and a remittance-plus growth model.',
+    moderator: 'Dipta Shah',
+    panelists:
+      'Dr. Biswash Gauchan (IIDS); Bhawani Rana (FNCCI); Subash Sharma (eSewa); Rahul Agrawal (Siddhartha Bank)',
+    location: 'Schwarzman Building, MIT',
+  },
+  {
+    time: '1:00–2:15 p.m.',
+    track: 'Breakout 4B',
     title: 'Diaspora, migration, and representation',
     summary:
-      'Voice, belonging, and policy interfaces between Nepali communities abroad and institutions at home.',
+      'Diaspora voting rights and global practice; how migration shapes political and social representation; identity and equity in diaspora communities; technology and legal frameworks for participation.',
+    moderator: 'Dadhiram Bhandari (Nepal Consulate)',
     panelists:
-      'Mahendra Pandey (Humanity United); Dr. Bishnu Maya Pariyar (NJ Speaks); Samjhana Gurung Shrestha (Nepali Class Boston); Dhadiram Bhandari (Consul General of Nepal, New York)',
-    location: 'MIT, Cambridge (building announced on site)',
+      'Mahendra Pandey (migrant rights activist); Dr. Bishnu Maya Pariyar; Samjhana Gurung (Boston)',
+    location: 'MIT (breakout room)',
   },
   {
-    time: '1:00–2:25 p.m.',
-    title: 'Remittance plus economy',
+    time: '2:15–3:30 p.m.',
+    title: 'Closing plenary — Global Nepalis and the skills agenda (Pillar IV)',
     summary:
-      'Beyond remittance flows: investment, enterprise, and financial infrastructure for inclusive growth.',
-    moderator: 'Prof. Tarun Khanna (Harvard Business School)',
+      'Diaspora networks, digital platforms, and remote work: emerging industries and economic shifts, remittances and skills in national development, opportunities from platforms and distributed work, and barriers to competitiveness.',
+    moderator: 'Shuvangi Rana (MIT)',
     panelists:
-      'Bhawani Rana; Hem Raj Dhakal (IME Group); Rahul Agrawal (Siddhartha Bank); Subash Sharma (F1Soft / eSewa)',
-    location: 'MIT, Cambridge (building announced on site)',
+      'Nishchal Banskota (Nepal Tea Collective); Subarna Basnet (MIT); Dr. Biswash Gauchan (IIDS); Kiran Bhakta Joshi (Incessant Rain)',
+    location: 'Schwarzman Building, MIT',
   },
   {
-    time: '1:30–2:45 p.m.',
-    title: 'The cultural playbook — community and leadership through art and culture',
-    summary:
-      'Storytelling, creative industries, and cultural strategy as levers for leadership and cohesion.',
-    moderator: 'Anup Kaphle (Kantipur Media Group)',
-    panelists:
-      'Kiran Bhakta Joshi (Incessant Rain Studios); Sophia L. Pandé (writer, art historian, filmmaker); additional speaker to be announced',
-    location: 'Larsen Hall, Harvard Graduate School of Education (Cambridge)',
-  },
-  {
-    time: '2:25–3:15 p.m.',
-    title: 'Creating Nepal’s next billion-dollar company for our human capital',
-    summary:
-      'Scaling world-class companies from Nepal: talent, capital, and narrative for global competitiveness.',
-    moderator: 'Dipta Shah (VikasaTech)',
-    panelists:
-      'Rahul Agrawal (Siddhartha Bank); Sambhav Swar Sirohiya (Kantipur Media Group); Biswas Dhakal (F1Soft)',
-    location: 'MIT, Cambridge (building announced on site)',
+    time: '3:30–4:00 p.m.',
+    title: 'Closing remarks',
+    summary: 'Formal close to Day 2 and the convening segment at MIT.',
+    moderator: 'Dr. Arun R. Joshi (Leadership Academy Nepal)',
+    location: 'Schwarzman Building, MIT',
   },
 ];
 
@@ -101,10 +105,14 @@ export function ConferenceDay2RunOfShow() {
     <ConferenceScheduleDaySection
       sectionId="schedule-day-2"
       headingId="day-2-heading"
-      title="Day 2 run of show — Sunday, April 26, 2026"
+      title="Day 2 — Sunday, April 26, 2026"
       intro={
         <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
-          Sunday&apos;s program is primarily at <strong className="font-semibold text-[#2c1418]">MIT</strong>, Cambridge; one session is at Larsen Hall on the Harvard Graduate School of Education campus—allow travel time if you switch venues. Specific rooms are listed in the venue column. Times and rooms may be adjusted; follow the conference program PDF, on-site signage, and organizer updates. Overlapping windows list concurrent options—choose one session per block.
+          Sunday&apos;s program is at <strong className="font-semibold text-[#2c1418]">MIT</strong>,
+          Cambridge. Most sessions are in the Schwarzman Building; breakouts may use
+          additional MIT rooms—confirm on-site. Times and rooms may be adjusted; follow the conference
+          on-site signage and organizer updates. Concurrent sessions share a time window—choose
+          one breakout per block.
         </p>
       }
       sessions={DAY2_SESSIONS}

@@ -59,7 +59,7 @@ export function ItinerarySection() {
           >
             <PageHeader />
 
-            <RevealSection aria-label="Conference schedules and conference program PDF">
+            <RevealSection aria-label="Conference schedules">
               <ItineraryOnboardingGuide />
             </RevealSection>
           </article>
