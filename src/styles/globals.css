@@ -1264,14 +1264,22 @@ body {
   outline-offset: 3px;
 }
 
+/* Table body: Inter + relaxed leading (same stack as home / site body, not story serif) */
 .our-story-layout--itinerary .itinerary-schedule-table {
   width: 100%;
   min-width: 20rem;
   border-collapse: collapse;
-  font-size: 0.9375rem;
-  line-height: 1.55;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 1rem;
+  line-height: 1.625;
   color: #141414;
   text-align: start;
+}
+
+@media (min-width: 48rem) {
+  .our-story-layout--itinerary .itinerary-schedule-table {
+    font-size: 1.0625rem;
+  }
 }
 
 .our-story-layout--itinerary .itinerary-schedule-table .itinerary-schedule-caption {
@@ -1310,14 +1318,14 @@ body {
 .our-story-layout--itinerary .itinerary-schedule-table tbody tr.itinerary-schedule-tr--banner th {
   background: rgba(106, 13, 24, 0.12);
   font-weight: 700;
-  font-size: 0.9375rem;
+  font-size: inherit;
   color: #2c1418;
   border-bottom: 2px solid rgba(26, 26, 26, 0.15);
 }
 
 .our-story-layout--itinerary .itinerary-schedule-cell--time {
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: inherit;
   color: #363636;
   white-space: nowrap;
 }
@@ -1334,16 +1342,21 @@ body {
 }
 
 .our-story-layout--itinerary .itinerary-schedule-venue {
-  font-size: 0.9375rem;
+  font-size: inherit;
   font-weight: 600;
   color: #5c0f1a;
   margin-block-end: 0.25rem;
 }
 
 .our-story-layout--itinerary .itinerary-schedule-note {
-  font-size: 0.9375rem;
-  line-height: 1.55;
+  font-size: inherit;
+  line-height: 1.625;
   color: #363636;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-table .itinerary-aaa-muted {
+  font-size: inherit;
+  line-height: inherit;
 }
 
 .our-story-layout--itinerary .itinerary-accommodation-ul {
