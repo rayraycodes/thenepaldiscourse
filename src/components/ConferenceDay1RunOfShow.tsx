@@ -29,7 +29,7 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
       'Opening plenary setting the tone for the convening across pillars: landscape, emerging trends, human capital, and where technology, talent, and leadership meet.',
     moderator: 'Anup Kaphle',
     panelists:
-      'Dr. Sameer Maskey (FuseMachines); Dr. Peter Q. Blair (Harvard); Bhawani Rana (Prep)',
+      'Dr. Sameer Maskey (FuseMachines); Dr. Peter Q. Blair (Harvard); Bhawani Rana',
     location: 'Askwith Hall, Harvard University',
   },
   {
