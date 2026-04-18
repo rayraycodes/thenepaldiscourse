@@ -32,14 +32,14 @@ export function AgendaSection() {
           transition={{ duration: 0.52, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         >
           <p className="text-lg text-muted-foreground">
-            View the sneakpeak PDF here:{' '}
+            Browse the{' '}
             <Link
-              to="/itinerary"
+              to="/itinerary#conference-program-pdf"
               className="text-foreground font-medium underline underline-offset-4 hover:opacity-90"
             >
-              Open sneakpeakpdf
-            </Link>
-            .
+              conference program (PDF)
+            </Link>{' '}
+            — speakers, sessions, and timings — on the conference schedule page.
           </p>
         </motion.div>
       </div>
