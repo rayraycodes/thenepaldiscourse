@@ -1,5 +1,5 @@
 import { useRef, type ComponentPropsWithoutRef } from 'react';
-import { Download, ExternalLink } from 'lucide-react';
+import { ExternalLink } from 'lucide-react';
 import { motion, useInView, useReducedMotion } from 'motion/react';
 
 const transitionEase = [0.16, 1, 0.3, 1] as const;
@@ -7,10 +7,6 @@ const transitionEase = [0.16, 1, 0.3, 1] as const;
 /** Harvard GSE calendar — general and student ticket tiers */
 const HARVARD_GSE_EVENT_URL =
   'https://calendar.gse.harvard.edu/en/36YmkP6/the-nepal-discourse-human-development-ai-and-the-next-generation-of-leadership-5a5YUc2TDOv/overview';
-
-const ONBOARDING_PDF_PATH = '/onboarding.pdf';
-const ONBOARDING_PDF_DOWNLOAD_NAME =
-  'The-Nepal-Discourse-2026-Onboarding-Guide.pdf';
 
 function RevealSection({
   children,
@@ -167,9 +163,9 @@ export function ApplyToAttendSection() {
 
                 <h3 id="event-details-preparation">Event Details and Preparation</h3>
                 <p>
-                  At the end of this page you can review the Onboarding Guide, which includes a draft
-                  run of show and confirmed panelists at the time of publication. A fuller attendee
-                  handbook will be shared after your ticket is confirmed.
+                  A fuller attendee handbook and practical details will be shared after your ticket is
+                  confirmed. Treat your registration confirmation and follow-up emails as the primary
+                  source for timing and logistics.
                 </p>
 
                 <h3 id="important-note">Important Note</h3>
@@ -185,10 +181,10 @@ export function ApplyToAttendSection() {
                   and MIT campus venues.
                 </p>
                 <p>
-                  The onboarding guide is meant to help you prepare and set expectations; it is not a
-                  contract of services. Check-in and venue access may require a government-issued photo
-                  ID and your ticket or confirmation. Follow instructions in your registration and
-                  confirmation emails if they differ from the guide.
+                  Information on this page is for planning only and is not a contract of services.
+                  Check-in and venue access may require a government-issued photo ID and your ticket or
+                  confirmation. Follow instructions in your registration and confirmation emails if
+                  they differ from anything published here.
                 </p>
                 <p className="apply-important-contact">
                   For ticketing or access questions, contact{' '}
@@ -200,43 +196,6 @@ export function ApplyToAttendSection() {
                     info@thenepaldiscourse.com
                   </a>
                   .
-                </p>
-
-                <h3 id="onboarding-guide">Onboarding Guide</h3>
-                <p id="onboarding-guide-context">
-                  Use the preview to scroll through the guide in your browser, or download the PDF to
-                  read offline or share with your team. The schedule and speaker lineup may shift as we
-                  approach the event; always treat the registration confirmation and later emails as the
-                  final source for timing and logistics.
-                </p>
-                <p className="apply-onboarding-fallback-hint" id="onboarding-preview-hint">
-                  If the preview does not appear on your device, open or save the file using the
-                  download link just below.
-                </p>
-                <div
-                  className="apply-onboarding-pdf-shell"
-                  role="region"
-                  aria-label="Onboarding guide PDF preview"
-                >
-                  <iframe
-                    title="The Nepal Discourse 2026 — Onboarding Guide (PDF)"
-                    src={ONBOARDING_PDF_PATH}
-                    className="apply-onboarding-pdf-iframe"
-                  />
-                </div>
-                <p className="apply-onboarding-download-wrap">
-                  <a
-                    href={ONBOARDING_PDF_PATH}
-                    download={ONBOARDING_PDF_DOWNLOAD_NAME}
-                    className="apply-story-link apply-onboarding-download-link"
-                    aria-describedby="onboarding-guide-context"
-                  >
-                    Download the onboarding guide (PDF)
-                    <span className="apply-story-external-suffix" aria-hidden="true">
-                      {'\u00A0'}
-                      <Download className="apply-story-external-icon" aria-hidden />
-                    </span>
-                  </a>
                 </p>
               </div>
             </RevealSection>
