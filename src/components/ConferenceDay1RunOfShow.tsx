@@ -189,9 +189,8 @@ export function ConferenceDay1RunOfShow() {
       intro={
         <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
           Saturday&apos;s program is at{' '}
-          <strong className="font-semibold text-[#2c1418]">Harvard University</strong>, Cambridge. Room
-          assignments are omitted here; follow on-site signage and organizer updates. Concurrent sessions
-          share a time window—choose one breakout per block.
+          <strong className="font-semibold text-[#2c1418]">Harvard University</strong>, Cambridge.
+          Concurrent sessions share a time window—choose one breakout per block.
         </p>
       }
       sessions={DAY1_SESSIONS}

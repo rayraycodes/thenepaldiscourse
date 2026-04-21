@@ -123,8 +123,7 @@ export function ConferenceDay2RunOfShow() {
       intro={
         <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
           Sunday&apos;s program is at <strong className="font-semibold text-[#2c1418]">MIT</strong>,
-          Cambridge. Room assignments are omitted here; follow on-site signage and organizer updates.
-          Concurrent sessions share a time window—choose one breakout per block.
+          Cambridge. Concurrent sessions share a time window—choose one breakout per block.
         </p>
       }
       sessions={DAY2_SESSIONS}
