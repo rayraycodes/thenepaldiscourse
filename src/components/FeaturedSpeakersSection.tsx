@@ -76,10 +76,10 @@ const speakers: Speaker[] = [
     image: '/speakers/sanjaymanandhar.jpg',
   },
   {
-    id: 'rupa-laxmi-shah',
-    name: 'Rupa Laxmi Shah',
-    title: 'Director of Philanthropy and Partnerships, MIT RAISE',
-    image: '/speakers/rupalaxmishah.jpg',
+    id: 'ayushi-roy',
+    name: 'Ayushi Roy',
+    title: 'Adjunct Lecturer in Public Policy, Harvard Kennedy School',
+    image: '/speakers/ayushiroy.png',
   },
   {
     id: 'dipta-shah',

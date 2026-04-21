@@ -109,7 +109,7 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
     title: 'From prediction to wisdom — human decision-making in the AI era',
     summary:
       'Equitable AI access and ethics: foundation models and automated decisions, governance and data stewardship, innovation versus responsible use, cultural and philosophical dimensions, and inclusion in global AI ethics frameworks.',
-    moderator: 'Rupa Laxmi Shah (MIT RAISE)',
+    moderator: 'Ayushi Roy (Harvard Kennedy School)',
     panelists:
       'Dr. Ashish Luitel (University of Cumberland); Sameer Maskey (FuseMachines); Rashik Adhikari (Renegade Insurance)',
     location: 'Askwith Hall and Longfellow Hall, Harvard University',
