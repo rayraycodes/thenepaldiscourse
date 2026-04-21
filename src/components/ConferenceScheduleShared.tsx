@@ -35,6 +35,13 @@ export function ParticipantsCell({
   moderator,
   panelists,
 }: Pick<ScheduleSessionRow, 'moderator' | 'panelists'>) {
+  const panelistLines = panelists
+    ? panelists
+        .split(';')
+        .map((line) => line.trim())
+        .filter(Boolean)
+    : [];
+
   if (!moderator && !panelists) {
     return <span className="itinerary-aaa-muted">—</span>;
   }
@@ -48,11 +55,25 @@ export function ParticipantsCell({
         </p>
       ) : null}
       {panelists ? (
-        <p className="m-0 itinerary-schedule-note">
-          <span className="itinerary-sr-only">Panelists: </span>
-          <span className="font-semibold text-[#2c1418]">Panelists: </span>
-          {panelists}
-        </p>
+        panelistLines.length > 1 ? (
+          <div className="m-0 itinerary-schedule-note">
+            <span className="itinerary-sr-only">Panelists: </span>
+            <p className="m-0">
+              <span className="font-semibold text-[#2c1418]">Panelists: </span>
+            </p>
+            <ul className="itinerary-schedule-bullets m-0 mt-1">
+              {panelistLines.map((panelist) => (
+                <li key={panelist}>{panelist}</li>
+              ))}
+            </ul>
+          </div>
+        ) : (
+          <p className="m-0 itinerary-schedule-note">
+            <span className="itinerary-sr-only">Panelists: </span>
+            <span className="font-semibold text-[#2c1418]">Panelists: </span>
+            {panelists}
+          </p>
+        )
       ) : null}
     </div>
   );
