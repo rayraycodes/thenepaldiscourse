@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ConferenceScheduleDaySection,
   type ScheduleSessionRow,
@@ -7,15 +8,15 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
   {
     time: '8:00–9:00 a.m.',
     title: 'Breakfast and registration',
-    summary: 'Check in, collect your badge and materials, and connect with volunteers.',
-    location: 'Askwith Hall, Harvard University',
+    summary:
+      'Conference participants and panelists check in at registration and join for breakfast.',
   },
   {
     time: '9:00–9:15 a.m.',
     title: 'Welcome and acknowledgements',
     summary:
       'Setting the scene: background of the conference, objectives, the Four Pillars, and Strategic Foresight 2035.',
-    location: 'Askwith Hall, Harvard University',
+    moderator: 'Utsav Kharel (Harvard) and Salome Bhatta (Harvard)',
   },
   {
     time: '9:20–9:30 a.m.',
@@ -23,28 +24,39 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
     summary:
       'Dr. Swarnim Wagle shares his vision for the next ten years on human capital, artificial intelligence, and next-generation leadership.',
     panelists: 'Dr. Swarnim Wagle, Hon’ble Finance Minister of Nepal',
-    location: 'Askwith Hall, Harvard University',
   },
   {
     time: '9:30–10:45 a.m.',
-    title: 'Main plenary — Human capital, AI, and next-generation leadership',
+    track: 'Main plenary 1',
+    title: 'Opening plenary — Human capital, AI, and next-generation leadership',
     summary:
-      'Opening plenary framing two days of convening and Strategic Foresight 2035: ecosystem-level action across pillars—current landscape and dynamics, emerging trends in AI and leadership, human capital opportunities and constraints, and where technology, talent, and leadership intersect.',
+      'Opening plenary framing two days of convening and Strategic Foresight 2035. Objective: ecosystem-level messaging and action plans across the four pillars.',
+    summaryBullets: [
+      'Current landscape and its underlying dynamics',
+      'Emerging trends, frameworks, and shifts in AI and leadership',
+      'Key challenges and opportunities shaping human capital development',
+      'Intersections between technology, talent, and leadership for the future',
+    ],
     moderator: 'Anup Kaphle (KMG)',
     panelists:
-      'Dr. Sameer Maskey (FuseMachines); Dr. Peter Q. Blair (Harvard); Bhawani Rana (Former President, FNCCI)',
-    location: 'Askwith Hall, Harvard University',
+      'Dr. Sameer Maskey (FuseMachines); Dr. Peter Q. Blair (Harvard); Bhawani Rana (former president, FNCCI)',
   },
   {
     time: '10:45 a.m.–12:00 p.m.',
     track: 'Breakout 1A',
-    title: 'From BPO to IPO — leveraging AI for startup acceleration and economic leapfrogging',
+    title: 'From BPO to IPO — leveraging AI (emerging tech) for startup acceleration and economic leapfrogging',
     summary:
-      'Operating and scaling innovative enterprises in Nepal: BPO models and bottlenecks, ecosystem actors, jobs for future human capital, policy and capital constraints, and collaboration for systemic change.',
+      'Objective: unpack challenges and opportunities for operating innovative enterprises in Nepal and map what it takes to scale and pivot ventures.',
+    summaryBullets: [
+      'Current BPO approaches, operational models, and policy bottlenecks',
+      'Role of ecosystem actors shaping the innovation landscape',
+      'New jobs and pathways for future human capital',
+      'Policy and capital constraints affecting startup growth',
+      'Opportunities for ecosystem-wide collaboration and disruptive change',
+    ],
     moderator: 'Rumee Singh (Rumsan)',
     panelists:
       'Prasanna Dhungel (GrowByData); Bal Krishna Joshi (Xuno founder); Karvika Thapa (Kimbu Tech)',
-    location: 'Larsen G01, Harvard Graduate School of Education',
   },
   {
     time: '10:45 a.m.–12:00 p.m.',
@@ -52,37 +64,56 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
     title:
       'Future-proofing the curriculum — AI literacy and next-generation employment (from rote to resilience)',
     summary:
-      'Education outcomes in Nepal, human-centered learning with AI, AI literacy and soft skills for work, links between education and the economy, and lessons from global systems relevant to Nepal.',
+      'Objective: identify challenges to education outcomes in Nepal and practical ways to future-proof curricula.',
+    summaryBullets: [
+      'Current state of education outcomes: progress and persistent gaps',
+      'Shift from rote to experience-based, human-centered learning in the AI age',
+      'AI literacy and soft skills for workforce readiness',
+      'Disconnects among education, economic utility, human capital, and social cohesion',
+      'Lessons from global education systems relevant to Nepal',
+    ],
     moderator: 'Dr. Arun Joshi (Leadership Academy Nepal)',
-    panelists: 'Sulav Budathoki (ING Group); William Wisser; Swastika Shrestha (Teach For Nepal)',
-    location: 'Larsen Hall, Harvard Graduate School of Education',
+    panelists:
+      'Sulav Budhathoki (ING Group of Education); William Wisser; Swastika Shrestha (Teach For Nepal)',
   },
   {
     time: '10:45 a.m.–12:00 p.m.',
     track: 'Breakout 1C',
     title: 'Financing the future — capital and policy pathways for resilience',
     summary:
-      'Global energy transitions and climate finance, socio-economic impacts in Nepal, limits of current approaches, policy and capital bottlenecks, and blended finance and partnership models.',
+      'Objective: explore innovative, sustainable financing models for climate adaptation and resilience.',
+    summaryBullets: [
+      'Global energy transitions and future outlook',
+      'Current climate financing and investment models',
+      'Socio-economic impacts of climate change in Nepal',
+      'Limitations of existing financing approaches',
+      'Policy and capital bottlenecks',
+      'Opportunities for blended finance and partnership-driven models',
+    ],
     moderator: 'Amelia VanderLaan (Harvard)',
     panelists:
-      'David Sislen (IFC); Manoj Paudel (Aadhyanta Fund); Arun Banskota (Blue Earth Renewables)',
-    location: 'Askwith Hall, Harvard University',
+      'David Sislen (IFC); Manoj Paudel (Aadhyanta Fund); Arun Banskota (BluEarth Renewables)',
   },
   {
     time: '12:00–12:40 p.m.',
     title: 'Recess and lunch',
-    summary: 'Meal service and break. On-site staff can confirm the lunch venue.',
-    location: 'To be announced at registration',
+    summary: 'Meal service and break.',
   },
   {
     time: '12:40–1:25 p.m.',
-    title: 'Main plenary — Mobility and connectivity',
+    track: 'Main plenary 2',
+    title: 'Mobility and connectivity',
     summary:
-      'Infrastructure and connectivity for human capital: gaps versus development goals, mobility for growth and access, environmental balance, and inclusive, context-specific models.',
+      'Objective: map challenges and opportunities for infrastructure and connectivity in support of human capital.',
+    summaryBullets: [
+      'Current gaps between infrastructure, connectivity, and human development',
+      'Role of mobility and connectivity in enabling growth and access',
+      'Balancing infrastructure development with environmental sustainability',
+      'Context-specific and inclusive infrastructure pathways',
+    ],
     moderator: 'Bibek Raj Kandel',
     panelists:
-      'David Sislen (World Bank Group); Sunita Dangol (Kathmandu Metropolitan City); Michael Foley (Ncell CEO); Pukar C. Hamal (SecurityPal)',
-    location: 'Askwith Hall and Longfellow Hall, Harvard University',
+      'David Sislen (World Bank Group); Michael Foley (Ncell CEO); Pukar C. Hamal (SecurityPal)',
   },
   {
     time: '1:30–2:45 p.m.',
@@ -91,49 +122,61 @@ const DAY1_SESSIONS: ScheduleSessionRow[] = [
     summary: 'A moderated conversation with Raju Lama.',
     moderator: 'Asmi Pokharel (Harvard Extension School)',
     panelists: 'Raju Lama',
-    location: 'Larsen Hall, Harvard Graduate School of Education',
   },
   {
     time: '1:30–2:45 p.m.',
     track: 'Breakout 2B',
     title: 'Global health and wellbeing',
     summary:
-      'Health access and delivery in Nepal, innovations and lessons, scale and gaps in the wellbeing ecosystem, AI and emerging technology for outcomes, and cross-sector collaboration for equity.',
-    moderator: 'Dr. Ramu Kharel (Brown University)',
-    panelists: 'To be confirmed; Dr. Meisinger (Harvard); Dr. Bijay Acharya (UMass)',
-    location: 'Larsen Hall, Harvard Graduate School of Education',
+      'Objective: strengthen health systems and communities using digital health and AI toward equitable access, better outcomes, and health equity.',
+    summaryBullets: [
+      'Current gaps in access, quality, and service delivery, especially in underserved communities',
+      'Practical use cases of telemedicine, AI, data systems, and digital platforms',
+      'How digital tools can improve community engagement and health literacy',
+      'Pathways to scale innovation and integrate into national health systems',
+      'Barriers: infrastructure, workforce capacity, data governance, and digital divide',
+      'Partnership opportunities across government, private sector, academia, and communities',
+    ],
+    moderator: 'To be confirmed',
+    panelists:
+      'Dr. Shreedhar Paudel (Harvard); Dr. Ramu Kharel (Brown University); Dr. Kirsten Meisinger (One Heart Worldwide); Dr. Basmaa Ali (Harvard)',
   },
   {
     time: '1:30–2:45 p.m.',
     track: 'Breakout 2C',
     title: 'From prediction to wisdom — human decision-making in the AI era',
     summary:
-      'Equitable AI access and ethics: foundation models and automated decisions, governance and data stewardship, innovation versus responsible use, cultural and philosophical dimensions, and inclusion in global AI ethics frameworks.',
-    moderator: 'Ayushi Roy (Harvard Kennedy School)',
+      'Objective: define pathways toward equitable AI access aligned with ethical frameworks.',
+    summaryBullets: [
+      'Ethical challenges in AI systems, including foundation models and automated decisions',
+      'Governance frameworks, data privacy, and stewardship dilemmas',
+      'Trade-offs between innovation and responsible data use',
+      'Cultural and philosophical perspectives shaping human–AI interaction',
+      'Inclusion, equity, and representation in global AI ethics frameworks',
+    ],
+    moderator: 'Rumee Singh (Rumsan)',
     panelists:
-      'Dr. Ashish Luitel (University of Cumberland); Sameer Maskey (FuseMachines); Rashik Adhikari (Renegade Insurance)',
-    location: 'Askwith Hall and Longfellow Hall, Harvard University',
+      'Ayushi Roy (Harvard Kennedy School); Dr. Sameer Maskey (FuseMachines); Rashik Adhikari (Renegade Insurance); Dr. Ashish Luitel',
   },
   {
     time: '2:45–4:00 p.m.',
-    title: 'Strategic Foresight 2035 design lab — ecosystem commitments',
+    track: 'Main plenary 3',
+    title: 'Strategic Foresight 2035 — ecosystem commitments',
     summary:
-      'Facilitated working session with pillar co-chairs and selected participants: synthesize pillar insights, draft the initial outline and priority questions for the Project 2035 report, invite institutions and individuals to commit to follow-up actions, and align on timeline and governance for the task force—closing with commitments and a concrete workplan.',
+      'Strategic Foresight 2035 design lab with pillar co-chairs and selected participants.',
+    summaryBullets: [
+      'Summarize key insights from each pillar',
+      'Draft the initial outline and priority questions for the Project 2035 report',
+      'Invite institutions and individuals to commit to follow-up actions',
+      'Agree on timeline and governance for the Project 2035 task force',
+      'Close with shared commitments and a concrete work plan',
+    ],
     moderator: 'Ang Sonam Sherpa (Harvard) and Dr. Arun Joshi (Leadership Academy Nepal)',
-    location: 'Askwith Hall and Longfellow Hall, Harvard University',
   },
   {
     time: '4:00–5:00 p.m.',
     title: 'High tea — end of Day 1',
-    summary: 'Informal close at Askwith; confirm timing with on-site staff.',
-    location: 'Askwith Hall, Harvard University',
-  },
-  {
-    time: '4:00–8:00 p.m.',
-    title: 'The Nepal Discourse Experience — exclusive sessions',
-    summary:
-      'Curated speakers and VIP patron pass holders; evening programming at MIT (per organizer schedule).',
-    location: 'MIT',
+    summary: 'Informal close; confirm timing with on-site staff.',
   },
 ];
 
@@ -145,12 +188,16 @@ export function ConferenceDay1RunOfShow() {
       title="Day 1 — Saturday, April 25, 2026"
       intro={
         <p className="itinerary-aaa-muted not-justify m-0 mb-4 max-w-none">
-          Saturday&apos;s program is at <strong className="font-semibold text-[#2c1418]">Harvard University</strong>, Cambridge. Specific rooms are listed in the venue column; times and rooms may be adjusted—follow on-site signage and organizer updates. Concurrent sessions share a time window—choose one breakout per block.
+          Saturday&apos;s program is at{' '}
+          <strong className="font-semibold text-[#2c1418]">Harvard University</strong>, Cambridge. Room
+          assignments are omitted here; follow on-site signage and organizer updates. Concurrent sessions
+          share a time window—choose one breakout per block.
         </p>
       }
       sessions={DAY1_SESSIONS}
-      tableCaption="The Nepal Discourse 2026 — Day 1: time, session, people, and venue."
+      tableCaption="The Nepal Discourse 2026 — Day 1: time, session, and moderator or panelists."
       scrollRegionLabel="Day 1 schedule. Scroll horizontally on narrow screens to read all columns."
+      showVenueColumn={false}
     />
   );
 }

@@ -1109,7 +1109,7 @@ body {
 .our-story-layout--itinerary .itinerary-aaa-muted {
   font-size: 0.9375rem;
   line-height: 1.55;
-  color: #363636;
+  color: #2a2a2a;
 }
 
 .our-story-layout--itinerary .itinerary-aaa-link {
@@ -1259,6 +1259,60 @@ body {
   background: rgba(255, 255, 255, 0.55);
 }
 
+.our-story-layout--itinerary .itinerary-schedule-cards {
+  list-style: none;
+  margin: 0 0 1.5rem;
+  padding: 0;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-card {
+  margin: 0;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-card-article {
+  border: 1px solid rgba(26, 26, 26, 0.18);
+  border-radius: 0.5rem;
+  background: rgba(255, 255, 255, 0.7);
+  padding: 0.85rem 0.95rem;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-card-time,
+.our-story-layout--itinerary .itinerary-schedule-card-session {
+  margin: 0;
+  color: #141414;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-card-time {
+  font-weight: 600;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-card-session {
+  margin-top: 0.3rem;
+  font-weight: 700;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-card-label {
+  font-weight: 700;
+  color: #2c1418;
+}
+
+/* Mobile-first: card layout is easier than horizontal table scroll. */
+.our-story-layout--itinerary .itinerary-schedule-table-wrap {
+  display: none;
+}
+
+@media (min-width: 48rem) {
+  .our-story-layout--itinerary .itinerary-schedule-table-wrap {
+    display: block;
+  }
+
+  .our-story-layout--itinerary .itinerary-schedule-cards {
+    display: none;
+  }
+}
+
 .our-story-layout--itinerary .itinerary-table-scroll:focus-visible {
   outline: 3px solid #004d99;
   outline-offset: 3px;
@@ -1306,6 +1360,11 @@ body {
   vertical-align: top;
   padding: 0.75rem 0.85rem;
   border-bottom: 1px solid rgba(26, 26, 26, 0.12);
+  /* Prevent awkward mid-word splitting in schedule cells. */
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+  -webkit-hyphens: none;
 }
 
 .our-story-layout--itinerary
@@ -1351,7 +1410,16 @@ body {
 .our-story-layout--itinerary .itinerary-schedule-note {
   font-size: inherit;
   line-height: 1.625;
-  color: #363636;
+  color: #2a2a2a;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-bullets {
+  padding-left: 1.15rem;
+  color: #2a2a2a;
+}
+
+.our-story-layout--itinerary .itinerary-schedule-bullets li {
+  margin-bottom: 0.2rem;
 }
 
 .our-story-layout--itinerary .itinerary-schedule-table .itinerary-aaa-muted {

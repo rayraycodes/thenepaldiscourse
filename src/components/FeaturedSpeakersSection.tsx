@@ -82,6 +82,12 @@ const speakers: Speaker[] = [
     image: '/speakers/ayushiroy.png',
   },
   {
+    id: 'amelia-vanderlaan',
+    name: 'Amelia VanderLaan',
+    title: 'Harvard Kennedy School',
+    image: '/speakers/ameliavanderlaan.jpg',
+  },
+  {
     id: 'dipta-shah',
     name: 'Dipta Shah',
     title: 'Founding Partner, 54i Ventures',
@@ -127,10 +133,22 @@ const speakers: Speaker[] = [
     image: '/speakers/bhawanirana.png',
   },
   {
+    id: 'rahul-agrawal',
+    name: 'Rahul Agrawal',
+    title: 'Chairman, Siddhartha Bank',
+    image: '/speakers/Rahul-Agrawal-521x521.jpg',
+  },
+  {
     id: 'biswas-dhakal',
     name: 'Biswas Dhakal',
     title: 'Chairman, F1Soft; CEO, FILPs',
     image: '/speakers/biswasdhakal.jpg',
+  },
+  {
+    id: 'subash-sharma',
+    name: 'Subash Sharma',
+    title: 'CEO, F1Soft',
+    image: '/speakers/subashsharma.jpg',
   },
   {
     id: 'david-sislen',
@@ -194,10 +212,22 @@ const speakers: Speaker[] = [
     image: '/speakers/hiteshhathi.jpg',
   },
   {
+    id: 'raju-lama',
+    name: 'Raju Lama',
+    title: 'Singer/Songwriter',
+    image: '/speakers/rajulama.webp',
+  },
+  {
     id: 'rakshya-bam',
     name: 'Rakshya Bam',
     title: 'Youth Activist',
     image: '/speakers/rakshyabam.png',
+  },
+  {
+    id: 'ramu-kharel',
+    name: 'Dr. Ramu Kharel',
+    title: 'Assistant Professor, Brown University',
+    image: '/speakers/ramukharel.jpg',
   },
   {
     id: 'rumee-singh',
@@ -207,8 +237,8 @@ const speakers: Speaker[] = [
   },
   {
     id: 'sulav-budathoki',
-    name: 'Sulav Budathoki',
-    title: 'Chairman, CEO, ING Group',
+    name: 'Sulav Budhathoki',
+    title: 'Chairman, ING Group of Education',
     image: '/speakers/sulav.png',
   },
   {
@@ -222,6 +252,18 @@ const speakers: Speaker[] = [
     name: 'Nishcal Rai',
     title: 'Member of Parliament, Government of Nepal',
     image: '/speakers/nishcalrai.png',
+  },
+  {
+    id: 'pukar-bam',
+    name: 'Pukar Bam',
+    title: 'Honorable Member of Parliament, Rastriya Swatantra Party',
+    image: '/speakers/pukar-bam.jpg',
+  },
+  {
+    id: 'pukar-c-hamal',
+    name: 'Pukar C. Hamal',
+    title: 'Founder & CEO, SecurityPal.ai',
+    image: '/speakers/pukarhamal.webp',
   },
   {
     id: 'swastika-shrestha',
@@ -240,6 +282,18 @@ const speakers: Speaker[] = [
     name: 'Dr. Arun R. Joshi',
     title: 'CEO, Leadership Academy Nepal; Distinguished Fellow, IIDS',
     image: '/speakers/arunjoshi.png',
+  },
+  {
+    id: 'arun-banskota',
+    name: 'Arun Banskota',
+    title: 'President & CEO, BluEarth Renewables',
+    image: '/speakers/arunbaskota.jpeg',
+  },
+  {
+    id: 'nishchal-banskota',
+    name: 'Nishchal Banskota',
+    title: 'Founder, Nepal Tea Collective',
+    image: '/speakers/nischalbaskota.webp',
   },
   {
     id: 'bishnu-maya-pariyar',
