@@ -296,6 +296,12 @@ const speakers: Speaker[] = [
     image: '/speakers/nishchal-banskota.webp',
   },
   {
+    id: 'dadhiram-bhandari',
+    name: 'Dadhiram Bhandari',
+    title: 'Consulate General of Nepal, New York',
+    image: '/speakers/dadhirambhandari.jpeg',
+  },
+  {
     id: 'bishnu-maya-pariyar',
     name: 'Dr. Bishnu Maya Pariyar',
     title: 'Co-Founder, NJ Speaks',
