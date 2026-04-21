@@ -293,7 +293,7 @@ const speakers: Speaker[] = [
     id: 'nishchal-banskota',
     name: 'Nishchal Banskota',
     title: 'Founder, Nepal Tea Collective',
-    image: '/speakers/nischalbaskota.webp',
+    image: '/speakers/nishchal-banskota.webp',
   },
   {
     id: 'bishnu-maya-pariyar',
