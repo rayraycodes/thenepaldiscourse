@@ -90,7 +90,7 @@ const speakers: Speaker[] = [
   {
     id: 'dipta-shah',
     name: 'Dipta Shah',
-    title: 'Founding Partner, 54i Ventures',
+    title: 'Founding Partner, 53i Ventures',
     image: '/speakers/diptashah.jpeg',
   },
   {
