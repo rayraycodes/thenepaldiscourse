@@ -13,14 +13,9 @@ function EditorialsHero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reduced ? 0 : 0.45, ease: transitionEase }}
     >
-      <div className="our-story-title-block">
-        <h1
-          id="editorials-heading"
-          className="our-story-h1 editorials-h1 font-serif font-semibold leading-[1.12] m-0"
-        >
-          In their words
-        </h1>
-      </div>
+      <h1 id="editorials-heading" className="editorials-h1">
+        In their words
+      </h1>
       <p className="editorials-hero-lede">
         Pieces from our community published in the Kathmandu Post and Kantipur.
       </p>
@@ -140,7 +135,7 @@ export function EditorialsSection() {
             <EditorialsHero />
             <ul
               className="editorials-grid"
-              aria-label="Editorials by community contributors"
+              aria-label="Thought pieces by community contributors"
             >
               {EDITORIALS.map((editorial, index) => (
                 <li className="editorials-grid-item" key={editorial.id}>

@@ -4,7 +4,7 @@ import { EditorialsSection } from '../components/EditorialsSection';
 export function EditorialsPage() {
   useEffect(() => {
     const previous = document.title;
-    document.title = 'Editorials — The Nepal Discourse';
+    document.title = 'Thought Pieces — The Nepal Discourse';
     return () => {
       document.title = previous;
     };

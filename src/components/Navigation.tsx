@@ -14,7 +14,7 @@ const navItems: (NavSection | NavPage)[] = [
   { kind: 'page', label: 'Transparency', path: '/transparency' },
   { kind: 'page', label: 'Team', path: '/team' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
-  { kind: 'page', label: 'Editorials', path: '/editorials' },
+  { kind: 'page', label: 'Thought Pieces', path: '/editorials' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
 ];
 
@@ -200,7 +200,7 @@ export function Navigation() {
                 className="tnd-nav-mobile-cta"
                 onClick={onPageLinkClick('/editorials')}
               >
-                Editorials
+                Thought Pieces
               </Link>
               <button
                 type="button"
