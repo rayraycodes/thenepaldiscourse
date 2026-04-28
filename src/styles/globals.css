@@ -3036,13 +3036,16 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 35%;
   display: block;
+  transform: scale(1.18);
+  transform-origin: 50% 30%;
   transition: transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .editorials-card:hover .editorials-card-thumb {
-    transform: scale(1.025);
+    transform: scale(1.22);
   }
 }
 
