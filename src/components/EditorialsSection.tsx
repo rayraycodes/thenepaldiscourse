@@ -23,9 +23,7 @@ function EditorialsHero() {
         </h1>
       </div>
       <p className="editorials-hero-lede">
-        Pieces from our community published in the Kathmandu Post and Kantipur, shown in
-        the author&rsquo;s original language. Open the headline for the original; use the
-        language links for translations where available.
+        Pieces from our community published in the Kathmandu Post and Kantipur.
       </p>
     </motion.header>
   );
