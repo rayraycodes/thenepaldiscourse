@@ -13,13 +13,12 @@ function EditorialsHero() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: reduced ? 0 : 0.45, ease: transitionEase }}
     >
-      <p className="our-story-eyebrow">In their words</p>
       <div className="our-story-title-block">
         <h1
           id="editorials-heading"
-          className="our-story-h1 font-serif font-semibold leading-[1.12] m-0"
+          className="our-story-h1 editorials-h1 font-serif font-semibold leading-[1.12] m-0"
         >
-          Editorials
+          In their words
         </h1>
       </div>
       <p className="editorials-hero-lede">

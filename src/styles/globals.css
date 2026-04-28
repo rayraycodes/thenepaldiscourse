@@ -2925,6 +2925,11 @@ body {
   max-width: 64ch;
 }
 
+.editorials-h1 {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
 .editorials-hero-lede {
   margin-top: 1.25rem;
   font-family: var(--font-story-body);
