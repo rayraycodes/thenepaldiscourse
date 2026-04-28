@@ -1,5 +1,5 @@
 import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import { Routes, Route, Navigate } from 'react-router-dom';
 import { Navigation } from './components/Navigation';
 import { Footer } from './components/Footer';
 import { ScrollToTop } from './components/ScrollToTop';
@@ -33,7 +33,8 @@ export default function App() {
           <Route path="/itinerary" element={<ItineraryPage />} />
           <Route path="/speakers" element={<SpeakersPage />} />
           <Route path="/team" element={<OrganizingTeamPage />} />
-          <Route path="/editorials" element={<EditorialsPage />} />
+          <Route path="/thoughtpieces" element={<EditorialsPage />} />
+          <Route path="/editorials" element={<Navigate to="/thoughtpieces" replace />} />
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </main>

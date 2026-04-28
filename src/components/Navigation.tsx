@@ -14,7 +14,7 @@ const navItems: (NavSection | NavPage)[] = [
   { kind: 'page', label: 'Transparency', path: '/transparency' },
   { kind: 'page', label: 'Team', path: '/team' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
-  { kind: 'page', label: 'Thought Pieces', path: '/editorials' },
+  { kind: 'page', label: 'Thought Pieces', path: '/thoughtpieces' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
 ];
 
@@ -118,7 +118,7 @@ export function Navigation() {
       <Link
         key={item.path}
         to={item.path}
-        className={`tnd-nav-link${item.path === '/editorials' ? ' tnd-nav-link--cta' : ''}`}
+        className={`tnd-nav-link${item.path === '/thoughtpieces' ? ' tnd-nav-link--cta' : ''}`}
         onClick={onPageLinkClick(item.path)}
         aria-current={location.pathname === item.path ? 'page' : undefined}
       >
@@ -196,9 +196,9 @@ export function Navigation() {
             {renderLogo()}
             <div className="tnd-nav-mobile-actions">
               <Link
-                to="/editorials"
+                to="/thoughtpieces"
                 className="tnd-nav-mobile-cta"
-                onClick={onPageLinkClick('/editorials')}
+                onClick={onPageLinkClick('/thoughtpieces')}
               >
                 Thought Pieces
               </Link>
@@ -254,7 +254,7 @@ export function Navigation() {
                   >
                     <Link
                       to={item.path}
-                      className={`tnd-nav-overlay-link${item.path === '/editorials' ? ' tnd-nav-overlay-link--cta' : ''}`}
+                      className={`tnd-nav-overlay-link${item.path === '/thoughtpieces' ? ' tnd-nav-overlay-link--cta' : ''}`}
                       onClick={onPageLinkClick(item.path)}
                       aria-current={location.pathname === item.path ? 'page' : undefined}
                     >
