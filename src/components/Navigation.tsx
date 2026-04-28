@@ -14,6 +14,7 @@ const navItems: (NavSection | NavPage)[] = [
   { kind: 'page', label: 'Transparency', path: '/transparency' },
   { kind: 'page', label: 'Team', path: '/team' },
   { kind: 'page', label: 'Our Story', path: '/our-story' },
+  { kind: 'page', label: 'Editorials', path: '/editorials' },
   { kind: 'page', label: 'FAQs', path: '/faq' },
 ];
 
@@ -117,7 +118,7 @@ export function Navigation() {
       <Link
         key={item.path}
         to={item.path}
-        className={`tnd-nav-link${item.path === '/apply' ? ' tnd-nav-link--cta' : ''}`}
+        className={`tnd-nav-link${item.path === '/editorials' ? ' tnd-nav-link--cta' : ''}`}
         onClick={onPageLinkClick(item.path)}
         aria-current={location.pathname === item.path ? 'page' : undefined}
       >
@@ -194,8 +195,12 @@ export function Navigation() {
           <div className="tnd-nav-mobile-row">
             {renderLogo()}
             <div className="tnd-nav-mobile-actions">
-              <Link to="/apply" className="tnd-nav-mobile-cta" onClick={onPageLinkClick('/apply')}>
-                Buy Tickets
+              <Link
+                to="/editorials"
+                className="tnd-nav-mobile-cta"
+                onClick={onPageLinkClick('/editorials')}
+              >
+                Editorials
               </Link>
               <button
                 type="button"
@@ -249,7 +254,7 @@ export function Navigation() {
                   >
                     <Link
                       to={item.path}
-                      className={`tnd-nav-overlay-link${item.path === '/apply' ? ' tnd-nav-overlay-link--cta' : ''}`}
+                      className={`tnd-nav-overlay-link${item.path === '/editorials' ? ' tnd-nav-overlay-link--cta' : ''}`}
                       onClick={onPageLinkClick(item.path)}
                       aria-current={location.pathname === item.path ? 'page' : undefined}
                     >

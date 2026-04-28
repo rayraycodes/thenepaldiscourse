@@ -12,6 +12,7 @@ import { FAQPage } from './pages/FAQPage';
 import { ItineraryPage } from './pages/ItineraryPage';
 import { SpeakersPage } from './pages/SpeakersPage';
 import { OrganizingTeamPage } from './pages/OrganizingTeamPage';
+import { EditorialsPage } from './pages/EditorialsPage';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
 
 export default function App() {
@@ -32,6 +33,7 @@ export default function App() {
           <Route path="/itinerary" element={<ItineraryPage />} />
           <Route path="/speakers" element={<SpeakersPage />} />
           <Route path="/team" element={<OrganizingTeamPage />} />
+          <Route path="/editorials" element={<EditorialsPage />} />
           <Route path="/faq" element={<FAQPage />} />
         </Routes>
       </main>
