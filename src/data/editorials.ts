@@ -48,7 +48,7 @@ export const EDITORIALS: EditorialEntry[] = [
   },
   {
     id: 'nabin-effective-representation',
-    authors: 'Nabin Paudel',
+    authors: 'Nabin Poudel',
     outlet: 'Kantipur',
     publishedAt: 'Apr 19, 2026',
     publishedAtISO: '2026-04-19',
