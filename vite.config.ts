@@ -4,23 +4,62 @@
   import react from '@vitejs/plugin-react-swc';
 
   /**
-   * GitHub Pages (and similar static hosts) only serve index.html for "/".
-   * Deep links like /transparency return 404 unless we duplicate the SPA shell.
-   * GitHub serves 404.html for missing paths, so it must match index.html.
+   * Two pages:
+   *   /       → index.html, the 2027 home (static HTML, no React)
+   *   /2026/* → 2026/index.html, the original 2026 SPA (BrowserRouter basename="/2026")
+   *
+   * GitHub Pages only serves real files, so deep links like /2026/speakers 404.
+   * GitHub serves 404.html for missing paths, so it must be the 2026 SPA shell;
+   * that shell also redirects old links (/speakers → /2026/speakers).
+   *
+   * Staging: `vite build --base=/staging/` builds the same site for thenepaldiscourse.com/staging/
+   * (see .github/workflows/deploy.yml).
    */
   function spaFallback404() {
+    let outDir = path.resolve(__dirname, 'dist');
     return {
       name: 'spa-fallback-404',
+      configResolved(config: { root: string; build: { outDir: string } }) {
+        outDir = path.resolve(config.root, config.build.outDir);
+      },
       closeBundle() {
-        const outDir = path.resolve(__dirname, 'dist');
-        fs.copyFileSync(path.join(outDir, 'index.html'), path.join(outDir, '404.html'));
+        fs.copyFileSync(path.join(outDir, '2026', 'index.html'), path.join(outDir, '404.html'));
+      },
+    };
+  }
+
+  /** Keep non-production builds (e.g. /staging/) out of search results. */
+  function noindexOffRoot() {
+    let base = '/';
+    return {
+      name: 'noindex-off-root',
+      configResolved(config: { base: string }) {
+        base = config.base;
+      },
+      transformIndexHtml() {
+        return base === '/' ? [] : [{ tag: 'meta', attrs: { name: 'robots', content: 'noindex, nofollow' }, injectTo: 'head' as const }];
+      },
+    };
+  }
+
+  /** Dev server: serve the 2026 SPA shell for /2026/* deep links. */
+  function devRoute2026() {
+    return {
+      name: 'dev-route-2026',
+      configureServer(server: { middlewares: { use: (fn: (req: { url?: string }, res: unknown, next: () => void) => void) => void } }) {
+        server.middlewares.use((req, _res, next) => {
+          const url = req.url ?? '';
+          if (/^\/2026(\/[^.]*)?(\?.*)?$/.test(url)) req.url = '/2026/index.html';
+          next();
+        });
       },
     };
   }
 
   export default defineConfig({
     base: '/',
-    plugins: [react(), spaFallback404()],
+    appType: 'mpa',
+    plugins: [react(), spaFallback404(), noindexOffRoot(), devRoute2026()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
@@ -69,6 +108,13 @@
     build: {
       target: 'esnext',
       outDir: 'dist',
+      modulePreload: { polyfill: false },
+      rollupOptions: {
+        input: {
+          home: path.resolve(__dirname, 'index.html'),
+          y2026: path.resolve(__dirname, '2026/index.html'),
+        },
+      },
     },
     server: {
       port: 3000,

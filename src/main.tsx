@@ -6,7 +6,7 @@ import './index.css';
 import './styles/globals.css';
 
 createRoot(document.getElementById('root')!).render(
-  <BrowserRouter>
+  <BrowserRouter basename={`${import.meta.env.BASE_URL}2026`}>
     <App />
   </BrowserRouter>,
 );

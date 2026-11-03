@@ -43,6 +43,8 @@
   --sidebar-ring: oklch(0.708 0 0);
   /* Fixed primary nav uses h-20 (= 5rem at default root font size) */
   --nav-bar-height: 5rem;
+  /* "2026 archive → 2027" bar fixed above the primary nav (ArchiveBar.tsx) */
+  --archive-bar-height: 44px;
   /* Speaker flip face stays #fff in all themes; dark text ≥7:1 vs white (WCAG 2.1 AAA 1.4.6) */
   --speaker-flip-name: #121212;
   --speaker-flip-title: #454545;
@@ -553,7 +555,66 @@ html {
   font-size: var(--font-size);
   scroll-behavior: smooth;
   /* Match main offset so in-page anchors and skip target are not under fixed nav */
-  scroll-padding-top: calc(var(--nav-bar-height) + 1rem);
+  scroll-padding-top: calc(var(--archive-bar-height) + var(--nav-bar-height) + 1rem);
+}
+
+/* Archive bar: maroon #881630 on white text, 9.5:1 (WCAG AAA); 44px tall target */
+.tnd-archive-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  height: var(--archive-bar-height);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 1rem;
+  background-color: #881630;
+  color: #ffffff;
+  font-size: 0.875rem;
+  line-height: 1.2;
+  text-align: center;
+  text-decoration: none;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.tnd-archive-bar-cta {
+  font-weight: 600;
+}
+
+.tnd-archive-bar:hover .tnd-archive-bar-cta,
+.tnd-archive-bar:focus-visible .tnd-archive-bar-cta {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.tnd-archive-bar:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: -6px;
+}
+
+.tnd-archive-bar-abbr {
+  display: none;
+  text-decoration: none;
+}
+
+@media (max-width: 640px) {
+  .tnd-archive-bar-long {
+    display: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .tnd-archive-bar-name {
+    display: none;
+  }
+
+  .tnd-archive-bar-abbr {
+    display: inline;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -564,7 +625,7 @@ html {
 
 /* Primary layout: fixed nav sits above document flow; pad main so routes start below it */
 main#main-content {
-  padding-top: calc(var(--nav-bar-height) + 1rem);
+  padding-top: calc(var(--archive-bar-height) + var(--nav-bar-height) + 1rem);
   min-width: 0;
 }
 

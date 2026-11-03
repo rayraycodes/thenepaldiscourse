@@ -1,0 +1,53 @@
+
+  <!DOCTYPE html>
+  <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>The Nepal Discourse 2026</title>
+      <!-- This shell is also served as 404.html. Old links (/speakers, /faq…) now live under /2026.
+           %BASE_URL% is "/" in production and "/staging/" on the staging build. -->
+      <script>
+        (function () {
+          var base = '%BASE_URL%';
+          var home = base + '2026';
+          var p = location.pathname;
+          if (base === '/' && p.indexOf('/staging/') === 0) {
+            // Staging deep links land on production's 404 page; send them to the staging 2026 home.
+            location.replace('/staging/2026/');
+          } else if (p !== home && p.indexOf(home + '/') !== 0) {
+            location.replace(home + p.slice(base.length - 1) + location.search + location.hash);
+          }
+        })();
+      </script>
+      <!-- Prevent link preview thumbnails across all platforms (Open Graph, Twitter, etc.) -->
+      <meta property="og:image" content="https://thenepaldiscourse.com/blank.gif" />
+      <meta property="og:image:width" content="1" />
+      <meta property="og:image:height" content="1" />
+      <meta property="og:image:type" content="image/gif" />
+      <meta name="twitter:card" content="summary" />
+      <meta name="twitter:image" content="https://thenepaldiscourse.com/blank.gif" />
+      <!-- Legacy: some older scrapers use link rel="image_src" -->
+      <link rel="image_src" href="https://thenepaldiscourse.com/blank.gif" />
+      <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?v=2" />
+      <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png?v=2" />
+      <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48x48.png?v=2" />
+      <link rel="shortcut icon" href="/favicon-32x32.png?v=2" />
+      <link rel="apple-touch-icon" sizes="180x180" href="/favicon-180x180.png?v=2" />
+      <!-- Google tag (gtag.js) -->
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-LEBTX9YWGE"></script>
+      <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-LEBTX9YWGE');
+      </script>
+    </head>
+
+    <body>
+      <div id="root"></div>
+      <script type="module" src="/src/main.tsx"></script>
+    </body>
+  </html>
+  

@@ -89,3 +89,19 @@ Further accessibility audits can be run with tools like Lighthouse or axe to con
 
   Run `npm run dev` to start the development server.
   
+## Site structure (2027)
+
+- `/` — **The Nepal Discourse 2027** home: `index.html` + `src/home2027/` (static HTML, ~1 KB of JS, no React). Built for speed on phones: self-hosted fonts in `public/2027/fonts/`, responsive AVIF/WebP images in `public/2027/img/`, and the YouTube trailer loads only when someone presses play.
+- `/2026/*` — the original 2026 site, unchanged: `2026/index.html` + `src/main.tsx` (React, `BrowserRouter basename="/2026"`). Old links such as `/speakers` redirect to `/2026/speakers`.
+
+To add or replace a 2027 image, put the original in `assets-src/2027/` and run:
+
+```bash
+python3 scripts/build-2027-images.py
+```
+
+Photo credits: `assets-src/2027/CREDITS.md`.
+
+### Staging
+
+`thenepaldiscourse.com/staging/` is built from the `staging` branch (`vite build --base=/staging/`, see `.github/workflows/deploy.yml`). Push to `staging` to update it; production at `/` is always built from `main`. Staging pages carry `noindex` so search engines skip them.
