@@ -186,3 +186,16 @@ body{margin:0;background:#FFFFFF}
   .topics-list>li[aria-hidden]{display:none}
   .topics-list.topics-dup{display:none}
 }
+
+/* Hero mountain line: corner flourish on desktop; on phones and tablets it becomes
+   a full-width ridge between the labels and the date so it never crosses the text. */
+@media (max-width:980px){
+  .h-ridge{position:static !important;order:1;width:100% !important;height:64px !important;margin:-6px 0 -10px}
+  .h-pills{order:0}
+  .h-d1>div:last-child{order:2}
+}
+@media (max-width:640px){
+  .h-ridge{height:52px !important}
+  .h-pills .eyebrow{letter-spacing:.14em}
+}
+@media (min-width:981px){.h-ridge{width:46% !important;height:128px !important;top:30px !important}}
