@@ -109,10 +109,16 @@
 </section>
 
 <!-- Theme band -->
-<section aria-label="2027 topics" style="background: var(--m); color: var(--w); padding: 24px 24px; margin-top: 14px">
-<ul class="d" style="list-style: none; margin: 0 auto; padding: 0; max-width: 1320px; display: flex; flex-wrap: wrap; justify-content: center; gap: 8px 32px; font-size: clamp(20px, 2.2vw, 30px); font-weight: 600">
-<li>Climate</li><li aria-hidden="true">✦</li><li class="s" style="font-weight: 400">Cities</li><li aria-hidden="true">✦</li><li>Culture</li><li aria-hidden="true">✦</li><li class="s" style="font-weight: 400">Capital</li>
-</ul>
+<section class="topics-band" aria-label="2027 topics" style="background: var(--m); color: var(--w); margin-top: 14px">
+<div class="topics-track">
+<ul class="d topics-list"><li>Climate</li><li aria-hidden="true">✦</li><li class="s">Cities</li><li aria-hidden="true">✦</li><li>Culture</li><li aria-hidden="true">✦</li><li class="s">Capital</li><li class="topics-sep" aria-hidden="true">✦</li></ul>
+<ul class="d topics-list topics-dup" aria-hidden="true"><li>Climate</li><li aria-hidden="true">✦</li><li class="s">Cities</li><li aria-hidden="true">✦</li><li>Culture</li><li aria-hidden="true">✦</li><li class="s">Capital</li><li class="topics-sep">✦</li></ul>
+</div>
+<div class="topics-track topics-track-2" aria-hidden="true">
+<ul class="d topics-list"><li class="s">Capital</li><li>✦</li><li>Culture</li><li>✦</li><li class="s">Cities</li><li>✦</li><li>Climate</li><li class="topics-sep">✦</li></ul>
+<ul class="d topics-list"><li class="s">Capital</li><li>✦</li><li>Culture</li><li>✦</li><li class="s">Cities</li><li>✦</li><li>Climate</li><li class="topics-sep">✦</li></ul>
+</div>
+<button type="button" class="topics-pause" aria-pressed="false"><span class="vh">Pause the moving topics</span><svg aria-hidden="true" width="14" height="14" viewBox="0 0 14 14" fill="currentColor"><rect class="ic-pause" x="2" y="1" width="3.5" height="12" rx="1"></rect><rect class="ic-pause" x="8.5" y="1" width="3.5" height="12" rx="1"></rect><path class="ic-play" d="M3 1.5v11l9-5.5z"></path></svg></button>
 </section>
 
 <!-- 01 Trailer -->

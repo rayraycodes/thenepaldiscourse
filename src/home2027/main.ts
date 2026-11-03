@@ -69,6 +69,19 @@ function setUpMenu(): void {
   });
 }
 
+/** Phones: pause/play the scrolling topics band. */
+function setUpTopicsBand(): void {
+  const band = document.querySelector<HTMLElement>('.topics-band');
+  const button = band?.querySelector<HTMLButtonElement>('.topics-pause');
+  if (!band || !button) return;
+  button.addEventListener('click', () => {
+    const paused = band.classList.toggle('is-paused');
+    button.setAttribute('aria-pressed', String(paused));
+    button.querySelector('.vh')!.textContent = paused ? 'Play the moving topics' : 'Pause the moving topics';
+  });
+}
+
 setUpTrailer();
 setUpRegister();
 setUpMenu();
+setUpTopicsBand();

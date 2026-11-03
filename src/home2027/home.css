@@ -155,3 +155,34 @@ body{margin:0;background:#FFFFFF}
 @media (min-width:981px){.nav-menu{display:none !important}}
 @media (max-width:360px){.nav .pill{font-size:13px;padding:11px 12px !important}.nav-menu{grid-template-columns:1fr}}
 @media (max-width:480px){.nav-cta-more{display:none}}
+
+/* 2027 topics band: centred row on wide screens. On phones two rows roll in
+   opposite directions (pause button for WCAG 2.2.2; static list under reduced motion). */
+.topics-band{position:relative;padding:24px}
+.topics-track{max-width:1320px;margin:0 auto}
+.topics-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 32px;font-size:clamp(20px,2.2vw,30px);font-weight:600}
+.topics-list .s{font-weight:400}
+.topics-dup,.topics-sep,.topics-track-2,.topics-pause{display:none}
+.topics-pause{position:absolute;right:10px;bottom:10px;width:44px;height:44px;border:1.5px solid var(--w);border-radius:50%;background:var(--m);color:var(--w);align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 0 6px var(--m)}
+.topics-pause .ic-play{display:none}
+.topics-pause[aria-pressed="true"] .ic-pause{display:none}
+.topics-pause[aria-pressed="true"] .ic-play{display:block}
+.topics-pause:focus-visible{outline:3px solid #FFFFFF;outline-offset:3px;box-shadow:0 0 0 3px #881630}
+@keyframes topicsRoll{to{transform:translate3d(-50%,0,0)}}
+@keyframes topicsRollBack{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
+@media (max-width:640px) and (prefers-reduced-motion:no-preference){
+  .topics-band{padding:18px 0 20px;overflow:hidden}
+  .topics-track{display:flex;width:max-content;max-width:none;will-change:transform;animation:topicsRoll 18s linear infinite}
+  .topics-track-2{display:flex;margin-top:6px;animation-name:topicsRollBack;animation-duration:22s}
+  .topics-band.is-paused .topics-track{animation-play-state:paused}
+  .topics-list{flex-wrap:nowrap;justify-content:flex-start;gap:26px;padding-right:26px;font-size:26px;white-space:nowrap}
+  .topics-track-2 .topics-list{font-size:22px;opacity:.9}
+  .topics-dup{display:flex}
+  .topics-sep{display:list-item}
+  .topics-pause{display:inline-flex}
+}
+@media (max-width:640px) and (prefers-reduced-motion:reduce){
+  .topics-list{display:grid;grid-template-columns:1fr 1fr;gap:10px 16px;text-align:center;font-size:24px}
+  .topics-list>li[aria-hidden]{display:none}
+  .topics-list.topics-dup{display:none}
+}
