@@ -45,5 +45,30 @@ function setUpRegister(): void {
   });
 }
 
+/** Phones and tablets: the section menu under the top bar. */
+function setUpMenu(): void {
+  const toggle = document.querySelector<HTMLButtonElement>('.nav-toggle');
+  const menu = document.querySelector<HTMLElement>('#nav-menu');
+  if (!toggle || !menu) return;
+  const setOpen = (open: boolean) => {
+    toggle.setAttribute('aria-expanded', String(open));
+    menu.hidden = !open;
+  };
+  toggle.addEventListener('click', () => setOpen(menu.hidden));
+  menu.addEventListener('click', (event) => {
+    if ((event.target as HTMLElement).closest('a')) setOpen(false);
+  });
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && !menu.hidden) {
+      setOpen(false);
+      toggle.focus();
+    }
+  });
+  document.addEventListener('click', (event) => {
+    if (!menu.hidden && !(event.target as HTMLElement).closest('header')) setOpen(false);
+  });
+}
+
 setUpTrailer();
 setUpRegister();
+setUpMenu();
