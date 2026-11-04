@@ -14,6 +14,7 @@ import { SpeakersPage } from './pages/SpeakersPage';
 import { OrganizingTeamPage } from './pages/OrganizingTeamPage';
 import { EditorialsPage } from './pages/EditorialsPage';
 import { GoogleAnalytics } from './components/GoogleAnalytics';
+import { ArchiveBar } from './components/ArchiveBar';
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
       <a href="#main-content" className="skip-link">
         Skip to main content
       </a>
+      <ArchiveBar />
       <Navigation />
       <ScrollToTopOnRoute />
       <main id="main-content" tabIndex={-1}>

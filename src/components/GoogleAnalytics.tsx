@@ -24,7 +24,8 @@ export function GoogleAnalytics() {
   useEffect(() => {
     if (!MEASUREMENT_ID || typeof window.gtag !== 'function') return;
 
-    const path = location.pathname + location.search;
+    // Full path including the /2026 router basename.
+    const path = window.location.pathname + location.search;
     if (lastReportedPath.current === path) return;
 
     if (lastReportedPath.current === null) {
