@@ -100,6 +100,15 @@ To add or replace a 2027 image, put the original in `assets-src/2027/` and run:
 python3 scripts/build-2027-images.py
 ```
 
+The "In the room" gallery is built from the 2026 Drive album. The originals (~130 MB) are not committed; fetch them first, then build:
+
+```bash
+python3 scripts/fetch-2027-gallery.py
+python3 scripts/build-2027-images.py
+```
+
+The build writes `public/2027/gallery/` and regenerates the gallery markup in `index.html` from `assets-src/2027/gallery.json` (order and alt text). New album photos are listed by the build until they are added to `gallery.json`.
+
 Photo credits: `assets-src/2027/CREDITS.md`.
 
 ### Staging
