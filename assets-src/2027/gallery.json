@@ -1,11 +1,26 @@
 {
  "photos": [
   {
+   "id": "1V1OD-D6FSWos-CZ367CEsK8BBnhNNHt9",
+   "title": "9df50714-6406-44f2-9fe3-eff4edbcf560.JPG",
+   "file": "1V1OD-D6FSWos-CZ367CEsK8BBnhNNHt9.jpg",
+   "group": "audience",
+   "alt": "Delegates pack the Harvard lecture hall, seen from the balcony, as a speaker joins by video on the screen."
+  },
+  {
    "id": "1wv-eRAn8sUzoMkLfZesw-dqhRucNaGnr",
    "title": "01.jpg",
    "file": "1wv-eRAn8sUzoMkLfZesw-dqhRucNaGnr.jpg",
    "group": "panels",
    "alt": "The opening plenary at Harvard: four panelists on stage beneath the session slide, facing a full lecture hall."
+  },
+  {
+   "id": "terrace-charles-river",
+   "title": "Terrace above the Charles River (sent separately)",
+   "file": "terrace-charles-river.webp",
+   "src": "gallery-extra/terrace-charles-river.webp",
+   "group": "moments",
+   "alt": "Three guests at The Nepal Discourse 2026 smile on a terrace above the Charles River, with the Boston skyline behind them."
   },
   {
    "id": "1BbAE_94ic2-lZpXcxKzM4lMrD-WskZyh",
@@ -216,13 +231,6 @@
    "file": "1hcolBuQJP-U-q1Vv6wYBcd8l7PDfqFPA.jpg",
    "group": "audience",
    "alt": "Delegates seated in the Harvard lecture hall, facing the stage."
-  },
-  {
-   "id": "1V1OD-D6FSWos-CZ367CEsK8BBnhNNHt9",
-   "title": "9df50714-6406-44f2-9fe3-eff4edbcf560.JPG",
-   "file": "1V1OD-D6FSWos-CZ367CEsK8BBnhNNHt9.jpg",
-   "group": "audience",
-   "alt": "A packed Harvard lecture hall seen from the side."
   },
   {
    "id": "1f_6dHgWP-WiUF4Y0YBMCibNuSk0cYERI",

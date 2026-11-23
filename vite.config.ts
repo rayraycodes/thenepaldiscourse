@@ -42,6 +42,15 @@
     };
   }
 
+  /** "%BUILD_YEAR%" in the HTML becomes the year of the build, so every deploy stamps the current copyright year. */
+  function buildYear() {
+    const year = String(new Date().getFullYear());
+    return {
+      name: 'build-year',
+      transformIndexHtml: { order: 'pre' as const, handler: (html: string) => html.replaceAll('%BUILD_YEAR%', year) },
+    };
+  }
+
   /** Dev server: serve the 2026 SPA shell for /2026/* deep links. */
   function devRoute2026() {
     return {
@@ -59,7 +68,7 @@
   export default defineConfig({
     base: '/',
     appType: 'mpa',
-    plugins: [react(), spaFallback404(), noindexOffRoot(), devRoute2026()],
+    plugins: [react(), buildYear(), spaFallback404(), noindexOffRoot(), devRoute2026()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {

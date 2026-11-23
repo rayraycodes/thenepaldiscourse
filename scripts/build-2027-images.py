@@ -2,7 +2,9 @@
 """Build responsive AVIF + WebP images for the 2027 home page.
 
 Page images: originals in assets-src/2027/ -> public/2027/img/<name>-<width>.{avif,webp}.
+Page background: the 2026 site's pattern tile -> public/2027/img/page-pattern.webp.
 Gallery: photos listed (in order, with alt text) in assets-src/2027/gallery.json, originals in assets-src/2027/gallery/
+(photos shared outside the Drive album are committed in assets-src/2027/gallery-extra/ and named by "src")
 (fetch them first with scripts/fetch-2027-gallery.py) -> public/2027/gallery/, and the
 gallery markup between <!-- gallery:start --> and <!-- gallery:end --> in index.html.
 
@@ -29,21 +31,26 @@ INDEX = ROOT / "index.html"
 # name -> (source file, widths). Widths cover ~1x and ~2x of the rendered size.
 PHOTOS = {
     "trailer-poster": ("photos/trailer_poster.jpg", [640, 1280]),
-    "impact": ("photos/impact_mit.jpg", [800, 1400, 2000]),
+    "impact": ("photos/impact_mit.jpg", [800, 1400, 2000, 2400]),
     "topic-climate": ("photos/topic_climate.jpg", [640, 1280]),
     "topic-cities": ("photos/topic_cities.jpg", [640, 1280]),
     "topic-culture": ("photos/topic_culture.jpg", [640, 1280]),
     "topic-capital": ("photos/topic_capital.jpg", [640, 1280]),
-    "plenary": ("photos/plenary_opening.jpg", [640, 1200]),
+    "plenary": ("photos/plenary_opening.jpg", [640, 1200, 1600]),
 }
 SPEAKERS = [
     "peterblair", "swarnimwagle", "ayushiroy", "hiteshhathi", "sameermaskey", "pukarhamal",
     "davidsislen", "williamwisser", "anupkaphle", "sanjaymanandhar", "samjhana", "michaelfoley",
 ]
-LOGOS = {"logo": ("brand/tnd-2027.png", [190, 380]), "logo-mark-white": ("brand/tnd-mark-white.png", [104, 208])}
+# Logos at 1x/2x/3x as lossless WebP: lossy AVIF/WebP stores colour at half resolution and smears the small red lettering.
+LOGOS = {"logo": ("brand/tnd-2027.png", [190, 380, 570]), "logo-mark-white": ("brand/tnd-mark-white.png", [104, 208, 312])}
+# The 2026 site's page background: src/assets/bgconf.png repeated behind the page at 30% opacity
+# (the opacity is set in home.css). Encode the full-strength tile: baking the fade in first leaves
+# the lines so faint that lossy compression smears them. ~2 MB PNG -> ~70 KB WebP, lines kept sharp.
+PATTERN = ROOT / "src" / "assets" / "bgconf.png"
 
 GALLERY_THUMBS = [400, 800]
-GALLERY_LARGE = 1600  # longest edge of the full-size viewer image
+GALLERY_LARGE = 2400  # longest edge of the full-size viewer image (sharp on high-density screens; capped at the original)
 GALLERY_VISIBLE = 12  # shown before "Show all"; divisible by the 2/3/4-column grids
 THUMB_SIZES = "(max-width: 640px) 50vw, (max-width: 980px) 33vw, 310px"
 
@@ -57,20 +64,31 @@ def save(im: Image.Image, out: Path, name: str, width: int, size: tuple[int, int
     w, h = size or (min(width, im.width), round(im.height * min(width, im.width) / im.width))
     r = im.resize((w, h), Image.LANCZOS) if (w, h) != im.size else im
     has_alpha = r.mode == "RGBA"
-    r.save(out / f"{name}-{width}.avif", quality=40 if not has_alpha else 70, speed=4)
-    r.save(out / f"{name}-{width}.webp", quality=70 if not has_alpha else 88, method=6)
+    # Photos: AVIF 55 / WebP 80 keeps them crisp (the earlier 40 / 70 looked soft on large, high-density screens).
+    r.save(out / f"{name}-{width}.avif", quality=55 if not has_alpha else 70, speed=4)
+    r.save(out / f"{name}-{width}.webp", quality=80 if not has_alpha else 88, method=6)
 
 
 def build_page_images() -> None:
     OUT.mkdir(parents=True, exist_ok=True)
     jobs = dict(PHOTOS)
     jobs.update({f"speaker-{s}": (f"speakers/{s}.jpg", [320, 480]) for s in SPEAKERS})
-    jobs.update(LOGOS)
     for name, (src, widths) in jobs.items():
         im = open_image(SRC / src)
         for w in widths:
             save(im, OUT, name, w)
         print(f"{name}: {im.width}x{im.height} -> {widths}")
+    for name, (src, widths) in LOGOS.items():
+        im = open_image(SRC / src)
+        for w in widths:
+            im.resize((w, round(im.height * w / im.width)), Image.LANCZOS).save(OUT / f"{name}-{w}.webp", lossless=True, method=6)
+        print(f"{name}: {im.width}x{im.height} -> {widths}")
+
+
+def build_page_pattern() -> None:
+    tile = Image.open(PATTERN).convert("RGB")
+    tile.save(OUT / "page-pattern.webp", quality=80, method=6)
+    print(f"page-pattern: {tile.width}x{tile.height}")
 
 
 def build_gallery() -> None:
@@ -80,7 +98,7 @@ def build_gallery() -> None:
     items = []
     for n, photo in enumerate(photos):
         slug = photo["id"]
-        src = GALLERY_SRC / photo["file"]
+        src = SRC / photo["src"] if "src" in photo else GALLERY_SRC / photo["file"]
         im = None
         if not (GALLERY_OUT / f"{slug}-{GALLERY_LARGE}.webp").exists():
             im = open_image(src)
@@ -138,6 +156,7 @@ def write_gallery_markup(items: list[str], count: int) -> None:
 
 def main() -> None:
     build_page_images()
+    build_page_pattern()
     build_gallery()
 
 

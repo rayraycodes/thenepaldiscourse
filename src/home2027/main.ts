@@ -102,24 +102,37 @@ function setUpGallery(): void {
   const count = dialog.querySelector<HTMLElement>('.lb-count')!;
   const live = dialog.querySelector<HTMLElement>('.lb-live')!;
   const close = dialog.querySelector<HTMLButtonElement>('.lb-close')!;
+  const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
   let index = 0;
+  let swapTimer = 0;
   let opener: HTMLAnchorElement | null = null;
 
   // link.href is resolved against the page, so the full-size photo works on / and /staging/.
   const largeUrl = (i: number, ext = '.webp') => links[i].href.replace(/\.webp$/, ext);
   const wrap = (i: number) => (i + links.length) % links.length;
-  const show = (i: number) => {
+  // Fade the current photo out, swap in the next, and fade it in once it has loaded (instant under reduced motion).
+  const show = (i: number, fade = true) => {
     index = wrap(i);
     const alt = links[index].querySelector('img')?.alt ?? '';
-    avif.srcset = largeUrl(index, '.avif');
-    img.src = largeUrl(index);
-    img.alt = alt;
     count.textContent = `${index + 1} / ${links.length}`;
     live.textContent = `Photo ${index + 1} of ${links.length}. ${alt}`;
+    const swap = () => {
+      const url = largeUrl(index);
+      img.alt = alt;
+      if (img.getAttribute('src') === url) return img.classList.remove('lb-fade');
+      avif.srcset = largeUrl(index, '.avif');
+      img.src = url;
+    };
+    window.clearTimeout(swapTimer);
+    img.classList.add('lb-fade');
+    if (fade && !reduceMotion.matches) swapTimer = window.setTimeout(swap, 180);
+    else swap();
   };
 
-  // Once a photo is in, warm its neighbours in the format the browser chose.
+  // Once a photo is in, fade it in and warm its neighbours in the format the browser chose.
+  img.addEventListener('error', () => img.classList.remove('lb-fade'));
   img.addEventListener('load', () => {
+    img.classList.remove('lb-fade');
     const ext = img.currentSrc.endsWith('.avif') ? '.avif' : '.webp';
     for (const n of [index + 1, index - 1]) new Image().src = largeUrl(wrap(n), ext);
   });
@@ -131,7 +144,7 @@ function setUpGallery(): void {
       opener = link;
       document.documentElement.classList.add('lb-open');
       dialog.showModal();
-      show(i);
+      show(i, false);
       close.focus();
     }),
   );
@@ -163,8 +176,26 @@ function setUpGallery(): void {
   });
 }
 
+/** Back to top: show the corner button once the opening section has scrolled out of view. */
+function setUpToTop(): void {
+  const button = document.querySelector<HTMLAnchorElement>('.to-top');
+  const hero = document.querySelector('#top');
+  if (!button) return;
+  if (!hero || !('IntersectionObserver' in window)) return void button.classList.add('is-shown');
+  new IntersectionObserver(([entry]) => button.classList.toggle('is-shown', !entry.isIntersecting)).observe(hero);
+}
+
+/** Top vignette: switched on once the page has scrolled, so the nav bar stays in focus. */
+function setUpScrollShade(): void {
+  const update = () => document.documentElement.classList.toggle('is-scrolled', window.scrollY > 8);
+  update();
+  window.addEventListener('scroll', update, { passive: true });
+}
+
 setUpTrailer();
 setUpRegister();
 setUpMenu();
 setUpTopicsBand();
 setUpGallery();
+setUpToTop();
+setUpScrollShade();
