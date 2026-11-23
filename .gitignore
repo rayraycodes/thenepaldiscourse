@@ -1,0 +1,3 @@
+# Original album photos (~300 MB). Fetch with scripts/fetch-2027-gallery.py;
+# only the optimised copies in public/2027/gallery/ are committed.
+assets-src/2027/gallery/

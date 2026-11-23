@@ -1,8 +1,13 @@
 name: Deploy to GitHub Pages
 
+# One Pages site, two builds:
+#   thenepaldiscourse.com/          ← always built from `main` (production)
+#   thenepaldiscourse.com/staging/  ← built from the `staging` branch, if it exists
+# Pushing to either branch redeploys both, so production never changes from a staging push.
+
 on:
   push:
-    branches: [ main ]
+    branches: [ main, staging ]
   workflow_dispatch:
 
 permissions:
@@ -19,8 +24,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout main (production)
         uses: actions/checkout@v4
+        with:
+          ref: main
 
       - name: Setup Node
         uses: actions/setup-node@v4
@@ -31,11 +38,38 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build
+      - name: Build production
         env:
           # Optional: override default GA4 id (see index.html + GoogleAnalytics.tsx)
           VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
         run: npm run build
+
+      - name: Check for a staging branch
+        id: staging
+        run: |
+          if git ls-remote --exit-code --heads origin staging > /dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Checkout staging
+        if: steps.staging.outputs.exists == 'true'
+        uses: actions/checkout@v4
+        with:
+          ref: staging
+          path: staging-src
+
+      # A broken staging build must never block a production deploy.
+      - name: Build staging into dist/staging
+        if: steps.staging.outputs.exists == 'true'
+        continue-on-error: true
+        working-directory: staging-src
+        env:
+          VITE_GA_MEASUREMENT_ID: ${{ secrets.VITE_GA_MEASUREMENT_ID }}
+        run: |
+          npm install
+          npx vite build --base=/staging/ --outDir ../dist/staging --emptyOutDir
 
       - name: Configure Pages
         uses: actions/configure-pages@v5
@@ -55,4 +89,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-

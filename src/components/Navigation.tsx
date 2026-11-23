@@ -186,6 +186,7 @@ export function Navigation() {
         className={`fixed top-0 left-0 right-0 z-50 nav-bg-match transition-all ${
           isScrolled ? 'border-b border-border shadow-[0_4px_24px_rgba(0,0,0,0.12)]' : ''
         }`}
+        style={{ top: 'var(--archive-bar-height, 0px)' }}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
