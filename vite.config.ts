@@ -42,12 +42,24 @@
     };
   }
 
-  /** "%BUILD_YEAR%" in the HTML becomes the year of the build, so every deploy stamps the current copyright year. */
-  function buildYear() {
+  /**
+   * Build-time tokens in the HTML:
+   *   %BUILD_YEAR% → the year of the build, so every deploy stamps the current copyright year;
+   *   %SITE_URL%   → the absolute site URL with the base (https://thenepaldiscourse.com/ or …/staging/),
+   *                  because link-preview images need absolute URLs.
+   */
+  function pageTokens() {
     const year = String(new Date().getFullYear());
+    let base = '/';
     return {
-      name: 'build-year',
-      transformIndexHtml: { order: 'pre' as const, handler: (html: string) => html.replaceAll('%BUILD_YEAR%', year) },
+      name: 'page-tokens',
+      configResolved(config: { base: string }) {
+        base = config.base;
+      },
+      transformIndexHtml: {
+        order: 'pre' as const,
+        handler: (html: string) => html.replaceAll('%BUILD_YEAR%', year).replaceAll('%SITE_URL%', `https://thenepaldiscourse.com${base}`),
+      },
     };
   }
 
@@ -68,7 +80,7 @@
   export default defineConfig({
     base: '/',
     appType: 'mpa',
-    plugins: [react(), buildYear(), spaFallback404(), noindexOffRoot(), devRoute2026()],
+    plugins: [react(), pageTokens(), spaFallback404(), noindexOffRoot(), devRoute2026()],
     resolve: {
       extensions: ['.js', '.jsx', '.ts', '.tsx', '.json'],
       alias: {
