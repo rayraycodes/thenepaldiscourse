@@ -122,7 +122,7 @@ def write_gallery_markup(items: list[str], count: int) -> None:
         f'data-more="Show all {count} photos" data-less="Show fewer photos">Show all {count} photos</button></div>',
         '<dialog class="lightbox" aria-label="Photo viewer">',
         f'<div class="lb-bar"><p class="lb-count" aria-hidden="true"></p><button type="button" class="lb-btn lb-close" aria-label="Close photo viewer">{icon("M6 6l12 12M18 6L6 18")}</button></div>',
-        '<figure class="lb-figure"><picture><source class="lb-avif" type="image/avif"><img class="lb-img" alt=""></picture><figcaption class="lb-caption"></figcaption></figure>',
+        '<div class="lb-figure"><picture><source class="lb-avif" type="image/avif"><img class="lb-img" alt=""></picture></div>',
         f'<button type="button" class="lb-btn lb-prev" aria-label="Previous photo">{icon("M15 5l-7 7 7 7")}</button>',
         f'<button type="button" class="lb-btn lb-next" aria-label="Next photo">{icon("M9 5l7 7-7 7")}</button>',
         '<p class="vh lb-live" aria-live="polite"></p>',

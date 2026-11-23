@@ -139,27 +139,24 @@ body{margin:0;background:#FFFFFF}
 @media (max-width:360px){.nav .pill{font-size:13px;padding:11px 12px !important}.nav-menu{grid-template-columns:1fr}}
 @media (max-width:480px){.nav-cta-more{display:none}}
 
-/* 2027 topics band: centred row on wide screens. On phones two rows roll in
-   opposite directions (pause button for WCAG 2.2.2; static list under reduced motion). */
+/* 2027 topics band: centred row on wide screens. On phones a single row rolls
+   past (pause button for WCAG 2.2.2; static list under reduced motion). */
 .topics-band{position:relative;padding:24px}
 .topics-track{max-width:1320px;margin:0 auto}
 .topics-list{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;justify-content:center;gap:8px 32px;font-size:clamp(20px,2.2vw,30px);font-weight:600}
 .topics-list .s{font-weight:400}
-.topics-dup,.topics-sep,.topics-track-2,.topics-pause{display:none}
-.topics-pause{position:absolute;right:10px;bottom:10px;width:44px;height:44px;border:1.5px solid var(--w);border-radius:50%;background:var(--m);color:var(--w);align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 0 6px var(--m)}
+.topics-dup,.topics-sep,.topics-pause{display:none}
+.topics-pause{position:absolute;right:10px;top:50%;margin-top:-22px;width:44px;height:44px;border:1.5px solid var(--w);border-radius:50%;background:var(--m);color:var(--w);align-items:center;justify-content:center;cursor:pointer;box-shadow:0 0 0 6px var(--m)}
 .topics-pause .ic-play{display:none}
 .topics-pause[aria-pressed="true"] .ic-pause{display:none}
 .topics-pause[aria-pressed="true"] .ic-play{display:block}
 .topics-pause:focus-visible{outline:3px solid #FFFFFF;outline-offset:3px;box-shadow:0 0 0 3px #881630}
 @keyframes topicsRoll{to{transform:translate3d(-50%,0,0)}}
-@keyframes topicsRollBack{from{transform:translate3d(-50%,0,0)}to{transform:translate3d(0,0,0)}}
 @media (max-width:640px) and (prefers-reduced-motion:no-preference){
-  .topics-band{padding:18px 0 20px;overflow:hidden}
+  .topics-band{padding:20px 0;overflow:hidden}
   .topics-track{display:flex;width:max-content;max-width:none;will-change:transform;animation:topicsRoll 18s linear infinite}
-  .topics-track-2{display:flex;margin-top:6px;animation-name:topicsRollBack;animation-duration:22s}
   .topics-band.is-paused .topics-track{animation-play-state:paused}
   .topics-list{flex-wrap:nowrap;justify-content:flex-start;gap:26px;padding-right:26px;font-size:26px;white-space:nowrap}
-  .topics-track-2 .topics-list{font-size:22px;opacity:.9}
   .topics-dup{display:flex}
   .topics-sep{display:list-item}
   .topics-pause{display:inline-flex}
@@ -217,15 +214,14 @@ html.lb-open{overflow:hidden}
 .lb-bar{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px 0 24px}
 .lb-count{margin:0;font-size:15px;font-weight:600;letter-spacing:.08em;font-variant-numeric:tabular-nums}
 .lb-figure{margin:0;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px 88px 24px}
-.lb-img{display:block;max-width:100%;max-height:calc(100vh - 170px);max-height:calc(100dvh - 170px);width:auto;height:auto;object-fit:contain;border-radius:6px;touch-action:pan-y}
-.lb-caption{margin:16px 0 0;max-width:70ch;text-align:center;font-size:15px;line-height:1.55}
+.lb-img{display:block;max-width:100%;max-height:calc(100vh - 100px);max-height:calc(100dvh - 100px);width:auto;height:auto;object-fit:contain;border-radius:6px;touch-action:pan-y}
 .lb-btn{flex:none;display:inline-flex;align-items:center;justify-content:center;width:48px;height:48px;padding:0;border:0;border-radius:50%;background:#FFFFFF;color:#881630;cursor:pointer}
 .lb-prev,.lb-next{position:absolute;top:50%;margin-top:-24px}
 .lb-prev{left:20px}.lb-next{right:20px}
 .lightbox .lb-btn:focus-visible{outline:3px solid #FFFFFF;outline-offset:3px;box-shadow:none}
 @media (max-width:640px){
   .lb-figure{padding:8px 12px 88px}
-  .lb-img{max-height:calc(100vh - 240px);max-height:calc(100dvh - 240px)}
+  .lb-img{max-height:calc(100vh - 160px);max-height:calc(100dvh - 160px)}
   .lb-prev,.lb-next{top:auto;bottom:20px;margin-top:0}
   .lb-prev{left:calc(50% - 64px)}.lb-next{right:calc(50% - 64px)}
 }

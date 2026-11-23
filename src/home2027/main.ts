@@ -99,7 +99,6 @@ function setUpGallery(): void {
   const links = [...grid.querySelectorAll<HTMLAnchorElement>('.gl-item')];
   const img = dialog.querySelector<HTMLImageElement>('.lb-img')!;
   const avif = dialog.querySelector<HTMLSourceElement>('.lb-avif')!;
-  const caption = dialog.querySelector<HTMLElement>('.lb-caption')!;
   const count = dialog.querySelector<HTMLElement>('.lb-count')!;
   const live = dialog.querySelector<HTMLElement>('.lb-live')!;
   const close = dialog.querySelector<HTMLButtonElement>('.lb-close')!;
@@ -114,7 +113,7 @@ function setUpGallery(): void {
     const alt = links[index].querySelector('img')?.alt ?? '';
     avif.srcset = largeUrl(index, '.avif');
     img.src = largeUrl(index);
-    caption.textContent = alt;
+    img.alt = alt;
     count.textContent = `${index + 1} / ${links.length}`;
     live.textContent = `Photo ${index + 1} of ${links.length}. ${alt}`;
   };
